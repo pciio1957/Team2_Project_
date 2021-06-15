@@ -12,7 +12,14 @@ public class LTS1Main {
 		String ser = indexSearch();
 		
 		if(ser.equals("1")) {
-			controller.storeList(new LTS1Model());
+			controller.storeList(1, new LTS1Model());
+		} else if (ser.equals("2")) {
+			;
+		} else if (ser.equals("3")) {
+			// 일부 검색으로 입력받아야 해서 새로운 메소드 생성 
+			controller.storeList(3, new LTS1Model());
+		} else if (ser.equals("4")) {
+			controller.storeList(4, new LTS1Model());
 		}
 		
 		/*

@@ -2,10 +2,10 @@ package JiEun;
 
 // Store 클래스 : 판매점을 정의한 클래스 
 public class LTS1Store {
-	private String storeName;  // 상호명
-	private String storeHp;    // 전화번호
-	private String storeAd;    // 소재지
-	private String storeTrade; // 취급복권
+	public String storeName;  // 상호명
+	public String storeHp;    // 전화번호
+	public String storeAd;    // 소재지
+	public String storeTrade; // 취급복권
 	
 	public LTS1Store() {
 		super();
