@@ -1,4 +1,4 @@
-package 프로젝트소스_공유용.구매기능;
+package 프로젝트소스_공유용.성근_구매기능;
 
 // 화면에 넘겨 줄 임시 모델 객체
 public class Model {

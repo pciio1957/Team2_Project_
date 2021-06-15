@@ -1,4 +1,4 @@
-package 프로젝트소스_공유용.구매기능;
+package 프로젝트소스_공유용.성근_구매기능;
 
 import java.util.ArrayList;
 import java.util.List;
