@@ -15,9 +15,11 @@ public class lotto1_test2 {
 		int gen_count = 0; // 선택할 복권 번호를 카운팅
 		int ok_generation; // 카운팅 완료
 		
+		System.out.println("# LOTTO 6/45 : 복권 구매 # \n");
+		
 		while(gen_count < 6) {
 			ok_generation = 1;
-			System.out.printf("[%d] [1-45] 복권 번호 선택 : ", gen_count+1);
+			System.out.printf("[%d] [1-45] 번호 선택 : ", gen_count+1);
 			tmp = scan.nextInt();
 			
 			for(i=0; i<6; i++) {
@@ -34,6 +36,8 @@ public class lotto1_test2 {
 				System.out.println("중복된 번호입니다. 다시 입력해주세요.");
 		}
 		
+		System.out.println("\n# LOTTO 6/45 : 번호 확인 #\n");
+		
 		System.out.print("선택한 복권 번호는 [");
 		for(i=0; i<6; i++) {
 			System.out.print(myLotto[i] + " ");
@@ -45,12 +49,14 @@ public class lotto1_test2 {
 			lotto[i] = (int)(Math.random()*45 + 1);
 		}
 		
-		System.out.print("이번주 행운의 번호는 [");
+		System.out.println("\n# LOTTO 6/45 : 당첨 결과 #\n");
+		
+		System.out.print("제 n 회 LOTTO 6/45 당첨 번호 : [");
 		
 		for(i=0; i<6; i++) {
 			System.out.print(lotto[i] + " ");
 		}
-		System.out.printf("] + 보너스 번호 [ %d ] 입니다.\n", lotto[6]);
+		System.out.printf("] + 보너스 번호 [ %d ] \n", lotto[6]);
 		
 		cnt = 0;
 		for(i=0; i<6; i++) {
@@ -62,21 +68,23 @@ public class lotto1_test2 {
 			}
 		}
 		
-		System.out.printf("당첨 번호 갯수 : %d\n", cnt);
+		System.out.printf("* 당첨 번호 갯수 : %d\n", cnt);
 		if(cnt>0) {
-			System.out.print("당첨 번호는 ");
+			System.out.print("* 당첨 번호 : ");
 			for(i=0; i<cnt; i++) {
 				System.out.print(result[i] + " ");
 			}
-			System.out.println("입니다.");
 		}
 		
+		System.out.println("\n");
+		
 		if(cnt == 6)
-			if(result[cnt] == lotto[5]) System.out.printf("이번 주 로또 추첨 결과 : 1등입니다! \n");
-			else System.out.printf("이번 주 로또 추첨 결과 : 2등 \n");
-		else if(cnt==5) System.out.printf("이번 주 로또 추첨 결과 : 3등 \n");
-		else if(cnt==4) System.out.printf("이번 주 로또 추첨 결과 : 4등 \n");
-		else if(cnt==3) System.out.printf("이번 주 로또 추첨 결과 : 5등 \n");
-		else System.out.printf("이번 주 로또 추첨 결과 : 꽝 \n");
+			if(result[cnt] == lotto[5]) System.out.print("제 n 회 LOTTO 6/45 복권 추첨 결과 : 1등입니다! \n");
+			else System.out.print("제 n 회 LOTTO 6/45 복권 추첨 결과 : 2등 \n");
+		else if(cnt==5) System.out.print("제 n 회 LOTTO 6/45 복권 추첨 결과 : 3등 \n");
+		else if(cnt==4) System.out.print("제 n 회 LOTTO 6/45 복권 추첨 결과 : 4등 \n");
+		else if(cnt==3) System.out.print("제 n 회 LOTTO 6/45 복권 추첨 결과 : 5등 \n");
+		else
+			System.out.print("\n제 n 회 LOTTO 6/45 복권 추첨 결과 : X \n");
 	}
 }

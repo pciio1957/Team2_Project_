@@ -11,7 +11,7 @@ public class LT1Controller {
 		System.out.println("===============================================\n");
 		System.out.println("# Controller에서 받은 복권 입력 데이터 #\n");
 //		Main에서 입력받은 정보를 Controller로 불러온다.
-		System.out.println("선택한 복권 (보너스 포함) 번호 : " + lt.getMyLotto());
+		System.out.println("선택한 복권 (보너스 포함) 객체 : " + lt.getMyLotto());
 		
 		/*
 		  Controller => Service => Dao (DB 처리)

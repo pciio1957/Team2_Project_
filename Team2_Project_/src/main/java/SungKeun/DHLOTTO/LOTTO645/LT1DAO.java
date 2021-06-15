@@ -15,7 +15,7 @@ public class LT1DAO {
 	public ArrayList<LT1DTO> LT1List(LT1DTO lto){
 		ArrayList<LT1DTO> lt1list  = new ArrayList<LT1DTO>();
 		
-		lt1list.add(new LT1DTO(lto.getMyLotto(), lto.getLotto(), lto.getResult()));
+		lt1list.add(new LT1DTO(lto.getMyLotto(), lto.getResult()));
 		
 	    // 전체 복권 입력 데이터를 확인하기 위한 메소드
 		System.out.println("===============================================\n");
@@ -27,7 +27,7 @@ public class LT1DAO {
 //		lt1list.add(new LT1DTO(1,3,4,5,6,7,4));
 //		lt1list.add(new LT1DTO(3, 5));
 //		lt1list.add(new LT1DTO(6, 6));
-//		System.out.println("===============================================\n");
+		System.out.println("===============================================\n");
 		for(LT1DTO lto1:lt1list) {
 			System.out.print("선택한 복권 번호 (보너스 포함) : " + lto1.getMyLotto() + "\n");
 			System.out.print("생성된 당첨 복권 번호 : " + lto1.getResult() + "\n");

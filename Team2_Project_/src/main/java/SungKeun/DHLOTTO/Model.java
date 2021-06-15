@@ -4,7 +4,7 @@ package SungKeun.DHLOTTO;
 public class Model {
 	   public void addAttribute(String key, Object ob) {
 	      System.out.println("# 모델 데이터 처리 (화면에 전달할 데이터) #");
-	      System.out.println("key: " + key);
-	      System.out.println("객체: " + ob);
+	      System.out.println("key : " + key);
+	      System.out.println("객체 : " + ob);
 	   }
 	}
