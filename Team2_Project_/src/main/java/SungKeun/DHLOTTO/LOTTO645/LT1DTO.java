@@ -15,6 +15,13 @@ public class LT1DTO {
 		this.myLotto = myLotto;
 		this.result = result;
 	}
+	
+	public void showInfo(int[] arr) {
+		for(int i = 0; i<arr.length; i++) {
+			System.out.println(arr[i]);
+		}
+		System.out.println();
+	}
 
 	public int[] getMyLotto() {
 		return myLotto;

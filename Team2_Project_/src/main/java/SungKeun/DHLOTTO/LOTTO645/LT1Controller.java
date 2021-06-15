@@ -13,10 +13,6 @@ public class LT1Controller {
 //		Main에서 입력받은 정보를 Controller로 불러온다.
 		System.out.println("선택한 복권 (보너스 포함) 객체 : " + lt.getMyLotto());
 		
-		/*
-		  Controller => Service => Dao (DB 처리)
- 					<=		  <=
-		 */
 		
 		// view단에 넘겨 줄 데이터 key, object
 		d.addAttribute("lt1list", service.LT1List(lt));
