@@ -19,11 +19,11 @@ public class LT1DAO {
 		
 	    // 전체 회원을 확인하기 위한 메소드
 		System.out.println("===============================================\n");
-		System.out.println("# DB 서버에 넘겨 줄 회원 정보 데이터 #\n");
+		System.out.println("# DB 서버에 넘겨 줄 복권 입력 데이터 #\n");
 		System.out.println("선택 조 : " + lto.getLtType());
 		System.out.println("복권 번호 (6자리) : " + lto.getLtNum() + "\n");
 		System.out.println("===============================================\n");
-		System.out.println("# DB 서버에서 온 회원 정보 데이터 리스트 #\n");
+		System.out.println("# DB 서버에서 온 복권 입력 데이터 리스트 #\n");
 		lt1list.add(new LT1DTO(1, 4)); // (선택 조, 복권 번호 6자리 {배열로 선언 예정})
 		lt1list.add(new LT1DTO(3, 5));
 		lt1list.add(new LT1DTO(6, 6));
