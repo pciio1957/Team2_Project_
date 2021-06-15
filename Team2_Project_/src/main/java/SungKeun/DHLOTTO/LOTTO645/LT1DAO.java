@@ -1,4 +1,4 @@
-package SungKeun.DHLOTTO.LOTTO720;
+package SungKeun.DHLOTTO.LOTTO645;
 
 import java.util.ArrayList;
 
@@ -15,22 +15,22 @@ public class LT1DAO {
 	public ArrayList<LT1DTO> LT1List(LT1DTO lto){
 		ArrayList<LT1DTO> lt1list  = new ArrayList<LT1DTO>();
 		
-		lt1list.add(new LT1DTO(lto.getLtType(), lto.getLtNum()));
+		lt1list.add(new LT1DTO(lto.getMyLotto(), lto.getLotto(), lto.getResult()));
 		
-	    // 전체 회원을 확인하기 위한 메소드
+	    // 전체 복권 입력 데이터를 확인하기 위한 메소드
 		System.out.println("===============================================\n");
 		System.out.println("# DB 서버에 넘겨 줄 복권 입력 데이터 #\n");
-		System.out.println("선택 조 : " + lto.getLtType());
-		System.out.println("복권 번호 (6자리) : " + lto.getLtNum() + "\n");
+		System.out.println("선택한 복권 번호 (보너스 포함) : " + lto.getMyLotto());
+		System.out.println("생성된 당첨 복권 번호 : " + lto.getResult() + "\n");
 		System.out.println("===============================================\n");
 		System.out.println("# DB 서버에서 온 복권 입력 데이터 리스트 #\n");
-		lt1list.add(new LT1DTO(1, 4)); // (선택 조, 복권 번호 6자리 {배열로 선언 예정})
-		lt1list.add(new LT1DTO(3, 5));
-		lt1list.add(new LT1DTO(6, 6));
+//		lt1list.add(new LT1DTO(1,3,4,5,6,7,4));
+//		lt1list.add(new LT1DTO(3, 5));
+//		lt1list.add(new LT1DTO(6, 6));
 //		System.out.println("===============================================\n");
 		for(LT1DTO lto1:lt1list) {
-			System.out.print("선택 조 : " + lto1.getLtType() + "\n");
-			System.out.print("복권 번호 (6자리) : " + lto1.getLtNum() + "\n");
+			System.out.print("선택한 복권 번호 (보너스 포함) : " + lto1.getMyLotto() + "\n");
+			System.out.print("생성된 당첨 복권 번호 : " + lto1.getResult() + "\n");
 		}
 
 		return lt1list;
