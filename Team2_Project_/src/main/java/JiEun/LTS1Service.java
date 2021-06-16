@@ -25,7 +25,7 @@ public class LTS1Service {
 		return "조회완료";
 	}
 	
-	// 2) 지역선택 - 화면단(콤보상자)
+	// 2) 지역선택 - 화면단(콤보상자) 연결해야함
 	public String areaSerch() {
 		System.out.println(" [Service] 판매점리스트 지역검색 ");
 		storeList = dao.storeList();
@@ -33,7 +33,7 @@ public class LTS1Service {
 		return "검색완료";
 	}
 	
-	// 3) 단어검색
+	// 3) 단어검색 - 구현완료..?
 	public String wordSerch(String part) {
 		System.out.println(" [Service] 판매점리스트 단어검색 ");
 		int num = 1; // 리스트 순서번호
@@ -52,7 +52,7 @@ public class LTS1Service {
 		return "검색완료";
 	}
 	
-	// 4) 행정구역선택 - 화면단(버튼)
+	// 4) 행정구역선택 - 화면단(버튼) 연결해야함
 	public String sectionSerch() {
 		System.out.println(" [Service] 판매점리스트 행정구역검색 ");
 		storeList = dao.storeList();

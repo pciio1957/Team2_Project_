@@ -17,6 +17,7 @@ public class LTS1DAO {
 	
 	public ArrayList<LTS1Store> storeList() {
 		System.out.println(" [DAO] 판매점 조회 ");
+		System.out.println();
 		return storeList;
 	}
 	

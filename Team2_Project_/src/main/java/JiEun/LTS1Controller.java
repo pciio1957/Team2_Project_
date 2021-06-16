@@ -9,7 +9,7 @@ public class LTS1Controller {
 	}
 	
 	public void wordSerch(String part, LTS1Model m) {
-		System.out.println(" [Controller] 판매점리스트 조회 ");
+		System.out.println(" [Controller] 판매점리스트 단어검색 ");
 		m.addAttribute("판매점리스트 단어검색", service.wordSerch(part));
 	}
 }

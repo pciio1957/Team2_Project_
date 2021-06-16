@@ -3,7 +3,7 @@ package JiEun;
 // Store 클래스 : 판매점을 정의한 클래스 
 public class LTS1Store {
 	public String storeName;  // 상호명
-	public String storeAd;    // 소재지
+	public String storeAd;    // 소재지(주소)
 	public String storeHp;    // 전화번호
 	public String storeTicket; // 취급복권
 	

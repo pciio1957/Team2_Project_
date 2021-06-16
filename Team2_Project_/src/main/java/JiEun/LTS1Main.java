@@ -27,7 +27,8 @@ public class LTS1Main {
 			} else if (ser.equals("4")) {
 				controller.storeList(new LTS1Model());
 			} else if (ser.equals("5")) {
-				System.out.println("종료됩니다 .......");
+				System.out.println("종료를 선택하셨습니다");
+				System.out.println("종료됩니다 .......   ");
 				break;
 			}
 		}
