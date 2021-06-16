@@ -1,8 +1,10 @@
-package 프로젝트소스_공유용.성근_구매기능;
+package 프로젝트소스_공유용.성근_구매기능.상품구매;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import 프로젝트소스_공유용.성근_구매기능.Model;
 
 
 public class BuyMain {

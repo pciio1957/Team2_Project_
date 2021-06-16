@@ -1,21 +1,20 @@
-package 프로젝트소스_공유용.성근_구매기능;
+package 프로젝트소스_공유용.성근_구매기능.상품구매;
 
-// 장바구니 정보 입력을 위한 DTO 클래스
+// 장바구니 담기 이후 상품 구매 입력을 위한 DTO 클래스
 
-public class CartDTO {
+public class BuyDTO {
 	private String Prodkey; // 주문 번호
 	private String prodName; // 상품명
 	private int price; // 가격
 	private int cnt; // 수량
 	private int tot1 = price*cnt; // 가격*수량 (배송비 제외 총 가격)
 	private int delivery = 2500; // 배송비 (50000원 이상 주문시 무료)
-	private int tot2 = price*cnt + delivery; // (배송비 포함 총 가격)
-
-	public CartDTO() {
+	private int tot2 = (price*cnt) + 2500; // (배송비 포함 총 가격)
+	public BuyDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CartDTO(String prodkey, String prodName, int price, int cnt, int tot1, int delivery, int tot2) {
+	public BuyDTO(String prodkey, String prodName, int price, int cnt, int tot1, int delivery, int tot2) {
 		super();
 		Prodkey = prodkey;
 		this.prodName = prodName;

@@ -1,4 +1,6 @@
-package 프로젝트소스_공유용.성근_구매기능;
+package 프로젝트소스_공유용.성근_구매기능.상품구매;
+
+import 프로젝트소스_공유용.성근_구매기능.Model;
 
 public class BuyController {
 	
