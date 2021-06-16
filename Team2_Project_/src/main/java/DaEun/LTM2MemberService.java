@@ -1,6 +1,7 @@
 package DaEun;
-// 일단 휴대폰 인증 시스템을 못 만들어서 '만약 휴대폰 인증이 된다'는
+// 일단 휴대폰 인증 시스템을 만들지 못해
 // 가정하에 만든 6자리 숫자 만들어지는 것
+// 이 부분 ppt - 자바 코드 구현 다음 페이지에 질문 란으로 생성하였음
 import java.util.concurrent.ThreadLocalRandom;
 
 public class LTM2MemberService {
