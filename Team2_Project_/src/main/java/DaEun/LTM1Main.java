@@ -3,7 +3,8 @@ package DaEun;
 import java.util.Scanner;
 
 public class LTM1Main {
-
+// 회원가입 시 휴대폰 인증을 대체하여 LTM2Service에 있는 6자리 인증 코드를
+	// 사용하고 싶음
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
@@ -35,9 +36,9 @@ public class LTM1Main {
 				System.out.print("비밀번호: ");
 				passwd2=sc.next();
 				if(id1.equals(id2)&&passwd1.equals(passwd2)) {
-					System.out.println("로그인성공!");
+					System.out.println("# 로그인성공! #");
 				}else {
-					System.out.println("다시입력해주세요.");
+					System.out.println("# 다시입력해주세요. #");
 				}
 			}else if(num==2) {
 				System.out.print("아이디: ");
