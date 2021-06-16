@@ -9,6 +9,11 @@ public class LTM1Member {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public LTM1Member(String id, String pass) {
+		super();
+		this.id = id;
+		this.pass = pass;
+	}
 	public String getId() {
 		return id;
 	}
