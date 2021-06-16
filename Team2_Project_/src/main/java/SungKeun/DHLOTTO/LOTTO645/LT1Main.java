@@ -53,7 +53,7 @@ public class LT1Main {
 		System.out.println("상품명 : LOTTO 6/45 \n");
 		int price = 1000;
 		System.out.print("예치금 : 1000원" + "\n");
-		System.out.print("수량 : " + "\n");
+		System.out.print("수량 : ");
 		int ltcnt1 = sc.nextInt();
 		int tot1 = price*ltcnt1;
 		System.out.println("상품 총 가격 : " + tot1 + "원" + "\n");
