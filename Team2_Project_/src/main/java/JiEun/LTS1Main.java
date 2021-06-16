@@ -7,20 +7,34 @@ public class LTS1Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		System.out.println("# 판매점 #");
-		String ser = indexSearch();
 		
-		if(ser.equals("1")) {
-			controller.storeList(1, new LTS1Model());
-		} else if (ser.equals("2")) {
-			;
-		} else if (ser.equals("3")) {
-			// 일부 검색으로 입력받아야 해서 새로운 메소드 생성 
-			controller.storeList(3, new LTS1Model());
-		} else if (ser.equals("4")) {
-			controller.storeList(4, new LTS1Model());
+		
+		while(true) {
+			System.out.println("# 판매점 #");
+			String ser = indexSearch(); // 검색방법 입력받기
+			
+			if(ser.equals("1")) {
+				controller.storeList(new LTS1Model());
+			} else if (ser.equals("2")) {
+				;
+			} else if (ser.equals("3")) {
+				
+				// 일부 검색으로 입력받아야 해서 새로운 메소드 생성 
+				String part = inputStr(" 검색할 상호명이나 지역 입력 : ");
+				System.out.println();
+				controller.wordSerch(part, new LTS1Model());
+
+			} else if (ser.equals("4")) {
+				controller.storeList(new LTS1Model());
+			} else if (ser.equals("5")) {
+				System.out.println("종료됩니다 .......");
+				break;
+			}
 		}
+
+		
+
+		
 		
 		/*
 		
@@ -47,24 +61,19 @@ public class LTS1Main {
 		
 		
 		
-		*/
-		
-		
-
-		
-		
-		
+		*/	
 	}
 	
 	// 검색방법 선택
 	public static String indexSearch() {
 		System.out.println("# 검색방법을 선택하세요 (숫자로만 입력가능합니다) #");
-		System.out.println(" [1] 전체조회 [2] 지역선택 [3] 단어검색 [4] 행정구역선택");
+		System.out.println(" [1] 전체조회 [2] 지역선택 [3] 단어검색 [4] 행정구역선택 [5] 종료");
 		String inString = inputStr(" 입력 : ");
-		System.out.println(" 선택 : " + inString);
+		System.out.println();
 		return inString;
 	}
 	
+	// 문자입력받기
 	public static String inputStr(String msg) {
 		Scanner sc = new Scanner(System.in);
 		System.out.print(msg);

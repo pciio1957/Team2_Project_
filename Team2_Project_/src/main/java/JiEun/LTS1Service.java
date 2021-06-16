@@ -10,7 +10,7 @@ public class LTS1Service {
 	
 	
 	// 1) 전체 조회 - storeList 불러오기 
-	public String storeList(int inIdx) {
+	public String storeList() {
 		System.out.println(" [Service] 전체 판매점리스트 조회 ");
 		storeList = dao.storeList();
 		int num = 1;
@@ -34,20 +34,21 @@ public class LTS1Service {
 	}
 	
 	// 3) 단어검색
-	public String wordSerch() {
+	public String wordSerch(String part) {
 		System.out.println(" [Service] 판매점리스트 단어검색 ");
+		int num = 1; // 리스트 순서번호
+		
+		// 판매점목록 받아오기
 		storeList = dao.storeList();
 		
+		System.out.println("\n# 검색리스트 #");
 		for(LTS1Store s:storeList) {
-			//String strName = s.getStoreName();
-			//String strAd = s.getStoreAd();
-			
-			// 해당 상호명이나 소재지에 검색하려는 값이 있는지 확인
-			if(s.storeName.contains("")) {
-				
-			}
-		}
-		
+			// 사용자가 입력한 단어가 상호명이나 소재지에 포함되어있으면 정보출력
+			if(s.storeName.contains(part) || s.storeAd.contains(part)) {
+				s.showInfo(num);
+				num++;
+			} 
+		}	
 		return "검색완료";
 	}
 	

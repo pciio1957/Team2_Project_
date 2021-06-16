@@ -7,7 +7,7 @@ public class LTS1DAO {
 
 	public LTS1DAO() {
 		super();
-		storeList.add(new LTS1Store());
+		//storeList.add(new LTS1Store());
 		storeList.add(new LTS1Store("강남상회", "서울 강남구 봉은사로 179 H타워 지층 1호 CU 편의점","02-3448-3500", "로또6/45"));
 		storeList.add(new LTS1Store("로또복권방", "서울 강남구 강남대로122길 50 상명빌딩 103호", "02-3444-7240", "로또6/45"));
 		storeList.add(new LTS1Store("프로토 포이점", "서울 강남구 논현로 36 태양빌딩103호", "02-578-9377	", "로또6/45"));
@@ -19,4 +19,5 @@ public class LTS1DAO {
 		System.out.println(" [DAO] 판매점 조회 ");
 		return storeList;
 	}
+	
 }
