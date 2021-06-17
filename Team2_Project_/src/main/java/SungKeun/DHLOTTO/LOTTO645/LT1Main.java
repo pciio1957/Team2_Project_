@@ -58,6 +58,8 @@ public class LT1Main {
 		System.out.print("예치금 : 1000원" + "\n");
 		System.out.print("수량 : ");
 		int ltcnt1 = sc.nextInt();
+		System.out.println("구매 수량 : " + ltcnt1 + " 매");
+		
 		int tot1 = price*ltcnt1;
 		System.out.println("상품 총 가격 : " + tot1 + "원" + "\n");
 		
