@@ -1,5 +1,8 @@
 package SungKeun.DHLOTTO.LOTTO645;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 import SungKeun.DHLOTTO.Model;
@@ -60,6 +63,13 @@ public class LT1Main {
 		
 		System.out.println("\n# LOTTO 6/45 구매가 완료되었습니다. #\n");
 		
+		System.out.println("# LOTTO 6/45 구매 영수증 #\n");
+		
+		DateFormat dateFormat = new SimpleDateFormat("YYYY / MM / dd | hh : mm : ss");
+		Calendar cal = Calendar.getInstance();
+		System.out.println("발 행 일 : " + dateFormat.format(cal.getTime()) + "\n");
+		System.out.println("선택한 복권 번호 : [" + myLotto[i] + "]\n");
+		System.out.println("금액 : " + tot1);
 		System.out.println("===============================================\n");
 		
 		// 당첨번호 생성
