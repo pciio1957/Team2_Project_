@@ -41,7 +41,7 @@ public class LTS1Service {
 		// 판매점목록 받아오기
 		storeList = dao.storeList();
 		
-
+		
 		System.out.println("\n# 검색리스트 #");
 		for(LTS1Store s:storeList) {
 			// 사용자가 입력한 단어가 상호명이나 소재지에 포함되어있으면 정보출력
