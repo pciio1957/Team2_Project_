@@ -85,9 +85,6 @@ public class LT1Main {
 		}
 		
 		System.out.println("# LOTTO 6/45 : 당첨 결과 #\n");
-		
-		
-		
 		System.out.print("선택한 복권 번호 : [");
 		for(i=0; i<6; i++) {
 			System.out.print(myLotto[i] + " ");
@@ -110,7 +107,6 @@ public class LT1Main {
 				} 
 			}
 		}
-		
 		System.out.printf("* 당첨 번호 갯수 : %d\n", cnt);
 		if(cnt>0) {
 			System.out.print("* 당첨 번호 : ");
@@ -132,8 +128,7 @@ public class LT1Main {
 			System.out.println("\n### LOTTO 6/45 당첨 조건 ###\n");
 			System.out.println("* 선택 번호, 당첨 번호 * \n 1) 3개 일치 시, 5등! \n 2) 4개 일치 시, 4등! \n 3) 5개 일치 시, 3등! \n 4) 6개 일치 시, 2등! \n 5) 6개 & 보너스 번호 일치 시, 1등!");
 		
-		// Scanner이나 직접 입력 처리
-		// 입력 값으로 처리된 객체 생성
+
 		LT1DTO lto1 = new LT1DTO(myLotto, result);
 		// Controller만 호출.
 		LT1Controller lt1ctrl = new LT1Controller();

@@ -9,8 +9,10 @@ public class LT2Service {
 		System.out.println("===============================================\n");
 		System.out.println("# Service #\n");
 //		DAO로 데이터를 넘기기 위한 확인 과정
-		System.out.println("LT2DAO에 전송 할 복권 입력 데이터 1 (선택한 창문 번호) : " + lto2.getMyLotto() + "\n");
-		System.out.println("LT2DAO에서 받을 복권 입력 데이터 크기 : " + lt2dao.LT2List(lto2).size() + "\n");
+		System.out.println("LT2DAO에 전송 할 복권 입력 데이터 1 (선택한 창문 번호) : "
+				+ lto2.getMyLotto() + "\n");
+		System.out.println("LT2DAO에서 받을 복권 입력 데이터 크기 : "
+				+ lt2dao.LT2List(lto2).size() + "\n");
 		return lt2dao.LT2List(lto2);
 
 	}

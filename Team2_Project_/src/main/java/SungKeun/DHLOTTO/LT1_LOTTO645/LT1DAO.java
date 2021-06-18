@@ -34,10 +34,10 @@ public class LT1DAO {
 			System.out.println("생성 된 당첨 번호 데이터 : " + ltto1.getResult() + "\n");
 			
 			// 객체 내용보기
-		System.out.println("########### 입력 된 복권 번호 ###########\n");
-			lto1.showInfo(lto1.getMyLotto());
-			System.out.println("########### 생성 된 당첨 번호 ###########\n");
-			lto1.showInfo(lto1.getResult());
+//			System.out.println("########### 입력 된 복권 번호 ###########\n");
+//			lto1.showInfo(lto1.getMyLotto());
+//			System.out.println("########### 생성 된 당첨 번호 ###########\n");
+//			lto1.showInfo(lto1.getResult());
 			
 			System.out.println("########### 입력 된 복권 번호 ###########\n");
 			for(int i = 0; i<numArr1.length; i++) {
