@@ -17,7 +17,7 @@ public class LT1Controller {
 		// view단에 넘겨 줄 데이터 key, object
 		d.addAttribute("lt1list", lt1service.LT1List(lt1));
 		// 화면단에 대한 호출
-		return "복권입력_정보.jsp";
+		return "LOTTO645_복권_입력_정보.jsp";
 //		return "경로/@@@.jsp";
 	}
 }
