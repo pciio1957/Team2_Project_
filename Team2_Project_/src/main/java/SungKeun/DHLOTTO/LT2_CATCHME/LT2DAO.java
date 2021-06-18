@@ -1,6 +1,6 @@
-package SungKeun.DHLOTTO.POWERBALL;
+package SungKeun.DHLOTTO.LT2_CATCHME;
 
-public class LT2Service {
+public class LT2DAO {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

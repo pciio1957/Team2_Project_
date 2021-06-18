@@ -1,4 +1,4 @@
-package SungKeun.DHLOTTO.LOTTO645.test;
+package SungKeun.DHLOTTO.LT1_LOTTO645.test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
