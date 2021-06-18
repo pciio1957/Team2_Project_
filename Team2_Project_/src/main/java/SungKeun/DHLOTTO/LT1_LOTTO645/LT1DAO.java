@@ -12,32 +12,32 @@ public class LT1DAO {
  */
 	
 	// 입력값에 의해서 처리한 ArrayList리턴해준다.
-	public ArrayList<LT1DTO> LT1List(LT1DTO lto){
+	public ArrayList<LT1DTO> LT1List(LT1DTO lto1){
 		
 		ArrayList<LT1DTO> lt1list  = new ArrayList<LT1DTO>();
-		lt1list.add(new LT1DTO(lto.getMyLotto(), lto.getResult()));
+		lt1list.add(new LT1DTO(lto1.getMyLotto(), lto1.getResult()));
 		
 	    // 전체 복권 입력 데이터를 확인하기 위한 메소드
 		System.out.println("===============================================\n");
 		System.out.println("# DB 서버에 넘겨 줄 복권 입력 데이터 #\n");
-		System.out.println("선택한 복권 번호 (객체) : " + lto.getMyLotto());
-		System.out.println("생성된 당첨 번호 (객체) : " + lto.getResult() + "\n");
+		System.out.println("선택한 복권 번호 (객체) : " + lto1.getMyLotto());
+		System.out.println("생성된 당첨 번호 (객체) : " + lto1.getResult() + "\n");
 		System.out.println("===============================================\n");
 		System.out.println("# DB 서버에서 온 복권 입력 데이터 리스트 #\n");
 //		lt1list.add(new LT1DTO());
 		System.out.println("===============================================\n");
-		for(LT1DTO lto1:lt1list) {
-			int[] numArr1 = lto1.getMyLotto();
-			int[] numArr2 = lto1.getResult();
+		for(LT1DTO ltto1:lt1list) {
+			int[] numArr1 = ltto1.getMyLotto();
+			int[] numArr2 = ltto1.getResult();
 			
-			System.out.println("입력 된 복권 번호 데이터 : " + lto1.getMyLotto() + "\n");
-			System.out.println("생성 된 당첨 번호 데이터 : " + lto1.getResult() + "\n");
+			System.out.println("입력 된 복권 번호 데이터 : " + ltto1.getMyLotto() + "\n");
+			System.out.println("생성 된 당첨 번호 데이터 : " + ltto1.getResult() + "\n");
 			
 			// 객체 내용보기
-//			System.out.println("########### 입력 된 복권 번호 ###########\n");
-//			lto1.showInfo(lto.getMyLotto());
-//			System.out.println("########### 생성 된 당첨 번호 ###########\n");
-//			lto1.showInfo(lto.getResult());
+		System.out.println("########### 입력 된 복권 번호 ###########\n");
+			lto1.showInfo(lto1.getMyLotto());
+			System.out.println("########### 생성 된 당첨 번호 ###########\n");
+			lto1.showInfo(lto1.getResult());
 			
 			System.out.println("########### 입력 된 복권 번호 ###########\n");
 			for(int i = 0; i<numArr1.length; i++) {
