@@ -1,5 +1,8 @@
 package SungKeun.DHLOTTO.LOTTO645;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 import SungKeun.DHLOTTO.Model;
@@ -53,13 +56,27 @@ public class LT1Main {
 		System.out.println("상품명 : LOTTO 6/45 \n");
 		int price = 1000;
 		System.out.print("예치금 : 1000원" + "\n");
-		System.out.print("수량 : " + "\n");
+		System.out.print("수량 : ");
 		int ltcnt1 = sc.nextInt();
+		System.out.println("구매 수량 : " + ltcnt1 + " 매");
+		
 		int tot1 = price*ltcnt1;
 		System.out.println("상품 총 가격 : " + tot1 + "원" + "\n");
 		
 		System.out.println("\n# LOTTO 6/45 구매가 완료되었습니다. #\n");
 		
+		System.out.println("[ 제 n 회 LOTTO 6/45 구매 영수증 ]\n");
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Calendar cal = Calendar.getInstance();
+		System.out.println("발 행 일 : " + dateFormat.format(cal.getTime()) + "\n");
+		for(i=0; i<6; i++) {
+			System.out.print("[" + myLotto[i] + "]");
+		}
+		System.out.println("\n");
+		System.out.println("수량 : " + ltcnt1 + "매");
+		System.out.println("* 과몰입 방지를 위해 복권 구매는 1일 최대 5매까지 구매 가능합니다.\n");
+		System.out.println("금액 : " + tot1 + "원\n");
 		System.out.println("===============================================\n");
 		
 		// 당첨번호 생성
