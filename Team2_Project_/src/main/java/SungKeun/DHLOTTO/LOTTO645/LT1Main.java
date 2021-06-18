@@ -17,7 +17,7 @@ public class LT1Main {
 		int result[] = new int[6]; // 추첨 복권 번호 (선택 복권 번호와 일치 여부 확인)
 		int cnt, i, j, tmp; // cnt : 선택한 복권 번호와 당첨 복권 번호의 일치하는 갯수
 		int gen_count = 0; // 선택할 복권 번호를 카운팅
-		int ok_generation; // 카운팅 완료!
+		int ok_generation; // 카운팅 완료
 		
 		Scanner sc = new Scanner(System.in);
 		
