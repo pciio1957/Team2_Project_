@@ -3,7 +3,7 @@ package DaEun.LTM;
 public class LTM1Dto {
 	private String id;
 	private String pass;
-	private String brith;
+	private String birth;
 	private String tel;
 	private String email;
 	private String loc;
@@ -20,10 +20,10 @@ public class LTM1Dto {
 		this.pass = pass;
 	}
 	public String getBrith() {
-		return brith;
+		return birth;
 	}
-	public void setBrith(String brith) {
-		this.brith = brith;
+	public void setBrith(String birth) {
+		this.birth = birth;
 	}
 	public String getTel() {
 		return tel;
@@ -47,7 +47,7 @@ public class LTM1Dto {
 	public String toString() {
 		// TODO Auto-generated method stub
 		String str = String.format("아이디:%s \n비밀번호:%s \n생일:%s \n번호:%s \n이메일:%s \n주소:%s \n",
-							id, pass, brith, tel, email, loc);
+							id, pass, birth, tel, email, loc);
 		return super.toString();
 	}
 	
