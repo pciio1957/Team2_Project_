@@ -9,7 +9,7 @@ public class LTM1Service {
 	LTM1Controller ltc = new LTM1Controller();
 
 	public void insert() throws AuthenException{
-			
+			// 여기에 인증번호 생성한 거 입력하게 넣어서 출력 함 하면 되럭 같은데...
 			String pw2 = null;
 			boolean id = true;
 			boolean pw = true;
@@ -26,7 +26,7 @@ public class LTM1Service {
 
 				LTM1Dto dto = new LTM1Dto();
 
-				LTM1Controller ne; // 이거 왜 이러지.. 안되서 하단에 이상함
+				LTM1Controller ne = new LTM1Controller();// 이거 왜 이러지.. 안되서 하단에 이상함
 				do{
 
 					try{
@@ -43,6 +43,8 @@ public class LTM1Service {
 					}
 
 				} while(id);
+				
+				
 				do{
 
 					try{

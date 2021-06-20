@@ -10,23 +10,16 @@ public class LTM1Main {
 		LTM1Service ob = new LTM1Service();
 
 		int ch;
-
 		while (true) {
 
 			do {
-
-				System.out.print("1.입력  2.수정  3.탈퇴  4.회원전체출력  5.아이디검색  6.종료");
-
+				System.out.print("1.입력  2.회원정보수정  3.탈퇴  4.회원전체출력  5.종료");
 				System.out.print("\n-------------------------------------\n▶");
-
 				ch = sc.nextInt();
-
 			} while (ch < 1 || ch > 6);
 
 			System.out.println();
-
 			switch (ch) {
-
 			case 1:
 
 				ob.insert();
@@ -34,7 +27,7 @@ public class LTM1Main {
 				System.out.println();
 				break;
 
-			case 2:
+		/*	case 2:
 
 				ob.update();
 
@@ -53,16 +46,10 @@ public class LTM1Main {
 				ob.selectAll();
 
 				System.out.println();
-				break;
+				break; */
+
 
 			case 5:
-
-				ob.searchId();
-
-				System.out.println();
-				break;
-
-			case 6:
 
 				System.exit(0);
 

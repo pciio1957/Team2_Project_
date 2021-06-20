@@ -64,7 +64,7 @@ public class LTM1Controller {
 	// 이메일 형식
 	public void emailCheck(String email) throws AuthenException{
 		boolean check = Pattern.matches(
-				"[a-zA-z][a-zA-z][0-9][0-9]@naver.com", email);	
+				"[a-zA-z][a-zA-z][0-9][0-9]+@naver.com", email);	
 		if(!check)
 			throw new AuthenException("※이메일 입력 형식은 [영어1영어2숫자1숫자2@naver.com]입니다");
 	}
