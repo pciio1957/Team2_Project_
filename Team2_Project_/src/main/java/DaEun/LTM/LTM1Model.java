@@ -1,4 +1,4 @@
-package DaEun;
+package DaEun.LTM;
 
 public class LTM1Model {
 	public void addAB(String key, Object ob) {

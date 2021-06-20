@@ -1,4 +1,4 @@
-package DaEun;
+package DaEun.LTM;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class LTM1Main {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 			LTM1Controller c = new LTM1Controller();
-			c.login(new LTM1Member("ssangyuong11","1234"), 
+			c.login(new LTM1Dto(), 
 					new LTM1Model());
 			System.out.println("로그인 정보 확인");
 			//System.out.println("아이디 : ");
