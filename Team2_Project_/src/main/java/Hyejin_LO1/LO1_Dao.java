@@ -26,7 +26,7 @@ ORDER BY 번호순당첨횟수;
 	public ArrayList<LO1_List> list(SearchNumber s) { //검색내용//DB서버에 넘겨줄 검색데이터 
 		ArrayList<LO1_List> winlist = new ArrayList<LO1_List>();//리턴할 Arraylist 
 		
-		
+		 
 		System.out.println("#DB 서버에 넘겨줄 데이터"); //입력받은 검색데이터 
 		//public ArrayList<LO1_List> list(SearchNumber s) {
 		System.out.println("6자리번호입력 [1]:"+s.getNum01());
