@@ -17,7 +17,7 @@ public class LTM1Main {
 			switch (ch) {
 			case 1:
 				ob.insert();
-				System.outp.println();
+				System.out.println();
 				break;
 		/*	case 2:
 

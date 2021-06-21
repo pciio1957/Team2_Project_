@@ -10,42 +10,24 @@ public class DBConn {
 		if (dbConn == null) {
 
 			try {
-
 				String url = "jdbc:oracle:thin:@LOCALHOST:1521:XE";
-
-				String user = "Da";
-
-				String password = "A123";
-
+				String user = "scott";
+				String password = "tiger";
 				Class.forName("oracle.jdbc.driver.OracleDriver");
-
-				dbConn = DriverManager.getConnection(url, user, password);
-
-			
-
+				dbConn = DriverManager.getConnection(url, user, password);		
 			} catch (Exception e) {
-
 				System.out.println(e.toString());
 			}
 		}
 		return dbConn;
-
 	}
-
 	public static void close() {
-
 		if (dbConn != null) {
-
 			try {
-
 				if (!dbConn.isClosed()) {
-
-					dbConn.close();
-
+				dbConn.close();
 				}
-
 			} catch (Exception e) {
-
 				System.out.println(e.toString());
 			}
 		}
