@@ -139,18 +139,29 @@ public class LTS1Service {
 		System.out.println(" [Service] 당첨판매점리스트 회차검색 ");
 		winList = dao.winList();
 		
-		System.out.println("회차 : " + inTaxis);
-		// 
-		System.out.println("1등 판매점입니다 --");
+
+		int idx = 1;
+		System.out.println("# 회차 : " + inTaxis + "#");
+		System.out.println("# 1등 판매점 #");
 		for(LTS1Lotto lt:winList) {
 			if(lt.ltrank == 1) {
 				if(lt.lttaxis.equals(inTaxis)) {
-					System.out.println("1등의 당첨판매점");
-					lt.showInfo();
+					lt.showInfo(idx++);
 				}
-				
+			} else {
+				System.out.println(" - 당첨 판매점이 없습니다! - ");
 			}
-			
+		}
+		idx = 1;
+		System.out.println("\n# 2등 판매점 #");
+		for(LTS1Lotto lt:winList) {
+			if(lt.ltrank == 2) {
+				if(lt.lttaxis.equals(inTaxis)) {
+					lt.showInfo(idx++);
+				}
+			} else {
+				System.out.println(" - 당첨 판매점이 없습니다! - ");
+			}
 		}
 		
 		

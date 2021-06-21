@@ -32,7 +32,7 @@ public class LTS1Lotto {
 	}
 
 	// 해당 DB의 정보출력 메소드
-	public void showInfo() {
+	public void showInfo(int idx) {
 		
 		//System.out.println(" 회차 : " + lttaxis);
 		// 당첨번호 출력을 위한 for문
@@ -45,9 +45,9 @@ public class LTS1Lotto {
 		
 		// --------------- 회차에 맞는 정보가 떠야하는데 1등 리스트 따로 2등리스트 따로.. 
 //				
-		System.out.println(" 구매구분 : " + ltdrawMethod);
-		System.out.println(" 상호명 : " + ltName);
-		System.out.println(" 소재지 : " + ltAd);
+		System.out.println(" [" + idx + "] 구매구분 : " + ltdrawMethod);
+		System.out.println(" [" + idx + "] 상호명 : " + ltName);
+		System.out.println(" [" + idx + "] 소재지 : " + ltAd + "\n");
 
 
 		
