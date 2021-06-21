@@ -34,3 +34,12 @@ public class DPR1Recharge {
 		this.bankName = bankName;
 	}
 }
+class DPR1Recharge2{
+	private String orderNum; // 주문번호,
+	private int orderPrice; // 결제금액
+	private String bankId; // 계좌주명(ID)
+	private String  vAccount; // 고정가상계좌
+	private String payMethod; // 결제 방식
+	private String issueDate; // 발급일시
+	
+}

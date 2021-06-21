@@ -3,14 +3,27 @@ package DeokJae;
 
 public class DPR1Controller {
 	// DAO 호출
-	private DPR1DAO service = new DPR1DAO();
+	private DPR1Service service = new DPR1Service();
 	// 중재역할
 	
-	public String DPR1List2(DPR1Recharge dr, Model d) {
+//	public String DPR1List2(DPR1Recharge dr, Model d) {
+//		System.out.println("# 컨트롤에서 받은 데이터#");
+//		d.addAttribute("dpr1list", service.DPR1List(dr));
+//		return "경로/@@@.jsp";
+//	}
+	public String cntList1(DPR1Account a, Model d) {
 		System.out.println("# 컨트롤에서 받은 데이터#");
-		d.addAttribute("dpr1list", service.DPR1List(dr));
-		return "경로/@@@.jsp";
+		System.out.println(a.getAno());
+		d.addAttribute("alist", service.cntList(a));
+		return "경로/@@@.jps";
+		
 	}
+
+	public char[] cntList1(DPR1Account cnt, javaexp.sample01.Model model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }	
 
 
