@@ -15,6 +15,9 @@ public class LTS1Main {
 		// 2. 지역 리스트를 나타내기 (DB의 주소에서 앞에 자르기..?) '서울 강남구' 니까 공백 앞뒤로 자르기 
 		// 3. 당첨 판매점 보이기 - 리스트 보이는건 1등/2등으로 나눠서 보이기  showInfo도 바꾸기 
 		
+		// [1] 전체조회(확인용) [2] 지역선택 [3] 단어검색 제외 - 행정구역선택(중복이라서 제외) 
+		// [4] 당첨판매점 회차검색 [5] 당첨판매점 단어검색(중복인가..?)
+		
 
 		
 		while(true) {
@@ -48,33 +51,33 @@ public class LTS1Main {
 			} else if (ser.equals("4")) {
 				
 				// 4. 당첨 판매점 조회 - 복권선택은 중복이라서 로또만 하고 로또의 회차나 단어검색 입력받기
-				System.out.println("# 당첨 판매점 조회 #");
-				System.out.println(" [1] 회차검색  [2] 단어검색  ");
-				String inPart = inputStr(" 입력 : ");
+				System.out.println("# 당첨판매점 회차검색 #");
+				String inTaxis = inputStr(" 당첨회차 입력 : ");
 				
-				if(inPart.equals("1")) {
-					String inTaxis = inputStr(" 당첨회차 입력 : ");
-					controller.winStore(1, inTaxis, new LTS1Model());
-					
-				} else if (inPart.equals("2")) {
-					String inWord = inputStr(" 단어 입력 : ");
-					controller.winStore(2, inWord, new LTS1Model());
-					
-				} else {
-					System.out.println(" - 다시 입력하세요! -");
-				}
-				
-				
-				
+				//controller.winStore(1, inTaxis, new LTS1Model());
+				controller.winTaxis(inTaxis, new LTS1Model());
 				
 				
 			} else if (ser.equals("5")) {
 				
+				System.out.println("# 당첨판매점 단어검색 #");
+				String inWord = inputStr(" 단어 입력 : ");
+				
+				//controller.winStore(2, inWord, new LTS1Model());
+				controller.winWord(inWord, new LTS1Model()); 
+				
+				
+			} else if (ser.equals("6")) {
+
 				// 종료 
 				System.out.println("종료를 선택하셨습니다");
 				System.out.println("종료됩니다 .......   ");
 				break;
 				
+			} else {
+				
+				System.out.println(" - 입력범위는 1~6입니다 - ");
+				System.out.println(" - 다시 입력해주세요 - ");
 			}
 		}
 
@@ -112,9 +115,25 @@ public class LTS1Main {
 	
 	// 검색방법 선택
 	public static String indexSearch() {
-		System.out.println("# 검색방법을 선택하세요 (숫자로만 입력가능합니다) #");
-		System.out.println(" [1] 전체조회 [2] 단어검색 [3] 지역검색 [5] 종료");
-		String inString = inputStr(" 입력 : ");
+		System.out.println(" (검색방법은 숫자로만 입력가능합니다) \n");
+//		System.out.println(" * 판매점 조회 ");
+//		System.out.println(" [1] 판매점 - 전체조회 [2] 판매점 - 단어검색 [3] 판매점 - 지역검색");
+//		
+//		System.out.println("\n * 당첨판매점 조회 ");
+//		System.out.println(" [4] 당첨판매점 - 회차검색 [5] 당첨판매점 - 단어검색 [6] 종료\n");
+		
+		System.out.println(" * 판매점 조회------- ");
+		System.out.println(" [1] 판매점 - 전체조회 ");
+		System.out.println(" [2] 판매점 - 단어검색 ");
+		System.out.println(" [3] 판매점 - 지역검색 \n");
+		
+		System.out.println(" * 당첨판매점 조회------- ");
+		System.out.println(" [4] 당첨판매점 - 회차검색 ");
+		System.out.println(" [5] 당첨판매점 - 단어검색 ");
+		System.out.println(" [6] 종료\n");
+		
+		
+		String inString = inputStr(" -> 입력 : ");
 		System.out.println();
 		return inString;
 	}

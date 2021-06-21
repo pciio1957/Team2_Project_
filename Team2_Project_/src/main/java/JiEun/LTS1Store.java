@@ -4,36 +4,47 @@ import java.util.ArrayList;
 
 // Store 클래스 : 판매점을 정의한 클래스 
 public class LTS1Store {
-	public String storeName;  // 상호명
-	public String storeAd;    // 소재지(주소)
-	public String storeHp;    // 전화번호
-	public String storeTicket; // 취급복권
+	public String stOpen;   // 영업유무
+	public String stName;   // 상호명
+	public String stAd;     // 소재지
+	public String stHp;     // 전화번호
+	public String stTicket; // 취급복권
+	
+	// 지역구분을 위한 ArrayList<String>
 	public ArrayList<String> areaStrList = new ArrayList<String>();
 	
 	public LTS1Store() {
 		super();
 	}
 
-	public LTS1Store(String name, String ad, String hp, String ticket) {
+	public LTS1Store(String op, String nm, String ad, String hp, String tk) {
 		super();
-		this.storeName = name;
-		this.storeAd = ad;
-		this.storeHp = hp;
-		this.storeTicket = ticket;
+		this.stOpen = op;
+		this.stName = nm;
+		this.stAd = ad;
+		this.stHp = hp;
+		this.stTicket = tk;
 	}
+
+
 	
 	public String showInfo(int idx) {
-		System.out.println(" [" + idx + "]  상호명 : " +storeName + "");
-		System.out.println(" [" + idx + "]  소재지 : " +storeAd + "");		
-		System.out.println(" [" + idx + "] 전화번호 : " +storeHp + "");
-		System.out.println(" [" + idx + "] 취급복권 : " +storeTicket + "\n");
+		System.out.println(" [" + idx + "]  영업유무 : " +stOpen + "");
+		System.out.println(" [" + idx + "]   상호명 : " +stName + "");
+		System.out.println(" [" + idx + "]   소재지 : " +stAd + "");		
+		System.out.println(" [" + idx + "]  전화번호 : " +stHp + "");
+		System.out.println(" [" + idx + "]  취급복권 : " +stTicket + "\n");
 		return "[DTO/Store] 전체조회완료"; 
+	}
+	
+	public void showWWW() {
+		System.out.println("확인쓰");
 	}
 	
 	public String showArea(int idx) {
 		
 		// 첫번째자리 
-		String[] adress = storeAd.split(" ");
+		String[] adress = stAd.split(" ");
 		
 
 		String strAd = "[" + idx + "] ";  
@@ -57,36 +68,41 @@ public class LTS1Store {
 		}	
 		return "[DTO/Store] 지역조회완료";
 	}
+	
+//	public String showWin() {
+//		
+//		return "[DTO/Store] 조회완료";
+//	}
 
 	public String getStoreName() {
-		return storeName;
+		return stName;
 	}
 
 	public void setStoreName(String name) {
-		this.storeName = name;
+		this.stName = name;
 	}
 
 	public String getStoreHp() {
-		return storeHp;
+		return stHp;
 	}
 
 	public void setStoreHp(String hp) {
-		this.storeHp = hp;
+		this.stHp = hp;
 	}
 
 	public String getStoreAd() {
-		return storeAd;
+		return stAd;
 	}
 
 	public void setStoreAd(String address) {
-		this.storeAd = address;
+		this.stAd = address;
 	}
 
 	public String getStoreTrade() {
-		return storeTicket;
+		return stTicket;
 	}
 
 	public void setStoreTrade(String ticket) {
-		this.storeTicket = ticket;
+		this.stTicket = ticket;
 	}
 }

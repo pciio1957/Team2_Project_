@@ -1,109 +1,94 @@
 package JiEun;
 
 public class LTS1Lotto {
-	public String lttaxis;      // 회차 
-	public int[] ltwinNums;  // 당첨번호들
-	public String ltName;    // 판매점명
-	public String itArea;    // 소재지
-	public boolean isFirst;  // 1등 여부 
-	public boolean isSecond; // 2등 여부 
-	
+	public String lttaxis;       // 회차 
+	public int ltrank;			 // 등수
+	public String ltdrawMethod;  // 당첨구분(자동/수동)
+	public String ltName;        // 상호명
+	public String ltAd;          // 소재지
+
+	// 회차, 등수, 구매구분, 판매점명, 소재지
 	public LTS1Lotto() {
 		super();
 	}
-	
-	public LTS1Lotto(String lttaxis, int[] ltwinNums, String ltName, boolean isFirst, boolean isSecond) {
+
+	// 생성자
+	public LTS1Lotto(String lttaxis, int ltrank, String ltdrawMethod, String ltName) {
 		super();
 		this.lttaxis = lttaxis;
-		this.ltwinNums = ltwinNums;
+		this.ltrank = ltrank;
+		this.ltdrawMethod = ltdrawMethod;
 		this.ltName = ltName;
-		this.itArea = itArea;
-		this.isFirst = isFirst;
-		this.isSecond = isSecond;
-	}
-	
-	public LTS1Lotto(String lttaxis, int[] ltwinNums, String ltName, String itArea, boolean isFirst, boolean isSecond) {
-		super();
-		this.lttaxis = lttaxis;
-		this.ltwinNums = ltwinNums;
-		this.ltName = ltName;
-		this.itArea = itArea;
-		this.isFirst = isFirst;
-		this.isSecond = isSecond;
 	}
 
+	// 생성자
+	public LTS1Lotto(String lttaxis, int ltrank, String ltdrawMethod, String ltName, String ltAd) {
+		super();
+		this.lttaxis = lttaxis;
+		this.ltrank = ltrank;
+		this.ltdrawMethod = ltdrawMethod;
+		this.ltName = ltName;
+		this.ltAd = ltAd;
+	}
+
+	// 해당 DB의 정보출력 메소드
 	public void showInfo() {
 		
-		System.out.println(" 회차 : " + lttaxis);
+		//System.out.println(" 회차 : " + lttaxis);
 		// 당첨번호 출력을 위한 for문
-		for(int x = 0; x < ltwinNums.length; x++ ) {
-				
-		}
+		
+//		System.out.print("당첨번호 : ");
+//		for(int x = 0; x < ltwinNums.length; x++ ) {
+//			System.out.println(ltwinNums[x]);
+//		}
+		
 		// --------------- 회차에 맞는 정보가 떠야하는데 1등 리스트 따로 2등리스트 따로.. 
 //				
-//		System.out.println(" 판매점명 : " + ltName);
-//		System.out.println(" 1등여부 : " + (isFirst?"1등":" "));
-//		System.out.println(" 2등여부 : " + (isSecond?"2등":" "));
+		System.out.println(" 구매구분 : " + ltdrawMethod);
+		System.out.println(" 상호명 : " + ltName);
+		System.out.println(" 소재지 : " + ltAd);
+
 
 		
 	}
-
 
 	public String getLttaxis() {
 		return lttaxis;
 	}
 
-
-
 	public void setLttaxis(String lttaxis) {
 		this.lttaxis = lttaxis;
 	}
 
-
-
-	public int[] getLtwinNums() {
-		return ltwinNums;
+	public int getLtrank() {
+		return ltrank;
 	}
 
-
-
-	public void setLtwinNums(int[] ltwinNums) {
-		this.ltwinNums = ltwinNums;
+	public void setLtrank(int ltrank) {
+		this.ltrank = ltrank;
 	}
 
+	public String getLtdrawMethod() {
+		return ltdrawMethod;
+	}
 
+	public void setLtdrawMethod(String ltdrawMethod) {
+		this.ltdrawMethod = ltdrawMethod;
+	}
 
 	public String getLtName() {
 		return ltName;
 	}
 
-
-
 	public void setLtName(String ltName) {
 		this.ltName = ltName;
 	}
 
-
-
-	public boolean isFirst() {
-		return isFirst;
+	public String getLtAd() {
+		return ltAd;
 	}
 
-
-
-	public void setFirst(boolean isFirst) {
-		this.isFirst = isFirst;
-	}
-
-
-
-	public boolean isSecond() {
-		return isSecond;
-	}
-
-
-
-	public void setSecond(boolean isSecond) {
-		this.isSecond = isSecond;
-	}
+	public void setLtAd(String ltAd) {
+		this.ltAd = ltAd;
+	}	
 }
