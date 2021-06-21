@@ -25,7 +25,7 @@ public class LTS1Main {
 			String ser = indexSearch(); // 검색방법 입력받기
 			
 			if(ser.equals("1")) {
-				// 1. 전체리스트 불러오기 
+				// 1. 전체리스트 불러오기(조회용) 
 				controller.storeList(1, new LTS1Model());
 				
 			} else if (ser.equals("2")) {
