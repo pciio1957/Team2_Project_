@@ -85,13 +85,12 @@ public class LT1Main {
 		}
 		
 		System.out.println("# LOTTO 6/45 : 당첨 결과 #\n");
-		System.out.print("선택한 복권 번호 : [");
+		System.out.print("선택 한 복권 번호 : ");
 		for(i=0; i<6; i++) {
-			System.out.print(myLotto[i] + " ");
+			System.out.print("[" + myLotto[i] + "]");
 		}
-		System.out.println("]\n");
 		
-		System.out.print("제 n 회 LOTTO 6/45 당첨 번호 : [");
+		System.out.print("\n제 n 회 LOTTO 6/45 당첨 번호 : [");
 		
 		for(i=0; i<6; i++) {
 			System.out.print(lotto[i] + " ");
@@ -126,10 +125,11 @@ public class LT1Main {
 		else
 			System.out.print("제 n 회 LOTTO 6/45 복권 추첨 결과 : X \n");
 			System.out.println("\n### LOTTO 6/45 당첨 조건 ###\n");
-			System.out.println("* 선택 번호, 당첨 번호 * \n 1) 3개 일치 시, 5등! \n 2) 4개 일치 시, 4등! \n 3) 5개 일치 시, 3등! \n 4) 6개 일치 시, 2등! \n 5) 6개 & 보너스 번호 일치 시, 1등!");
+			System.out.println("* 선택 번호, 당첨 번호 * \n 1) 3개 일치 시, 5등! \n 2) 4개 일치 시, 4등! \n"
+					+ "3) 5개 일치 시, 3등! \n 4) 6개 일치 시, 2등! \n 5) 6개 & 보너스 번호 일치 시, 1등!");
 		
 
-		LT1DTO lto1 = new LT1DTO(myLotto, result);
+		LT1DTO lto1 = new LT1DTO(myLotto, lotto);
 		// Controller만 호출.
 		LT1Controller lt1ctrl = new LT1Controller();
 		System.out.println("\n# 호출된 화면 #\n");

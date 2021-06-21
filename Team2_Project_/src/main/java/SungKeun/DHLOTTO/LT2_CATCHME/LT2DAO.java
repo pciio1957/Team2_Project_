@@ -12,7 +12,7 @@ public class LT2DAO {
  */
 	
 	// 입력값에 의해서 처리한 ArrayList리턴해준다.
-	public ArrayList<LT2DTO> LT2List(LT2DTO lto2){
+	public ArrayList<LT2DTO> LT2List(LT2DTO lto2) {
 		
 		ArrayList<LT2DTO> lt2list  = new ArrayList<LT2DTO>();
 		lt2list.add(new LT2DTO(lto2.getMyLotto(), lto2.getResult()));
@@ -20,11 +20,11 @@ public class LT2DAO {
 	    // 전체 복권 입력 데이터를 확인하기 위한 메소드
 		System.out.println("===============================================\n");
 		System.out.println("# DB 서버에 넘겨 줄 복권 입력 데이터 #\n");
-		System.out.println("선택한 복권 번호 (객체) : " + lto2.getMyLotto());
-		System.out.println("생성된 당첨 번호 (객체) : " + lto2.getResult() + "\n");
+		System.out.println("선택 한 복권 번호 (객체) : " + lto2.getMyLotto() + "\n");
+		System.out.println("생성 된 당첨 번호 (객체) : " + lto2.getResult() + "\n");
 		System.out.println("===============================================\n");
 		System.out.println("# DB 서버에서 온 복권 입력 데이터 리스트 #\n");
-//		lt2list.add(new LT2DTO());
+		lt2list.add(new LT2DTO());
 		System.out.println("===============================================\n");
 		for(LT2DTO ltto2:lt2list) {
 			int[] numArr1 = lto2.getMyLotto();

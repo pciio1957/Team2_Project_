@@ -141,7 +141,7 @@ public class LT2Main {
 		
 		// Scanner이나 직접 입력 처리
 		// 입력 값으로 처리된 객체 생성
-		LT2DTO lto2 = new LT2DTO(myLotto, result);
+		LT2DTO lto2 = new LT2DTO(myLotto, lotto);
 		// Controller만 호출.
 		LT2Controller lt2ctrl = new LT2Controller();
 		System.out.println("\n# 호출된 화면 #\n");
