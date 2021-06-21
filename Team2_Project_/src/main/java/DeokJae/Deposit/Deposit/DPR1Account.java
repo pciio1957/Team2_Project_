@@ -1,11 +1,17 @@
-package DeokJae;
+package Deposit;
 
 public class DPR1Account {
-	private String ano; //계좌주
-    private String owner; // 계좌번호
-    private int balance; // 초기입금액
+	public String ano; //계좌주
+    public String owner; // 계좌번호
+    public int balance; // 초기입금액
     
-    //생성자
+    
+    public DPR1Account(String ano) {
+		super();
+		this.ano = ano;
+	}
+    
+	//생성자
     public DPR1Account (String ano, String owner, int balance) {
         this.ano = ano;
         this.owner = owner;

@@ -1,4 +1,4 @@
-package DeokJae;
+package Deposit;
 
 public class DPR1Recharge {
 
