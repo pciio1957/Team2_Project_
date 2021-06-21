@@ -1,4 +1,4 @@
-package Deposit;
+package DeokJae;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Deposit;
+package DeokJae;
 
 public class DPR1Account {
 	public String ano; //계좌주
