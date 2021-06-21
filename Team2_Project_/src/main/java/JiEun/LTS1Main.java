@@ -78,6 +78,7 @@ public class LTS1Main {
 				
 				System.out.println(" - 입력범위는 1~6입니다 - ");
 				System.out.println(" - 다시 입력해주세요 - ");
+
 			}
 		}
 

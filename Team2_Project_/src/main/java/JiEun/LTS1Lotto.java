@@ -42,6 +42,7 @@ public class LTS1Lotto {
 //			System.out.println(ltwinNums[x]);
 //		}
 		
+		
 		// --------------- 회차에 맞는 정보가 떠야하는데 1등 리스트 따로 2등리스트 따로.. 
 //				
 		System.out.println(" 구매구분 : " + ltdrawMethod);

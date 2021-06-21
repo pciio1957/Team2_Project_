@@ -25,8 +25,6 @@ public class LTS1Store {
 		this.stHp = hp;
 		this.stTicket = tk;
 	}
-
-
 	
 	public String showInfo(int idx) {
 		System.out.println(" [" + idx + "]  영업유무 : " +stOpen + "");

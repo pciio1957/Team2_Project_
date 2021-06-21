@@ -74,6 +74,7 @@ public class LTS1Service {
 			}
 		}
 		
+		
 		return "검색완료";
 	}
 	
