@@ -1,14 +1,9 @@
 package DaEun.LTM;
-
 import java.util.regex.Pattern;
-// 우...
 public class LTM1Controller {
 	public void idFormat(String str) throws AuthenException {
-
 		if (str.length() < 5 || str.length() > 15) {
-
 			throw new AuthenException("5~15자 이내의 아이디만 가능합니다");
-
 		}
 		int cnt1 = 0;
 		int cnt2 = 0;
@@ -22,7 +17,6 @@ public class LTM1Controller {
 		if (cnt1 == 0 || cnt2 == 0)
 			throw new AuthenException("아이디는 영문자와 숫자를 혼용해서 만들어주세요");
 	}
-
 	// 비밀번호 확인
 
 	public void pwCheck(String pw1, String pw2) throws AuthenException {
