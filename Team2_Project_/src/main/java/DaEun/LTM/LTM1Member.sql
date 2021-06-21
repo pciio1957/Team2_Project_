@@ -8,4 +8,3 @@ email varchar2(25),
 loc varchar2(65));
 
 
-select table
