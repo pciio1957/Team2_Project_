@@ -15,26 +15,26 @@ public class LO1_Main {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("첫째칸");
-		int num01= sc.nextInt();
+		String num01= sc.nextLine();
 		
 		System.out.println("둘째칸");
-		int num02= sc.nextInt();
+		String num02= sc.nextLine();
 		
 		System.out.println("셋째칸");
-		int num03= sc.nextInt();
+		String num03= sc.nextLine();
 		
 		System.out.println("넷째칸");
-		int num04= sc.nextInt();
+		String num04= sc.nextLine();
 		
 		System.out.println("다섯째칸");
-		int num05= sc.nextInt();
+		String num05= sc.nextLine();
 		
 		System.out.println("여섯째칸");
-		int num06= sc.nextInt();
+		String num06= sc.nextLine();
 		
 		//입력값으로 처리된 객체 생성 
 		LO1_Controller ctrl1 = new LO1_Controller(); {
-		SearchNumber s = new SearchNumber(); {
+		SearchNumber s = new SearchNumber(num01,num02,num03,num04,num05,num06); {
 		System.out.println("입력된값:"+"["+ num01+ "]" +"["+ num02+ "]" + "["+ num03+ "]" + 
 		"["+ num04+ "]" + "["+ num05+ "]" + "["+ num06+ "]"+"\n");
 		

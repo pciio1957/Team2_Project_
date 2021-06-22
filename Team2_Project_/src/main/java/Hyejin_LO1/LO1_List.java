@@ -74,6 +74,10 @@ public class LO1_List {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public void showInfo(SearchNumber s) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	
 }
