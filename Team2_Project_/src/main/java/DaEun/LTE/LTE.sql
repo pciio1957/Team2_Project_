@@ -13,3 +13,7 @@ INSERT INTO LTEVENT (evname, evdate, annodate, explan) values('4월 공감 퀴�
 INSERT INTO LTEVENT (evname, evdate, annodate, explan) values('건전복권문화&도박중독예방','2021-03-16','2021-03-31','유튜브 도박엔딩 영상 시청하고 퀴즈!');
 INSERT INTO LTEVENT (evname, evdate, annodate, explan) values('3월 공감 퀴즈','2021-03-02','2021-03-37','그룹홈 아동후원, 2021 낙첨복귄 희망 캠페인!');
 SELECT * FROM LtEvent;
+
+select evname,annodate from LtEvent where annodate 
+between to_date('2021-04-01', 'YYYY-MM-DD') and to_date('2021-06-18', 'YYYY-MM-DD');
+
