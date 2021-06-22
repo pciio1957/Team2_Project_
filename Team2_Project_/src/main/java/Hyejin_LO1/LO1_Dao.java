@@ -47,6 +47,7 @@ ORDER BY 번호순당첨횟수;
 		winlist.add(new LO1_List (966,20210529,"1, 21, 25, 29, 34, 37",36,2));
 		winlist.add(new LO1_List (967,20210612,"1, 6, 13, 37, 38, 40",9,2));
 
+		/*
 		System.out.println("회차번호"+"\t"+ "날짜"+"\t"+"\t"+"당첨번호"+"\t"+"\t"+"\t"+"보너스번호"+"\t"+"갯수");
 		for(LO1_List s1:winlist) { //출력해주기 (불러온객체) //객체 raw1개씩 출력 
 		
@@ -55,8 +56,9 @@ ORDER BY 번호순당첨횟수;
 			System.out.print(s1.getWincode()+"\t");
 			System.out.print(s1.getBounus()+"\t");
 			System.out.print(s1.getCount()+"\n");
-		}
-		return winlist; //DB에있는거를 넘겨준다. winlist 
+		}*/
+		
+		return winlist;  
 	
 
 }
