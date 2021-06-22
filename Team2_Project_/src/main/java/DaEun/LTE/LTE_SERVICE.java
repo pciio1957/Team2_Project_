@@ -9,7 +9,6 @@ public class LTE_SERVICE {
 	Scanner sc = new Scanner(System.in);
 	LTE_DAO dao = new LTE_DAO();
 	LTE_CONTROLLER ob = new LTE_CONTROLLER();
-
 	public void ltevent() {
 		System.out.println("               이벤트 작성하기");
 		System.out.println("-------------------------------------");
