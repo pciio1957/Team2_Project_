@@ -23,24 +23,58 @@ public class LT1Main {
 		
 		System.out.println("# LOTTO 6/45 : 복권 설정 # \n");
 		
-		while(gen_count < 6) {
-			ok_generation = 1;
-			System.out.printf("[%d] [1-45] 번호 선택 : ", gen_count+1);
-			tmp = sc.nextInt();
-			
+		System.out.println("\n 복권 번호를 자동으로 생성하시겠습니까? (Y/N) : ");
+		String quest1 = sc.nextLine();
+		if (quest1.equals("Y")) {
+			// 랜덤 복권 번호 생성
 			for(i=0; i<6; i++) {
-				if(tmp == myLotto[i]) {
-					ok_generation = 0;
-					break;
-				}
+				myLotto[i] = (int)(Math.random()*45 + 1);
 			}
 			
-			if (ok_generation !=0) {
-				myLotto[gen_count] = tmp;
-				gen_count++;
-			} else
-				System.out.println("중복된 번호입니다. 다시 입력해주세요.");
+		} else {
+			
+			System.out.println("# LOTTO 6/45 : 복권 설정 [혼합 선택] # \n");
+			while(gen_count < 6) {
+					
+				ok_generation = 1;
+				System.out.printf("[%d] [1-45] 번호 선택 : ", gen_count+1);
+				tmp = sc.nextInt();
+				
+				for(i=0; i<6; i++) {
+					if(tmp == myLotto[i]) {
+						ok_generation = 0;
+						break;
+					}
+				}
+				
+				if (ok_generation !=0) {
+					myLotto[gen_count] = tmp;
+					gen_count++;
+				} else
+					System.out.println("중복된 번호입니다. 다시 입력해주세요.");
+			}
 		}
+		
+//		System.out.println("# LOTTO 6/45 : 복권 설정 # \n");
+//		
+//		while(gen_count < 6) {
+//			ok_generation = 1;
+//			System.out.printf("[%d] [1-45] 번호 선택 : ", gen_count+1);
+//			tmp = sc.nextInt();
+//			
+//			for(i=0; i<6; i++) {
+//				if(tmp == myLotto[i]) {
+//					ok_generation = 0;
+//					break;
+//				}
+//			}
+//			
+//			if (ok_generation !=0) {
+//				myLotto[gen_count] = tmp;
+//				gen_count++;
+//			} else
+//				System.out.println("중복된 번호입니다. 다시 입력해주세요.");
+//		}
 		
 		System.out.println("\n# LOTTO 6/45 : 번호 확인 #\n");
 		
