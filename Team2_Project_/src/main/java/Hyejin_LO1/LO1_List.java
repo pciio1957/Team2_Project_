@@ -76,6 +76,11 @@ public class LO1_List {
 	}
 	public void showInfo(SearchNumber s) {
 		// TODO Auto-generated method stub
+		System.out.println("회차 : "+ num+ "" );
+		System.out.println("날자: " + date + "");		
+		System.out.println("당첨번호:" + wincode + "" );
+		System.out.println("보너스번호:"+ bounus +"");
+		System.out.println("겹치는 숫자 갯수:" + count + "\n");
 		
 	}
 

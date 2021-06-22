@@ -21,7 +21,7 @@ public class LO1_Service {
 				"["+s.num04+"]"+"["+s.num05+"]"+"["+s.num06+"]"+": 검색 결과 ");
 		
 		for(LO1_List l:winlist) {
-			// 사용자가 입력한 6자리 입력값이 [당첨번호]에 있으면 출
+			// 사용자가 입력한 6자리 입력값이 [당첨번호]에 있으면 출력 
 			if(l.wincode.contains(s.getNum01())||l.wincode.contains(s.getNum02())
 					||l.wincode.contains(s.getNum03())||l.wincode.contains(s.getNum04())
 					||l.wincode.contains(s.getNum05())||l.wincode.contains(s.getNum06())) {
