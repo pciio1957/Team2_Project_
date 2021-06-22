@@ -13,8 +13,8 @@ public class LT1Service {
 				+ lto1.getMyLotto() + "\n");
 		System.out.println("LT1DAO에 전송 할 당첨 번호 데이터 2 : "
 				+ lto1.getResult() + "\n");
-		System.out.println("LT1DAO에서 받을 복권 입력 데이터 크기 : "
-				+ lt1dao.LT1List(lto1).size() + "\n");
+//		System.out.println("LT1DAO에서 받을 복권 입력 데이터 크기 : "
+//				+ lt1dao.LT1List(lto1).size() + "\n");
 		return lt1dao.LT1List(lto1);
 	}
 }

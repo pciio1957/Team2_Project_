@@ -4,22 +4,54 @@ import java.util.ArrayList;
 
 
 public class DPR1DAO {
+	public ArrayList<DPR1Account> cntList = new ArrayList<DPR1Account>();
+	
+	public DPR1DAO() {
+		super();
+		cntList.add(new DPR1Account("홍길동","[케이뱅크] 701-0303-637-8522",5000));
+		cntList.add(new DPR1Account("오길동","[케이뱅크] 301-0303-637-8522",0));
+	}
 	
 	// 계좌번호, 계좌주명, 예치금 
-	public ArrayList<DPR1Account> cntList(DPR1Account cnt){
-		ArrayList<DPR1Account> list = new ArrayList<DPR1Account>();
+	public ArrayList<DPR1Account> listshow(DPR1Account cnt){
+		
 		System.out.println("# DB서버에 넘겨줄 검색 데이터#");
-		System.out.println("계좌번호:"+cnt.getAno());
-		System.out.println("계좌주:"+cnt.getOwner());
-		System.out.println("예치금:"+cnt.getBalance());
+		System.out.println("계좌번호:"+cnt.getAno()); 
+
 		System.out.println("# DB 서버에서 온 데이터 리스트 #");
-		list.add(new DPR1Account("[케이뱅크] 701-0303-637-8522","동행복권_홍길동",5000));
-		for(DPR1Account acc:list) {
-			System.out.print(acc.getAno()+"\t");
-			System.out.print(acc.getOwner()+"\t");
-			System.out.print(acc.getBalance()+"\t");
+		//list.add(new DPR1Account("[케이뱅크] 701-0303-637-8522","동행복권_홍길동",5000));
+//		for(DPR1Account acc:list) {
+//			System.out.print(acc.getAno()+"\t");
+//			System.out.print(acc.getOwner()+"\t");
+//			System.out.print(acc.getBalance()+"\t");
+//		}
+		return cntList;
+	}
+
+	// 충전
+	public String recharge(DPR1Account aco, int cnt) {
+		
+		cntList.set(cnt, aco);
+		
+		// 확인용
+		for(DPR1Account acc:cntList) {
+			System.out.print("계좌주: " + acc.getAno()+"\t");
+			System.out.print("계좌번호: " + acc.getOwner()+"\t");
+			System.out.print("잔액: " + acc.getBalance()+"\n");
 		}
-		return list;
+		return "충전 완료";
+	}
+	// 출금
+	public String withdraw(DPR1Account aco, int cnt) {
+		cntList.set(cnt, aco);
+		
+		// 확인용 
+		for(DPR1Account acc:cntList) {
+			System.out.print("계좌주: " + acc.getAno()+"\t");
+			System.out.print("계좌번호: " + acc.getOwner()+"\t");
+			System.out.print("잔액: " + acc.getBalance()+"\n");
+		}
+		return "출금 완료";
 	}
 }
 	

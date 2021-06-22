@@ -11,17 +11,28 @@ public class DPR1Controller {
 //		d.addAttribute("dpr1list", service.DPR1List(dr));
 //		return "경로/@@@.jsp";
 //	}
-	public String cntList1(DPR1Account a, Model d) {
+	public String listShow(DPR1Account aco, Model d) {
 		System.out.println("# 컨트롤에서 받은 데이터#");
-		System.out.println(a.getAno());
-		d.addAttribute("alist", service.cntList(a));
-		return "경로/@@@.jps";
+		System.out.println("회원이름 : " + aco.getAno());
+		d.addAttribute("alist", service.listShow(aco));
+		return "경로/@@@.jsp";
 		
 	}
-
-	public char[] cntList1(DPR1Account cnt, javaexp.sample01.Model model) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	// 예치금 충전
+	public String recharge(DPR1Account aco, int str, Model m) {
+		
+		System.out.println("# 컨트롤 #\n");
+//		System.out.print("충전금액 :" + ());
+		m.addAttribute("충전", service.rechange(aco, str));
+		return "충전완료";
+	}
+	// 출금
+	public String withdraw(DPR1Account aco, int str1, Model m) {
+		
+		System.out.println("# 컨트롤2 #\n");
+		m.addAttribute("출금", service.withdraw(aco, str1));
+		return "출금완료";
 	}
 	
 }	
