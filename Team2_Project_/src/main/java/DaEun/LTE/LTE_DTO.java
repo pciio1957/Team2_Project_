@@ -10,7 +10,6 @@ public class LTE_DTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	public LTE_DTO(String evname, String evdate, String annodate, String explan) {
 		super();
 		this.evname = evname;
@@ -19,13 +18,11 @@ public class LTE_DTO {
 		this.explan = explan;
 	}
 	
-public void showInfo() {
-					
+public void showInfo() {				
 		System.out.println("이벤트 명 : " + evname);
 		System.out.println("이벤트 기간 : " + evdate);
 		System.out.println("당첨자 발표: " + annodate);
-		System.out.println("이벤트 설명: " + explan);
-		
+		System.out.println("이벤트 설명: " + explan);		
 	}
 
 	public String getEvname() {
