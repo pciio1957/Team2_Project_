@@ -1,5 +1,9 @@
 package DaEun.LTE;
 
-public class LTE_SERVICE {
+import java.util.Scanner;
 
+public class LTE_SERVICE {
+ 
+	Scanner sc = new Scanner(System.in);
+	
 }
