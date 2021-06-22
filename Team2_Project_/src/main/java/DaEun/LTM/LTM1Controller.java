@@ -19,12 +19,12 @@ public class LTM1Controller {
 	}
 	// 비밀번호 확인
 
-	public void pwCheck(String pw1, String pw2) throws AuthenException {
+	public void pwCheck(String pass, String pw2) throws AuthenException {
 
 		int cnt1 = 0;
 		int cnt2 = 0;
-		for (int i = 0; i < pw1.length(); i++) {
-			char ch = pw1.charAt(i);
+		for (int i = 0; i < pass.length(); i++) {
+			char ch = pass.charAt(i);
 			if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
 				cnt1++;
 			else if (ch >= '0' && ch <= '9')
@@ -33,7 +33,7 @@ public class LTM1Controller {
 
 		if (cnt1 == 0 || cnt2 == 0)
 			throw new AuthenException("비밀번호는 영문자와 숫자를 혼용해서 만들어주세요");
-		if (!pw1.equals(pw2))
+		if (!pass.equals(pw2))
 			throw new AuthenException("비밀번호가 다릅니다");
 	}
 	

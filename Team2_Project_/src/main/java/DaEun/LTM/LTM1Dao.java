@@ -8,16 +8,11 @@ public class LTM1Dao {
 	public int insertData(LTM1Dto dto) {
 		int result = 0;
 		Connection conn = DBConn.getConnection();
-
 		PreparedStatement pstmt = null;
-
 		String sql;
-
 		try {
-
-			sql = "insert into naverMember (id,pw,name,gender,birth,email,tel) ";
-
-			sql += "values (?,?,?,?,?,?,?)";
+			sql = "insert into LTM1Member (id,pass,birth,tel,email,loc) ";
+			sql += "values (?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPass());
@@ -37,6 +32,26 @@ public class LTM1Dao {
 	// update
 	public int updateData(LTM1Dto dto) {
 		int result = 0;
+		
+		Connection conn = DBConn.getConnection();
+		PreparedStatement pstmt = null;
+		String sql;
+		
+		try {
+
+			sql = "update naverMember set pass=?, email=?, tel=? ";
+
+			sql+= "where id=?";
+		
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getPass());
+			pstmt.setString(2, dto.getEmail());
+			pstmt.setString(3, dto.getTel());
+			result = pstmt.executeUpdate();
+			pstmt.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}		
 		return result;
 
 	}

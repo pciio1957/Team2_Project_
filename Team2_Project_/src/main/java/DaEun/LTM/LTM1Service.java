@@ -12,7 +12,7 @@ public class LTM1Service {
 
 		String pw2 = null;
 		boolean id = true;
-		boolean pw = true;
+		boolean pass = true;
 		boolean brith = true;
 		boolean tel = true;
 		boolean email = true;
@@ -40,11 +40,11 @@ public class LTM1Service {
 					System.out.print("비밀번호 확인:");
 					pw2 = sc.next();
 					ne.pwCheck(dto.getPass(), pw2);
-					pw = false;
+					pass = false;
 				} catch (AuthenException e) {
 					System.out.println(e.toString());
 				}
-			} while (pw);
+			} while (pass);
 			System.out.print("생일[xxxx-xx-xx]:");
 			dto.setBrith(sc.next());
 			do {
@@ -81,9 +81,7 @@ public class LTM1Service {
 		try {
 
 			LTM1Dto dto = new LTM1Dto();
-
-			System.out.print("수정 할 아이디:");
-			dto.setId(sc.next());
+			
 			System.out.print("비밀번호:");
 			dto.setPass(sc.next());	
 			System.out.println("생일:");
@@ -91,8 +89,7 @@ public class LTM1Service {
 			System.out.print("전화번호[xxx-xxxx-xxxx]:");
 			dto.setTel(sc.next());
 			System.out.print("이메일[xxxxx@daum.net]:");
-			dto.setEmail(sc.next());
-			
+			dto.setEmail(sc.next());		
 			System.out.println("주소:");
 			dto.setLoc(sc.next());
 			int result = dao.updateData(dto);
@@ -106,4 +103,7 @@ public class LTM1Service {
 			System.out.println(e.toString());
 		}
 	}
+	
+	
+	
 }
