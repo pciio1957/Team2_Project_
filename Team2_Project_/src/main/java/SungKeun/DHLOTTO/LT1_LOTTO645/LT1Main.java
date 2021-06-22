@@ -12,6 +12,7 @@ public class LT1Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		Scanner sc = new Scanner(System.in);
 		int lotto[] = new int[7]; // 당첨 복권 번호 생성
 		int myLotto[] = new int[6]; // 선택한 복권 번호 내역
 		int result[] = new int[6]; // 추첨 복권 번호 (선택 복권 번호와 일치 여부 확인)
@@ -19,20 +20,16 @@ public class LT1Main {
 		int gen_count = 0; // 선택할 복권 번호를 카운팅
 		int ok_generation; // 카운팅 완료
 		
-		Scanner sc = new Scanner(System.in);
-		
 		System.out.println("# LOTTO 6/45 : 복권 설정 # \n");
 		
-		System.out.println("\n 복권 번호를 자동으로 생성하시겠습니까? (Y/N) : ");
-		String quest1 = sc.nextLine();
+		System.out.println("복권 번호를 자동으로 생성하시겠습니까? (Y/N) : ");
+		String quest1 = sc.nextLine(); // 복권 번호 자동 선택 여부
 		if (quest1.equals("Y")) {
 			// 랜덤 복권 번호 생성
 			for(i=0; i<6; i++) {
 				myLotto[i] = (int)(Math.random()*45 + 1);
 			}
-			
 		} else {
-			
 			System.out.println("# LOTTO 6/45 : 복권 설정 [혼합 선택] # \n");
 			while(gen_count < 6) {
 					
@@ -85,7 +82,7 @@ public class LT1Main {
 		System.out.println("] 입니다.\n");
 
 		System.out.println("===============================================\n");
-
+		
 		System.out.println("# LOTTO 6/45 : 복권 구매 #\n");
 		System.out.println("상품명 : LOTTO 6/45 \n");
 		int price = 1000;
@@ -159,8 +156,7 @@ public class LT1Main {
 		else
 			System.out.print("제 n 회 LOTTO 6/45 복권 추첨 결과 : X \n");
 			System.out.println("\n### LOTTO 6/45 당첨 조건 ###\n");
-			System.out.println("* 선택 번호, 당첨 번호 * \n 1) 3개 일치 시, 5등! \n 2) 4개 일치 시, 4등! \n"
-					+ "3) 5개 일치 시, 3등! \n 4) 6개 일치 시, 2등! \n 5) 6개 & 보너스 번호 일치 시, 1등!");
+			System.out.println("* 선택 번호, 당첨 번호 * \n 1) 3개 일치 시, 5등! \n 2) 4개 일치 시, 4등! \n 3) 5개 일치 시, 3등! \n 4) 6개 일치 시, 2등! \n 5) 6개 & 보너스 번호 일치 시, 1등!");
 		
 
 		LT1DTO lto1 = new LT1DTO(myLotto, lotto);

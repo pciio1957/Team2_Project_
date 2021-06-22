@@ -1,9 +1,9 @@
 package SungKeun.DHLOTTO.LT2_CATCHME;
 
+// 창문 번호 선택 및 당첨 결과 출력
 public class LT2DTO {
-	
-	private int myLotto[] = new int[6];
-	private int result[] = new int[6];
+	private int myLotto[] = new int[6]; // 선택한 창문 번호
+	private int result[] = new int[6]; // 자동으로 생성된 당첨 번호
 	
 	public LT2DTO() {
 		super();

@@ -1,9 +1,9 @@
 package SungKeun.DHLOTTO.LT1_LOTTO645;
 
+// 복권 번호 선택 및 당첨 번호 출력
 public class LT1DTO {
-	
-	private int myLotto[] = new int[6];
-	private int result[] = new int[6];
+	private int myLotto[] = new int[6]; // 선택한 복권 번호
+	private int result[] = new int[6]; // 자동으로 생성된 당첨 번호
 	
 	public LT1DTO() {
 		super();
