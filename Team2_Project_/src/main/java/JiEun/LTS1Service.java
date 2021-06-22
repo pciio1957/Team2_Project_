@@ -49,7 +49,7 @@ public class LTS1Service {
 		
 		
 		System.out.println("\n# 검색리스트 #");
-		System.out.println(" - " + word + ": 검색 결과 ");
+		System.out.println("# 단어 필터 : " + word + " #");
 		for(LTS1Store s:storeList) {
 			// 사용자가 입력한 단어가 상호명이나 소재지에 포함되어있으면 정보출력
 			if(s.stName.contains(word) || s.stAd.contains(word)) {
@@ -67,7 +67,7 @@ public class LTS1Service {
 		int num = 1;
 		
 		System.out.println("\n# 검색리스트 #");
-		System.out.println(" - " + word + ": 검색 결과 ");
+		System.out.println("# 지역 필터 : " + word + " #");
 		for(LTS1Store s:storeList) {
 			if(s.stAd.contains(word)) {
 				s.showInfo(num++);
@@ -78,82 +78,41 @@ public class LTS1Service {
 		return "검색완료";
 	}
 	
-	
-	// 4. 당첨판매점 조회 - 1등, 2등이 당첨되었던 판매점 조회하기 
-	public String winStore(int part, String word) {
-		System.out.println(" [Service] 판매점리스트 지역검색 ");
-		//winList = dao.winList();
-		storeList = dao.storeList();
-		
-		if(part == 1) {
-			// 회차검색
-			// 회차를 먼저 검색하고서 있으면 해당 판매점명을 가져오고 해당 판매점명으로 storeList에서 검색 후 정보 출력? 
-			ArrayList<LTS1Lotto> winStore = new ArrayList<LTS1Lotto>();
-			
-			// 로또 판매점 조회 - 1등 / 2등 나눠서 출력하기 위해서 for문을 두번?돌리는게 나을것같음 
-			// 		그리고 나서 안에서 해당 회차에 해당하는 걸 출력~ 
-			for(LTS1Lotto lt:winList) {
-				
-				
-				if(lt.ltrank == 1) { // 1등 조회
-					
-				} else if (lt.ltrank == 2) { // 2등 조회
-					
-				}
-				
-				
-				if(lt.lttaxis.contains(word)) { // 해당 회차에 해당되는 판매점리스트 가져오는것
-					System.out.println(" 회차 : " + lt.lttaxis);
-					
-				}
-			}
-			
-			
-			
-			
-			
-			
-		} else if(part == 2) {
-			// 단어/지역 검색이라서 소재지검색을 미리하고서 해당 데이터가 있으면 해당 내용이 있으면 storeList에서 출력하기 
-			
-		} 
-		
-		
-		for(LTS1Store st:storeList) {
-			
-		}
-		
-		
-		
-		for(LTS1Lotto lt:winList) {
-			
-		}
-		
-		
-		return "조회완료";
-	}
-	
-	
 	// 당첨판매점의 회차검색
 	public String winTaxis(String inTaxis) {
 		System.out.println(" [Service] 당첨판매점리스트 회차검색 ");
 		winList = dao.winList();
 		
-		System.out.println("회차 : " + inTaxis);
-		// 
-		System.out.println("1등 판매점입니다 --");
+		// 번호관리
+		int idx = 1; // 출력시 인덱스번호 
+		
+		System.out.println("# 회차 필터 : " + inTaxis + "#");
+		System.out.println("# 1등 판매점 #");
 		for(LTS1Lotto lt:winList) {
 			if(lt.ltrank == 1) {
 				if(lt.lttaxis.equals(inTaxis)) {
-					System.out.println("1등의 당첨판매점");
-					lt.showInfo();
+					lt.showInfo(idx++);
 				}
-				
-			}
-			
+			} 
 		}
 		
+		if(idx == 1) {
+			System.out.println(" - 해당 판매점이 없습니다 - ");
+		}
 		
+		idx = 1;
+		System.out.println("\n# 2등 판매점 #");
+		for(LTS1Lotto lt:winList) {
+			if(lt.ltrank == 2) {
+				if(lt.getLttaxis().equals(inTaxis)) {
+					lt.showInfo(idx++);
+				}
+			} 
+		}
+		
+		if(idx == 1) {
+			System.out.println(" - 해당 판매점이 없습니다 - ");
+		}
 		
 		return "검색완료";
 	}
@@ -163,10 +122,36 @@ public class LTS1Service {
 		System.out.println(" [Service] 당첨판매점리스트 단어검색 ");
 		winList = dao.winList();
 		
+		int idx = 1;
 		
+		System.out.println("# 검색 필터 : " + inWord + "#");
+		System.out.println("# 1등 판매점 #");
 		for(LTS1Lotto lt:winList) {
-			
+			if(lt.getLtName().contains(inWord) || lt.getLtAd().contains(inWord)) {
+				if(lt.getLtrank() == 1) { // 1등 판매점 조회
+					lt.showInfo(idx++);
+				}
+			}
 		}
+		
+		if(idx == 1) {
+			System.out.println(" - 해당 판매점이 없습니다 - ");
+		}
+		
+		idx = 1;
+		for(LTS1Lotto lt:winList) {
+			if(lt.getLtName().contains(inWord) || lt.getLtAd().contains(inWord)) {
+				if(lt.getLtrank() == 2) { // 1등 판매점 조회
+					lt.showInfo(idx++);
+				}
+			}
+		}
+		
+		
+		if(idx == 1) {
+			System.out.println(" - 해당 판매점이 없습니다 - ");
+		}
+		
 		
 		return "검색완료";
 	}

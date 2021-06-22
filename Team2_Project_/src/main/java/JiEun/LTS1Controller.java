@@ -23,12 +23,6 @@ public class LTS1Controller {
 		return " [Controller] 검색완료";
 	}
 	
-	public String winStore(int part, String word, LTS1Model m) {
-		System.out.println("\n [Controller] 당첨판매점 조회");
-		m.addAttribute("당첨판매점 조회", service.winStore(part, word));
-		return " [Controller] 조회완료";
-	}
-	
 	// 당첨판매점의 회차검색
 	public String winTaxis(String word, LTS1Model m) {
 		System.out.println("\n [Controller] 당첨판매점 조회");
