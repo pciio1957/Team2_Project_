@@ -11,7 +11,7 @@ public class LTE_CONTROLLER {
 		System.out.println("이벤트 기간:"+p.getEvdate());
 		System.out.println("당첨자 발표:"+p.getAnnodate());
 		System.out.println("이벤트 설명"+p.getExplan());
-		d.addAttribute("eventlist",LTE_SERVICE.class );
+		d.addAttribute("eventlist", service);
 		return "경로/@@@.jsp";
 }
 }

@@ -8,25 +8,21 @@ public class LTE_SERVICE {
 
 	Scanner sc = new Scanner(System.in);
 	LTE_DAO dao = new LTE_DAO();
+	LTE_CONTROLLER ob = new LTE_CONTROLLER();
 
 	public void ltevent() {
 		System.out.println("               이벤트 작성하기");
 		System.out.println("-------------------------------------");
 		LTE_DTO dto = new LTE_DTO();
 		LTE_CONTROLLER co = new LTE_CONTROLLER();
-
 		System.out.println("이벤트 제목:");
 		dto.setEvname(sc.next());
-
 		System.out.println("이벤트 기간:");
 		dto.setEvdate(sc.next());
-
 		System.out.println("당첨자 발표:");
 		dto.setAnnodate(sc.next());
-
 		System.out.println("이벤트 설명:");
 		dto.setExplan(sc.next());
-
 	}
 	/*
 	 * public ArrayList<LTE_DTO> dtoList(LTE_DTO dto){

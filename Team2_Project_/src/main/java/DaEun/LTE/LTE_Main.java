@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class LTE_Main {
 
-	public static void main(String[] args, LTE_SERVICE LTE_SERVICE) {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		LTE_SERVICE lts;
-		LTE_SERVICE = lts = new LTE_SERVICE();
-		
+		LTE_CONTROLLER ob = new LTE_CONTROLLER();
+		System.out.println("동행복권 - 이벤트");
+		System.out.println(ob);
 		
 
 	}
