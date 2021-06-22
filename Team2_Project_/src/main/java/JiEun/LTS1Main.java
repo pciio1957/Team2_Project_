@@ -8,68 +8,86 @@ public class LTS1Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		// DB - Store(가게테이블), Lotto(로또당첨판매점테이블)
 		
 		while(true) {
 			System.out.println("# 판매점 #");
 			String ser = indexSearch(); // 검색방법 입력받기
 			
 			if(ser.equals("1")) {
-				controller.storeList(new LTS1Model());
+				// 1. 전체리스트 불러오기 - 조회용 
+				controller.storeList(1, new LTS1Model());
+				
 			} else if (ser.equals("2")) {
-				;
+				
+				// 2. 단어검색 - 단어필터, 상호명/지역명이 포함되는 판매점 출력
+				System.out.println("# 판매점 단어검색 #");
+				String inName = inputStr(" 검색할 상호명이나 지역 입력 : ");
+				System.out.println();
+				controller.wordSearch(inName, new LTS1Model());
+				
 			} else if (ser.equals("3")) {
 				
-				// 일부 검색으로 입력받아야 해서 새로운 메소드 생성 
-				String part = inputStr(" 검색할 상호명이나 지역 입력 : ");
-				System.out.println();
-				controller.wordSerch(part, new LTS1Model());
+				// 3. 지역검색 - 지역필터, 시/도나 구/군의 검색시 포함되는 판매점 출력
+				System.out.println("# 판매점 지역검색 #");
+				System.out.println(" 지역 리스트 ");
+				controller.storeList(2, new LTS1Model());
+				
+				// 리스트 출력 후 그 리스트에서 지역 선택
+				String inarea = inputStr("검색할 지역 입력 : "); 
+				controller.areaSearch(inarea, new LTS1Model());
+				
 
 			} else if (ser.equals("4")) {
-				controller.storeList(new LTS1Model());
+				
+				// 4. 당첨 판매점 조회 - 회차필터, 회차검색시 해당 회차에 맞는 당첨 판매점 출력 
+				System.out.println("# 당첨판매점 회차검색 #");
+				String inTaxis = inputStr(" 당첨회차 입력 : ");
+
+				controller.winTaxis(inTaxis, new LTS1Model());
+				
+				
 			} else if (ser.equals("5")) {
+				
+				// 5. 당첨 판매점 조회 - 단어필터, 단어검색시 상호명/지역명이 포함되는 당첨 판매점 출력
+				System.out.println("# 당첨판매점 단어검색 #");
+				String inWord = inputStr(" 단어 입력 : ");
+
+				controller.winWord(inWord, new LTS1Model()); 
+				
+				
+			} else if (ser.equals("6")) {
+
+				// 종료 
 				System.out.println("종료를 선택하셨습니다");
 				System.out.println("종료됩니다 .......   ");
 				break;
+				
+			} else {
+				
+				System.out.println(" - 입력범위는 1~6입니다 - ");
+				System.out.println(" - 다시 입력해주세요 - ");
+
 			}
 		}
-
-		
-
-		
-		
-		/*
-		
-		1. 인덱스로 검색 방법 선택 
-		지역선택(콤보상자), 단어검색(입력), 행정구역선택(버튼)
-		지역선택은 일단 놔두고 단어검색/행정구역 선택 
-		
-		2. 테이블 구조
-		Store - 판매점
-		storeName : 상호명
-		storeAd : 소재지
-		storeHp : 전화번호
-		storeTrade : 취급복권
-		
-		Win - 당첨
-		Store랑 관계있.. 
-		winName : 당첨 상호명
-		winTrade : 당첨 복권
-		winGrade : 당첨 등수 
-		winSub : 구분(자동/수동)
-		
-		3. 위치(지도) 어떻게 표현할 것인지?
-		
-		
-		
-		
-		*/	
 	}
 	
 	// 검색방법 선택
 	public static String indexSearch() {
-		System.out.println("# 검색방법을 선택하세요 (숫자로만 입력가능합니다) #");
-		System.out.println(" [1] 전체조회 [2] 지역선택 [3] 단어검색 [4] 행정구역선택 [5] 종료");
-		String inString = inputStr(" 입력 : ");
+		System.out.println(" (검색방법은 숫자로만 입력가능합니다) \n");
+	
+		System.out.println(" * 판매점 조회------- ");
+		System.out.println(" [1] 판매점 - 전체조회 ");
+		System.out.println(" [2] 판매점 - 단어검색 ");
+		System.out.println(" [3] 판매점 - 지역검색 \n");
+		
+		System.out.println(" * 당첨판매점 조회------- ");
+		System.out.println(" [4] 당첨판매점 - 회차검색 ");
+		System.out.println(" [5] 당첨판매점 - 단어검색 ");
+		System.out.println(" [6] 종료\n");
+		
+		
+		String inString = inputStr(" -> 입력 : ");
 		System.out.println();
 		return inString;
 	}
