@@ -66,7 +66,7 @@ public class LT2Main {
 		
 		System.out.println("# CATCH ME : 같은 금액을 가진 도둑 3명을 찾아라! # \n");
 		
-		// 당첨번호 생성
+//		// 당첨번호 생성
 		for(i=0; i<7; i++) {
 			lotto[i] = (int)(Math.random()*50 + 1);
 		}
