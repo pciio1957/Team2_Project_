@@ -9,10 +9,10 @@ public class LTM1Main {
 		int ch;
 		while (true) {
 			do {
-				System.out.print("1.입력  2.회원정보수정  3.탈퇴  5.종료");
+				System.out.print("1.입력  2.회원정보수정  3.탈퇴  4.종료");
 				System.out.print("\n-------------------------------------\n▶");
 				ch = sc.nextInt();
-			} while (ch < 1 || ch > 6);
+			} while (ch < 1 || ch > 4);
 			System.out.println();
 			switch (ch) {
 			case 1:
@@ -27,16 +27,15 @@ public class LTM1Main {
 				System.out.println();
 				break;
 
-		/*	case 3:
+			case 3:
 
 				ob.delete();
 
 				System.out.println();
-				break; */
+				break; 
 
-
-			case 5:
-
+			case 4:
+				DBConn.close();
 				System.exit(0);
 
 			}

@@ -103,6 +103,11 @@ public class LTM1Service {
 			System.out.println(e.toString());
 		}
 	}
+
+	public void delete() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
