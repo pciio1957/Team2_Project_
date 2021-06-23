@@ -51,7 +51,7 @@ public class LTS1Service {
 		System.out.println("\n# 검색리스트 #");
 		System.out.println("# 단어 필터 : " + word + " #");
 		for(LTS1Store s:storeList) {
-			// 사용자가 입력한 단어가 상호명이나 소재지에 포함되어있으면 정보출력
+			// 단어검색 - 사용자가 입력한 단어가 상호명이나 소재지에 포함되어있으면 정보출력
 			if(s.stName.contains(word) || s.stAd.contains(word)) {
 				s.showInfo(num++);
 			} 

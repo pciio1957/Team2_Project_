@@ -7,13 +7,9 @@ public class LTS1Lotto {
 	public String ltName;        // 상호명
 	public String ltAd;          // 소재지
 
-	// 회차, 등수, 구매구분, 판매점명, 소재지
-	public LTS1Lotto() {
-		super();
-	}
-
 	// 생성자
-	public LTS1Lotto(String lttaxis, int ltrank, String ltdrawMethod, String ltName) {
+	public LTS1Lotto(String lttaxis, int ltrank, 
+			String ltdrawMethod, String ltName) {
 		super();
 		this.lttaxis = lttaxis;
 		this.ltrank = ltrank;

@@ -20,8 +20,14 @@ class LO1_Controller { //loto
 	private LO1_Service service = new LO1_Service();
 	
 	public String lotoSearch(SearchNumber s,LO1_Model d) { //[화면에 넘겨줄] [모델데이터]를 [마지막 매개변수]로 반드시 선언
-		System.out.println("#컨트롤에서 받은 데이터#");
-		System.out.println(s.getNum01());
+		System.out.print("#컨트롤에서 받은 데이터#");
+		System.out.print(s.getNum01());
+		System.out.print(s.getNum02());
+		System.out.print(s.getNum03());
+		System.out.print(s.getNum04());
+		System.out.print(s.getNum05());
+		System.out.println(s.getNum06());
+	
 		
 		
 		//view 단에서 넘겨줄 데이터 key, object 
