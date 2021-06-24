@@ -1,5 +1,7 @@
 package DaEun.LTM;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 public class LTM1Service {
@@ -81,34 +83,47 @@ public class LTM1Service {
 		try {
 
 			LTM1Dto dto = new LTM1Dto();
-			
+
 			System.out.print("비밀번호:");
-			dto.setPass(sc.next());	
+			dto.setPass(sc.next());
 			System.out.println("생일:");
 			dto.setBrith(sc.next());
 			System.out.print("전화번호[xxx-xxxx-xxxx]:");
 			dto.setTel(sc.next());
 			System.out.print("이메일[xxxxx@daum.net]:");
-			dto.setEmail(sc.next());		
+			dto.setEmail(sc.next());
 			System.out.println("주소:");
 			dto.setLoc(sc.next());
 			int result = dao.updateData(dto);
-			if (result != 0) 
+			if (result != 0)
 				System.out.println("회원정보가 수정되었습니다");
 
-			else 
+			else
 				System.out.println("회원정보수정에 실패했습니다");
 
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
+
+	}
+// 3. 탈퇴
+	public void delete() {
+		try {
+			String id, pw;
+			System.out.print("탈퇴 할 아이디:");
+			id = sc.next();
+			System.out.print("비밀번호 확인:");
+			pw = sc.next();
+			int result = dao.deleteDate(id, pw);
+			if (result != 0)
+				System.out.println("성공적으로 탈퇴하였습니다.\n다음에 다시 가입해주세요! ;)");
+			else
+				System.out.println("탈퇴에 실패했습니다.\n영원히 회원으로 남아주세요:)");
+		} catch (Exception e) {
+			System.out.println(e.toString());
+
+		}
+
 	}
 
-	public void delete() {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-	
 }

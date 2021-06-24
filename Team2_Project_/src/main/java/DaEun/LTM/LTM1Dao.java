@@ -32,17 +32,17 @@ public class LTM1Dao {
 	// update
 	public int updateData(LTM1Dto dto) {
 		int result = 0;
-		
+
 		Connection conn = DBConn.getConnection();
 		PreparedStatement pstmt = null;
 		String sql;
-		
+
 		try {
 
 			sql = "update naverMember set pass=?, email=?, tel=? ";
 
-			sql+= "where id=?";
-		
+			sql += "where id=?";
+
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getPass());
 			pstmt.setString(2, dto.getEmail());
@@ -51,7 +51,31 @@ public class LTM1Dao {
 			pstmt.close();
 		} catch (Exception e) {
 			System.out.println(e.toString());
-		}		
+		}
+		return result;
+
+	}
+// 3. 삭제
+	public int deleteDate(String id, String pw) {
+
+		int result = 0;
+
+		Connection conn = DBConn.getConnection();
+		PreparedStatement pstmt = null;
+		String sql;
+
+		try {
+
+			sql = "delete naverMember where id=? and pw=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			result = pstmt.executeUpdate();
+			pstmt.close();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+
 		return result;
 
 	}

@@ -15,3 +15,7 @@ INSERT INTO LTM2(id, pass, birth, tel,email, loc) VALUES('mingo55','5858sws','20
 INSERT INTO LTM2(id, pass, birth, tel,email, loc) VALUES('keki48','440toto','19881030','010-9835-3355','mn56@naver.com','대전시');
 SELECT id,pass,birth, tel, email,loc
 FROM LTM2;
+
+SELECT *  FROM scott.LTM2 WHERE USER_ID='scott';
+
+select * from all_tables where table_name = 'LTM2'

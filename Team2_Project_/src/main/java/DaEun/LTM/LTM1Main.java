@@ -21,16 +21,12 @@ public class LTM1Main {
 				break;
 		
 			case 2:
-
 				ob.update();
-
 				System.out.println();
 				break;
 
 			case 3:
-
 				ob.delete();
-
 				System.out.println();
 				break; 
 
