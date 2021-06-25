@@ -1,4 +1,4 @@
-package SungKeun.JSTUDY.WEEKLYQUIZ;
+package SungKeun.JSTUDY.JSQ_WEEKLYQUIZ;
 
 import SungKeun.JSTUDY.Model;
 

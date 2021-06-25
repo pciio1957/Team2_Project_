@@ -1,4 +1,4 @@
-package SungKeun.JSTUDY.COMMUNITY;
+package SungKeun.JSTUDY.JSC_COMMUNITY;
 
 import SungKeun.JSTUDY.Model;
 
