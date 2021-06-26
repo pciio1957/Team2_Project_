@@ -11,8 +11,8 @@ public class test_date {
 		// TODO Auto-generated method stub
 		
 		// 프로그램을 구동 시간 기준 출력 (ex_영수증 출력 시 사용)
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Calendar cal = Calendar.getInstance();
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		System.out.println("프로그램 구동 시간 기준 : " + dateFormat.format(cal.getTime()));
 		
 		// 현재 시스템 시간 구하기

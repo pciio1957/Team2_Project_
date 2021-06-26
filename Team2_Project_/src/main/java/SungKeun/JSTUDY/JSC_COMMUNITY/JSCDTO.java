@@ -1,18 +1,18 @@
 package SungKeun.JSTUDY.JSC_COMMUNITY;
 
 public class JSCDTO {
-	private int writeNum; // 게시물 번호
+	private int writeNum = 0; // 게시물 번호
 	private String headLine; // 제목
 	private String writer; // 작성자
-	private int writeDate; // 작성일
+	private String writeDate; // 작성일 (DB)
 	private String write; // 작성 내용
 	
 	public JSCDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	public JSCDTO(int writeNum, String headLine, String writer, int writeDate, String write) {
+
+	public JSCDTO(int writeNum, String headLine, String writer, String writeDate, String write) {
 		super();
 		this.writeNum = writeNum;
 		this.headLine = headLine;
@@ -45,11 +45,11 @@ public class JSCDTO {
 		this.writer = writer;
 	}
 
-	public int getWriteDate() {
+	public String getWriteDate() {
 		return writeDate;
 	}
 
-	public void setWriteDate(int writeDate) {
+	public void setWriteDate(String writeDate) {
 		this.writeDate = writeDate;
 	}
 
