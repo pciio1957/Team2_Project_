@@ -18,7 +18,7 @@ public class JSQController {
 		System.out.println("퀴즈 문제 정답 : " + jcq1.getAnswer());
 		System.out.println("퀴즈 문제 초기화 일시 : " + jcq1.getWeekly());
 		
-		d.addAttribute("jsqlist", jsqservice.JSQList(jcq1));
+		d.addAttribute("jswqlist", jsqservice.JSQList(jcq1));
 		return "JSTUDY WEEKLY QUIZ 정보.jsp";
 	}
 }
