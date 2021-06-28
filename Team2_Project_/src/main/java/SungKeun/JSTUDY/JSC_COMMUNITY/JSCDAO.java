@@ -37,7 +37,6 @@ public class JSCDAO {
 		ArrayList<JSCDTO> jscflist = new ArrayList<JSCDTO>();
 				
 		jscflist.add(new JSCDTO(jcof1.getWriteNum(), jcof1.getHeadLine(), jcof1.getWriter(), jcof1.getWriteDate(), jcof1.getWrite()));
-		
 	    // 전체 게시물 입력 데이터를 확인하기 위한 메소드
 		System.out.println("===============================================\n");
 		System.out.println("# DB 서버에 넘겨 줄 자유 게시판 게시물 정보 데이터 #\n");
@@ -56,7 +55,6 @@ public class JSCDAO {
 		jscflist.add(new JSCDTO(2, "오 드디어 오픈이네요!", "강남살아요","2021/06/25 20:18:02", "배우러 왔습니다!"));
 		jscflist.add(new JSCDTO(1, "안녕하세요!", "홍길동","2021/06/25 17:11:53", "잘 부탁드려요~"));
 		System.out.println("===============================================\n");
-		
 		return jscflist;
 	}
 	

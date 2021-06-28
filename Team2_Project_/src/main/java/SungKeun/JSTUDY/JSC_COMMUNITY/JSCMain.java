@@ -62,10 +62,11 @@ public class JSCMain {
         		int freewriteNum = 6; // 자유 게시판 게시물 번호
         		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
         		// 자유 게시판
-        		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write); // 해당 클래스에서 입력한 변수를 저장
+        		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine,
+        				writer, dateFormat.format(cal.getTime()), write); // 해당 클래스에서 입력한 변수를 저장
         		ArrayList<JSCDTO> jscflist  = new ArrayList<JSCDTO>();
-        		jscflist.add(new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write));
-//        		jscflist.add(new JSCDTO(jcof1.getWriteNum(), jcof1.getHeadLine(), jcof1.getWriter(), jcof1.getWriteDate(), jcof1.getWrite()));
+        		jscflist.add(new JSCDTO(freewriteNum++, headLine,
+        				writer, dateFormat.format(cal.getTime()), write));
         		// Controller만 호출.
         		JSCController jscfctrl = new JSCController();
         		System.out.println("\n# 호출된 화면 #\n");
