@@ -62,9 +62,10 @@ public class JSCMain {
         		int freewriteNum = 6; // 자유 게시판 게시물 번호
         		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
         		// 자유 게시판
-        		JSCDTO jcof1 = new JSCDTO();
+        		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write); // 해당 클래스에서 입력한 변수를 저장
         		ArrayList<JSCDTO> jscflist  = new ArrayList<JSCDTO>();
-        		jscflist.add(new JSCDTO(jcof1.getWriteNum(), jcof1.getHeadLine(), jcof1.getWriter(), jcof1.getWriteDate(), jcof1.getWrite()));
+        		jscflist.add(new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write));
+//        		jscflist.add(new JSCDTO(jcof1.getWriteNum(), jcof1.getHeadLine(), jcof1.getWriter(), jcof1.getWriteDate(), jcof1.getWrite()));
         		// Controller만 호출.
         		JSCController jscfctrl = new JSCController();
         		System.out.println("\n# 호출된 화면 #\n");
@@ -106,12 +107,12 @@ public class JSCMain {
         		write = sc.nextLine();
         		System.out.println(" * 해당 게시물이 등록되었습니다! * \n");
         		System.out.println("# JSTUDY 커뮤니티 [스터디] -> 게시물 등록 완료!");
-        		int studywriteNum = 3; // 스터디 게시물 번호
+        		int studywriteNum = 4; // 스터디 게시물 번호
         		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
         		// 스터디
-        		JSCDTO jcos1 = new JSCDTO();
+        		JSCDTO jcos1 = new JSCDTO(studywriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
         		ArrayList<JSCDTO> jscslist  = new ArrayList<JSCDTO>();
-        		jscslist.add(new JSCDTO(jcos1.getWriteNum(), jcos1.getHeadLine(), jcos1.getWriter(), jcos1.getWriteDate(), jcos1.getWrite()));
+//        		jscslist.add(new JSCDTO(jcos1.getWriteNum(), jcos1.getHeadLine(), jcos1.getWriter(), jcos1.getWriteDate(), jcos1.getWrite()));
         		// Controller만 호출.
         		JSCController jscsctrl = new JSCController();
         		System.out.println("\n# 호출된 화면 #\n");
@@ -153,15 +154,15 @@ public class JSCMain {
         		write = sc.nextLine();
         		System.out.println(" * 해당 게시물이 등록되었습니다! * \n");
         		System.out.println("# JSTUDY 커뮤니티 [질문 답변] -> 게시물 등록 완료!");
-        		int qnawriteNum = 3; // 질문 답변 게시물 번호
+        		int qnawriteNum = 4; // 질문 답변 게시물 번호
         		System.out.println(" | No." + qnawriteNum + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
         		// 질문 답변
 
         		// Controller만 호출.
         		JSCController jscqctrl = new JSCController();
         		System.out.println("\n# 호출된 화면 #\n");
-        		JSCDTO jcoq1 = new JSCDTO();
-        		jscqlist.add(new JSCDTO(jcoq1.getWriteNum(), jcoq1.getHeadLine(), jcoq1.getWriter(), jcoq1.getWriteDate(), jcoq1.getWrite()));
+        		JSCDTO jcoq1 = new JSCDTO(qnawriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+//        		jscqlist.add(new JSCDTO(jcoq1.getWriteNum(), jcoq1.getHeadLine(), jcoq1.getWriter(), jcoq1.getWriteDate(), jcoq1.getWrite()));
         		System.out.println(jscqctrl.JSCQList2(jcoq1, new Model()));
         	} else if(qnaMenu.equals("0")) {
             	System.out.println("\n커뮤니티 메인으로 이동합니다.");
