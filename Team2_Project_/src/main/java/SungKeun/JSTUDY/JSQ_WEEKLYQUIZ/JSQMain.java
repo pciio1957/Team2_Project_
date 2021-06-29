@@ -10,7 +10,7 @@ public class JSQMain {
 
 	public static void main(String[] args) {
 		
-		ArrayList<JSQDTO> jswqlist = new ArrayList<JSQDTO>();
+		ArrayList<JSQDTO> jsqlist = new ArrayList<JSQDTO>();
 		
 		JSQMain qin = new JSQMain();
 //		qin.main(args); // 처음으로 이동
@@ -63,20 +63,19 @@ public class JSQMain {
                 		
                 		// 종합 10문제
                 		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 퀴즈 정보 ## \n");
-//                		System.out.println("| No. | " + questNum + " | 문제 | " + jswqlist.get(questNum) + " | 정답 | " + jswqlist.get(2));
-            			
-                		jswqlist.add(new JSQDTO(questNum, quest, answer));
-                		for(JSQDTO q:jswqlist) {
+                		
+                		jsqlist.add(new JSQDTO(questNum, quest, answer));
+                		for(JSQDTO q:jsqlist) {
             				System.out.print("| No. | " + q.getQuestNum() + "\t");
             				System.out.print(" | 문제 | " + q.getQuest() + "\t");
             				System.out.print(" | 정답 | " + q.getAnswer() + "\n");
             			}
                 		
-                		JSQDTO jcwq1 = new JSQDTO(questNum, quest, answer);
+                		JSQDTO jcq1 = new JSQDTO(questNum, quest, answer);
                 		// Controller만 호출.
                 		JSQController jsqctrl = new JSQController();
                 		System.out.println("\n# 호출된 화면 #\n");
-                		System.out.println(jsqctrl.JSQList2(jcwq1, new Model()));
+                		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
         			}
         		} 		
         	} else {
@@ -102,17 +101,17 @@ public class JSQMain {
         	qin.main(args);
         }
 		
-//		JSQDTO jcwq1 = new JSQDTO();
+//		JSQDTO jcq1 = new JSQDTO();
 //		// Controller만 호출.
 //		JSQController jsqctrl = new JSQController();
 //		System.out.println("\n# 호출된 화면 #\n");
-//		System.out.println(jsqctrl.JSQList2(jcwq1, new Model()));
+//		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
         
-//		JSQUDTO jcuwq1 = new JSQUDTO();
+//		JSQUDTO jcqu1 = new JSQUDTO();
 //		// Controller만 호출.
 //		JSQUController jsquctrl = new JSQUController();
 //		System.out.println("\n# 호출된 화면 #\n");
-//		System.out.println(jsquctrl.JSQUList2(jcuwq1, new Model()));
+//		System.out.println(jsquctrl.JSQUList2(jcqu1, new Model()));
 	}
 
 }

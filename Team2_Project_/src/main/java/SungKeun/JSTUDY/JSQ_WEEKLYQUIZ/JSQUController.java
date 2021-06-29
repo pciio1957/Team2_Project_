@@ -17,7 +17,8 @@ public class JSQUController {
 		System.out.println("퀴즈 유저 정답 : " + jcqu1.getUsrAns());
 		System.out.println("퀴즈 문제 정답 : " + jcqu1.getAnswer());
 	
-		d.addAttribute("jsuwqlist", jsquservice.JSQUList(jcqu1));
+		d.addAttribute("jsqulist", jsquservice.JSQUList(jcqu1));
+		
 		return "JSTUDY QUIZ 유저 정보.jsp";
 	}
 }

@@ -16,7 +16,8 @@ public class JSQController {
 		System.out.println("퀴즈 문제 : " + jcq1.getQuest());
 		System.out.println("퀴즈 문제 정답 : " + jcq1.getAnswer());
 		
-		d.addAttribute("jswqlist", jsqservice.JSQList(jcq1));
+		d.addAttribute("jsqlist", jsqservice.JSQList(jcq1));
+		
 		return "JSTUDY QUIZ 정보.jsp";
 	}
 }
