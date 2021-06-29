@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class test_date {
+public class receipt {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
