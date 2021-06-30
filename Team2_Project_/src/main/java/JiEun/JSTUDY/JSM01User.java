@@ -14,7 +14,6 @@ public class JSM01User {
 		super();
 		this.userEmail = userEmail;
 	} 
-	
 
 	public JSM01User(String userID, String userPW) {
 		super();

@@ -18,3 +18,6 @@ public class JSM01Model {
 		modelValue = value.toString();
 	}
 }
+
+
+

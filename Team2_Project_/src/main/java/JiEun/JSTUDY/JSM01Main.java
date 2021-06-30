@@ -11,9 +11,7 @@ public class JSM01Main {
 		JSM01Controller controller = new JSM01Controller();
 		String menuSelect = "";
 		
-		
 
-		
 		while(true) {
 			
 			System.out.println("\n *** JSTUDY 사용자 기능입니다 ***");

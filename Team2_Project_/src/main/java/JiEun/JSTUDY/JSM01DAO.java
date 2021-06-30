@@ -8,7 +8,6 @@ public class JSM01DAO {
 	public JSM01DAO() {
 		super();
 		
-		
 		userList.add(new JSM01User("himan", "7777", "himan@naver.com", "1999.09.09"));
 		userList.add(new JSM01User("goodgirl", "1234", "good1@naver.com", "2000.04.20"));
 		userList.add(new JSM01User("hismile", "as123", "smile@naver.com", "2021.06.28"));

@@ -10,7 +10,7 @@ public class JSM01Service {
 	ArrayList<JSM01User> userList;
 
 	
-	// 리스트 조회?
+	// 리스트 조회
 	public String UserSelect() {
 		System.out.println(" [Service] 회원리스트 호출");
 		

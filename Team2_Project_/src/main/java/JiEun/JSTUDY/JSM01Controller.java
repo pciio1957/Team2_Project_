@@ -10,6 +10,7 @@ public class JSM01Controller {
 		return "조회 완료";
 	}
 
+	
 	// 로그인
 	public String UserLogin(JSM01User user, JSM01Model m) {
 		System.out.println("\n [Controller] 로그인");
