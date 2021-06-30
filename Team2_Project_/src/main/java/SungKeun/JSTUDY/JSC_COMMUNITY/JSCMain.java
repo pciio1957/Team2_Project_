@@ -23,7 +23,7 @@ public class JSCMain {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); // 작성일
 //		System.out.println("프로그램 구동 시간 : " + dateFormat.format(cal.getTime()));
 		
-		// JSTUDY 커뮤니티 - 메인 메뉴
+		// JSTUDY 커뮤니티 - 메인 메뉴!
 		System.out.println("\n===============================================");
         System.out.println("\n## JSTUDY 커뮤니티 ## \n");
         String mainMenu; // 커뮤니티 - 메인 메뉴 선택
