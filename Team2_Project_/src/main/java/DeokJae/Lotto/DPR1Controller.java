@@ -1,4 +1,4 @@
-package DeokJae;
+package DeokJae.Lotto;
 
 
 public class DPR1Controller {
