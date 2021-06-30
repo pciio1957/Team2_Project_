@@ -1,4 +1,4 @@
-package JiEun;
+package JiEun.LOTTO;
 
 public class LTS1Lotto {
 	public String lttaxis;       // 회차 
