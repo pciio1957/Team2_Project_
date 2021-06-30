@@ -1,4 +1,4 @@
-package JiEun;
+package JiEun.LOTTO;
 
 public class LTS1Controller {
 	LTS1Service service = new LTS1Service();

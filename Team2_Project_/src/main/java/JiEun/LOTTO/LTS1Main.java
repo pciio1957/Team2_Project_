@@ -1,4 +1,4 @@
-package JiEun;
+package JiEun.LOTTO;
 
 import java.util.Scanner;
 
