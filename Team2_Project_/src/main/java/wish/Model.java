@@ -1,5 +1,5 @@
 package wish;
-
+//
 public class Model {
 	
 	public void addAttribute(String key, Object ob) {

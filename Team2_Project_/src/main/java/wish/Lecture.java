@@ -1,5 +1,5 @@
 package wish;
-
+//
 public class Lecture {
 
 	String img; //1. 강의사진 

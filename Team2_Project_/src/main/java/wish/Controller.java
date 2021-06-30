@@ -1,6 +1,5 @@
 package wish;
 
-import PG5.Wishlist2;
 
 public class Controller {
 	private Service ser = new Service ();

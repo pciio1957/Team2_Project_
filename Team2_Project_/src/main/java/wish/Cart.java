@@ -1,6 +1,6 @@
 package wish;
 
-public class Cart {
+public class Cart {//
 	
 	String img; //1. 강의사진 
 	String title; // 2. 강의명 
