@@ -9,7 +9,7 @@ public class Cart_Dao {
 		
 			//1. 위시리스트 조회 (전체상품내역조회)
 			public ArrayList<Lecture> wishlistcome(){
-			// DB에 저장되있는 데이터
+			// DB에 저장되있는 데이터..
 			list.add(new Lecture("img", "react로 시작하는 sns만들기", 50000, 500,"01AA",1));
 			list.add(new Lecture("img", "Spring으로 시작하는 sns만들기", 50000, 500,"01BB",1));
 			list.add(new Lecture("img", "파이썬로 시작하는 sns만들기", 50000, 500,"01CC",1));
