@@ -1,4 +1,4 @@
-package SungKeun.JSTUDY.JSQ_WEEKLYQUIZ;
+package SungKeun.JSTUDY.JSQ_QUIZ;
 
 public class JSQUDTO {
 	private int questNum; // 문제 번호

@@ -1,4 +1,4 @@
-package SungKeun.JSTUDY.JSQ_WEEKLYQUIZ;
+package SungKeun.JSTUDY.JSQ_QUIZ;
 
 import java.util.ArrayList;
 
