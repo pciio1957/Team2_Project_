@@ -1,4 +1,4 @@
-package DeokJae;
+package DeokJae.Lotto;
 
 import java.util.ArrayList;
 
