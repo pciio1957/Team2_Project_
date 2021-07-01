@@ -15,7 +15,7 @@ public class JSQService {
 		System.out.println("JSQDAO에 전송 할 퀴즈 문제 번호 데이터 1 : " + jcq1.getQuestNum() + "\n");
 		System.out.println("JSQDAO에 전송 할 퀴즈 문제 데이터 2 : " + jcq1.getQuest() + "\n");
 		System.out.println("JSQDAO에 전송 할 문제 정답 데이터 3 : " + jcq1.getAnswer() + "\n");
-//		System.out.println("JSQDAO에서 받을 퀴즈 정보 입력 데이터 크기 : " + jsqdao.JSQList(jcoq1).size() + "\n");
+		System.out.println("JSQDAO에서 받을 퀴즈 정보 입력 데이터 크기 : " + jsqdao.JSQList(jcq1).size() + "\n");
 		return jsqdao.JSQList(jcq1);
 	}
 }
