@@ -10,11 +10,11 @@ public class JSM01Service {
 	ArrayList<JSM01User> userList;
 
 	
-	// 리스트 조회
-	public String UserSelect() {
+	// 전체 리스트 조회 (회원 확인용, 리스트 호출용)
+	public String userSelect() {
 		System.out.println(" [Service] 회원리스트 호출");
 		
-		userList = dao.UserSelect(); // 리스트를 받아옴
+		userList = dao.userSelect(); // 리스트를 받아옴
 		
 		
 		for(JSM01User u:userList) {
@@ -24,11 +24,11 @@ public class JSM01Service {
 	}
 
 	// 로그인 - 일치하는 회원정보가 있으면 로그인 성공, 없으면 로그인실패
-	public String UserLogin(JSM01User user) {
+	public String userLogin(JSM01User user) {
 		System.out.println(" [Service] 로그인 ");
 		boolean userCheck = false;
 
-		userList = dao.UserSelect(); // 리스트를 받아옴
+		userList = dao.userSelect(); // 리스트를 받아옴
 		
 		for(JSM01User u:userList) {
 			if(u.userID.equals(user.getUserID()) && 
@@ -46,7 +46,7 @@ public class JSM01Service {
 		return userCheck?"성공":"실패";
 	}
 	
-	public boolean UseIdCheck(String inID) {
+	public boolean useIdCheck(String inID) {
 		System.out.println(" [Service] 회원ID 유효성체크 ");
 		boolean returnCheck = false;
 		
@@ -64,7 +64,7 @@ public class JSM01Service {
 				returnCheck = true;
 				
 				// 입력한 아이디의 길이와 형식이 맞으면 회원리스트를 불러옴
-				userList = dao.UserSelect();
+				userList = dao.userSelect();
 				
 				for(JSM01User u:userList) {
 					if(u.userID.equals(inID)) {
@@ -91,7 +91,7 @@ public class JSM01Service {
 		return returnCheck;
 	}
 	
-	public boolean SamePwCheck(String pw, String rePw) {
+	public boolean samePwCheck(String pw, String rePw) {
 		System.out.println(" [Service] 회원PW 유효성체크 ");
 		boolean returnCheck = false;
 		
@@ -130,7 +130,7 @@ public class JSM01Service {
 		return returnCheck;
 	}
 	
-	public boolean USeEmailCheck(String inEmail) {
+	public boolean useEmailCheck(String inEmail) {
 		System.out.println(" [Service] 이메일 형식 체크 ");
 		
 		// 이메일 형식에 맞는지 확인 (ㅁㅁ@ㅁㅁ.ㅁㅁ)
@@ -148,7 +148,7 @@ public class JSM01Service {
 		return email_check;
 	}
 	
-	public boolean UseBirthCheck(String inBirth) {
+	public boolean useBirthCheck(String inBirth) {
 		System.out.println(" [Service] 생일 형식 체크 ");
 		
 		// 생일 형식에 맞는지 확인 (1~2999.00~19.00~39)  
@@ -159,28 +159,90 @@ public class JSM01Service {
 	}
 	
 	// 회원가입
-	public String UserJoin(JSM01User user) {
+	public String userJoin(JSM01User user) {
 		System.out.println(" [Service] 회원가입 ");
-		dao.UserJoin(user);
+		dao.userJoin(user);
 		
 		return "성공";
 	}
 	
 	// 아이디 찾기 - 중복되지 않는 이메일로 진행
-	public String UserIdFind(String inMail) {
+	public String userIdFind(String inMail) {
 		System.out.println(" [Service] 아이디 찾기 ");
+		boolean userCheck = false;
+		String storeId = "";
+
+		userList = dao.userSelect(); // 리스트를 받아옴
+		
+		for(JSM01User u:userList) {
+			if(u.userEmail.equals(inMail)) {
+				userCheck = true;
+				storeId = u.getUserID();				
+			}
+		}
+		
+		System.out.println("\n# 로그인 찾기 결과 #");
+		if(userCheck != false) {
+			System.out.println(" - 일치하는 이메일이 있습니다 - ");
+			System.out.println(" 회원님의 ID는 [ " + storeId + " ] 입니다");
+		} else {
+			System.out.println(" - 해당하는 정보가 없습니다 - ");
+		}
+		
 		return "";
 	}
 	
 	// 비밀번호 찾기 - 중복되지 않는 아이디와 이메일로 진행
-	public String UserPassFind(String inId, String inMail) {
+	public String userPassFind(String inId, String inMail) {
 		System.out.println(" [Service] 비밀번호 찾기");
+		boolean userCheck = false;
+		String storePw = "";
+
+		userList = dao.userSelect(); // 리스트를 받아옴
+		
+		for(JSM01User u:userList) {
+			if(u.userEmail.equals(inMail) && u.userID.equals(inId)) {
+				userCheck = true;
+				storePw = u.getUserPW();				
+			}
+		}
+		
+		System.out.println("\n# 비밀번호 찾기 결과 #");
+		if(userCheck != false) {
+			System.out.println(" - 일치하는 이메일과 아이디가 있습니다 - ");
+			System.out.println(" 회원님의 비밀번호는 [ " + storePw + " ] 입니다");
+		} else {
+			System.out.println(" - 해당하는 정보가 없습니다 - ");
+		}
+		
 		return "";
 	}
 	
+	public boolean userPwCheck(String inID, String inPw, String inRePw) {
+		System.out.println(" [Service] 개인정보 수정 전 비밀번호 확인 ");
+		boolean userCheck = false;
+		
+		// 입력한 두 비밀번호가 일치하는지 확인 후 ID, PW로 정보 확인
+		if(inPw.equals(inRePw)) {
+			
+			userList = dao.userSelect();
+			
+			for(JSM01User u:userList) {
+				if(u.userID.equals(inID) && u.userPW.equals(inPw)) {
+					userCheck = true;
+					u.showInfo();
+				}
+			}
+		}
+		
+		return userCheck;
+	}
+	
 	// 개인정보 수정 - 
-	public String userDataUpdate() {
+	public String userDataUpdate(String inPart, String inContent) {
 		System.out.println(" [Service] 개인정보 수정 ");
+		
+		// 부분 입력받고 내용 바꾸기 
 		return "";
 	}
 	
