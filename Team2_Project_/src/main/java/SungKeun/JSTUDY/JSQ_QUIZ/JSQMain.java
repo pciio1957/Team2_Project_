@@ -74,38 +74,7 @@ public class JSQMain {
         		// Controller만 호출.
         		JSQController jsqctrl = new JSQController();
         		System.out.println("\n# 호출된 화면 #\n");
-        		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
-    			
-//        		for(questNum=1; questNum<=10; questNum++) {
-//        			System.out.print("\n" + questNum + "번째 문제 : ");
-//        			quest = sc.nextLine();
-//        			System.out.print("\n -> 입력 된 [" + questNum + "] 번째 문제 : " + quest + "\n");
-//        			// 10문제 설정이 다 되었을 떄
-//        			if(questNum == 10) {
-//                		// 정답 설정
-//                		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 할 정답을 입력하세요. ## \n");
-//                		System.out.print(" -> 설정 할 정답 : ");
-//                		answer = sc.nextLine();
-//                		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 정답 정보 ## \n");
-//                		System.out.print(" -> 입력 한 정답 : " + answer + "\n");
-//                		
-//                		// 종합 = 문제 + 정답
-//                		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 퀴즈 정보 ## \n");
-//                		
-//                		jsqlist.add(new JSQDTO(questNum, quest, answer));
-//                		for(JSQDTO q:jsqlist) {
-//            				System.out.print("| No. | " + q.getQuestNum() + "\t");
-//            				System.out.print(" | 문제 | " + q.getQuest() + "\t");
-//            				System.out.print(" | 정답 | " + q.getAnswer() + "\n");
-//            			}
-//                		
-////                		JSQDTO jcq1 = new JSQDTO(questNum, quest, answer);
-////                		// Controller만 호출.
-////                		JSQController jsqctrl = new JSQController();
-////                		System.out.println("\n# 호출된 화면 #\n");
-////                		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
-//        			}
-//        		} 		
+        		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));		
         	} else {
         		// 관리자 정보가 일치하지 않을 때
         		System.out.println(" -> 관리자 정보가 일치하지 않습니다.\n");
@@ -118,9 +87,13 @@ public class JSQMain {
         	System.out.println("\n===============================================");
     		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] -> QUIZ 시작 ## \n");
     		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] 에 오신 것을 환영 합니다! ## \n");
-    		for(questNum=1; questNum<=10; questNum++) {
-    			System.out.println(" -> [" + questNum + "] 문제 : " + jsqlist.get(1));
-    		}
+    		// 문제 설정
+    		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] : 해당 문제를 보고 답을 입력하세요. ## \n");
+			System.out.print("\n 유저 답안 : ");
+			usrAns = sc.nextLine();
+			System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 유저가 입력 한 답안 정보 ## \n");
+    		System.out.print(" -> 유저 입력 답안 : " + usrAns + "\n");
+    		
     		qin.main(args);
 	
         } else if(quizMenu.equals("0")) {

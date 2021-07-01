@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
+import java.util.Vector;
+
 import SungKeun.JSTUDY.Model;
 
 public class JSCMain {
@@ -23,7 +25,7 @@ public class JSCMain {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss"); // 작성일
 //		System.out.println("프로그램 구동 시간 : " + dateFormat.format(cal.getTime()));
 		
-		// JSTUDY 커뮤니티 - 메인 메뉴!!
+		// JSTUDY 커뮤니티 - 메인 메뉴
 		System.out.println("\n===============================================");
         System.out.println("\n## JSTUDY 커뮤니티 ## \n");
         String mainMenu; // 커뮤니티 - 메인 메뉴 선택
@@ -44,9 +46,10 @@ public class JSCMain {
                 // JSTUDY 커뮤니티 - 자유 게시판 메뉴 -> 게시물 확인
             	System.out.println("\n===============================================");
         		System.out.println("## JSTUDY 커뮤니티 [자유 게시판] -> 게시물 확인 ## \n");
-        		ArrayList<JSCDTO> jscflist  = new ArrayList<JSCDTO>();
+				ArrayList<JSCDTO> jscflist = new ArrayList<JSCDTO>();
         		System.out.println("전체 게시물 정보 여부 : " + jscflist.isEmpty());
         		System.out.println("전체 게시물 정보 수량 : " + jscflist.size()); // 전체 게시물 정보 수
+        		
             } else if(freeMenu.equals("2")) {
         		// JSTUDY 커뮤니티 - 자유 게시판 메뉴 -> 게시물 글쓰기
             	System.out.println("\n===============================================");
