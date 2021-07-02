@@ -16,13 +16,13 @@ public class JSM01DAO {
 
 	// 회원리스트 보내기 
 	public ArrayList<JSM01User> userSelect() {
-		System.out.println(" [DAO] 회원리스트 호출");
+		System.out.println(" [DAO] 회원리스트 호출\n");
 		return userList;
 	}
 	
 	// 회원가입 등록
 	public void userJoin(JSM01User user) {
-		System.out.println(" [DAO] 회원가입 호출");
+		System.out.println(" [DAO] 회원가입 호출\n");
 		userList.add(user);
 		
 		System.out.println("\n# 등록 회원정보 출력 #");
@@ -30,6 +30,14 @@ public class JSM01DAO {
 		System.out.println(" PW : " + user.userPW);
 		System.out.println(" Email : " + user.userEmail);
 		System.out.println(" Birth : " +user.userBirth);
+	}
+	
+	public String userExit(int userIdx) {
+		System.out.println(" [DAO] 회원탈퇴 호출\n");
+		
+		userList.remove(userIdx);
+			
+		return "완료";
 	}
 	
 

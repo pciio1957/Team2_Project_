@@ -109,17 +109,36 @@ public class JSM01Main {
 				// 아이디와 비밀번호 확인 후 정보 출력
 				boolean pwCk = controller.userPwCheck(inId, inPw, inRePw, new JSM01Model());
 				
-				System.out.println("\n ▶ 수정할 정보 입력(비밀번호/이메일/생일) ");
-				String inPart = inputStr(" ▶ 입력 : ");
-				String inContent = inputStr(" ▶ 수정내용 : ");
+				if(pwCk) {
+					System.out.println("\n ▶ 수정할 정보 입력(비밀번호/이메일/생일) ");
+					String inPart = inputStr(" ▶ 입력 : ");
+					String inContent = inputStr(" ▶ 수정내용 : ");
+
+					JSM01User modifyUser = new JSM01User(inId, inPw);
+					controller.userDataUpdate(inPart, inContent, modifyUser, new JSM01Model());
+				}
 				
-				controller.userDataUpdate(inPart, inContent, new JSM01Model());
+				
 				
 			} else if(menuSelect.equals("5")) {
 				
 				// 회원탈퇴
-				// 아이디 입력받고 탈퇴사유 물어보고 탈퇴처리
-				// controller.userDataDrop();
+				// 아이디, 비밀번호 확인 후 탈퇴사유 작성 후 탈퇴처리 
+				// 원래 개인정보 수정창에 같이 있는데 백엔드에선 따로 구현
+				System.out.println("\n ▶ [5] 회원탈퇴 ");
+				String inId = inputStr(" ▶ 아이디 입력 : ");
+				String inPw = inputStr(" ▶ 비밀번호 입력 : ");
+				String inRePw = inputStr(" ▶ 비밀번호 확인 : ");
+				
+				// 아이디와 비밀번호 확인 후 정보 출력
+				boolean pwCk = controller.userPwCheck(inId, inPw, inRePw, new JSM01Model());
+				
+				if(pwCk) {
+					JSM01User exitUser = new JSM01User(inId, inPw);
+					String inExit = inputStr(" ▶ 탈퇴사유 입력 : ");
+					
+					controller.userDataDrop(exitUser, inExit, new JSM01Model());
+				}
 				
 			} else if(menuSelect.equals("6")) {
 				
@@ -127,11 +146,7 @@ public class JSM01Main {
 				// 회원목록확인
 				controller.userSelect();
 			}
-			
-			
-		}
-		
-		
+		}	
 	}
 	
 	public static String inputStr(String msg) {

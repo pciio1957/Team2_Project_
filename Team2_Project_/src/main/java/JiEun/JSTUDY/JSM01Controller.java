@@ -66,20 +66,24 @@ public class JSM01Controller {
 		return "완료";
 	}
 	
+	// 개인정보 수정 전 비밀번호 확인 - 아이디, 비밀번호, 확인 비밀번호 전달 
 	public boolean userPwCheck(String inId, String inPw, String inRePw, JSM01Model m) {
 		System.out.println("\n [Controller] 개인정보 수정 전 비밀번호 확인 ");
 		m.addAttribute("비밀번호 확인", service.userPwCheck(inId, inPw, inRePw));
 		return m.modelValue=="true"?true:false;
 	}
 	
-	public String userDataUpdate(String part, String content, JSM01Model m) {
+	// 개인정보 수정 - 부분과 내용을 입력받고 수정
+	public String userDataUpdate(String part, String content, JSM01User u, JSM01Model m) {
 		System.out.println("\n [Controller] 개인정보 수정");
-		m.addAttribute("개인정보 수정", service.userDataUpdate(part, content));
-		return "";
+		m.addAttribute("개인정보 수정", service.userDataUpdate(part, content, u));
+		return "완료";
 	}
 	
-	public String userDataDrop() {
+	// 회원탈퇴 - 아이디, 비밀번호, 확인비밀번호 확인 후 탈퇴사유 작성 후 탈퇴 처리
+	public String userDataDrop(JSM01User user, String exit, JSM01Model m) {
 		System.out.println("\n [Controller] 회원 탈퇴");
+		m.addAttribute("회원탈퇴", service.userDataDrop(user, exit));
 		return "";
 	}
 }

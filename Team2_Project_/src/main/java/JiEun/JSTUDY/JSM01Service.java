@@ -130,12 +130,44 @@ public class JSM01Service {
 		return returnCheck;
 	}
 	
+	// 위의 메소드 오버로딩 : 비밀번호 형식 확인용
+	public boolean samePwCheck(String pw) {
+		System.out.println(" [Service] 회원PW 유효성체크 ");
+		boolean returnCheck = false;
+		
+		// 비밀번호 형식은 영문자+숫자만 가능
+		boolean pw_check = Pattern.matches("^\\w*?", pw);
+		System.out.println(" 비밀번호 형식 체크 : " + pw_check);
+		
+		boolean pw_size = (pw.length()>=6 && pw.length()<11)?true:false;
+		System.out.println(" 비밀번호 길이 체크 : " + pw_size);
+		
+		
+		System.out.println("\n# [회원가입] PW 유효성체크 결과 #");
+		// 먼저 비밀번호의 길이 체크 : 기준 6~10자
+		if(pw_size) {
+			
+			// 다음 비밀번호의 형식 체크 : 영문자+숫자 
+			if(pw_check) {
+				returnCheck = true;
+				
+			} else {
+				System.out.println(" - 입력한 비밀번호가 형식에 맞지않습니다 - ");
+				System.out.println(" - 형식: 영문자+숫자만 가능 - ");
+			}
+		} else {
+			System.out.println(" - 입력한 비밀번호의 길이가 맞지않습니다 - ");
+			System.out.println(" - 길이제한: 6~10자 사이 - ");
+		}
+		
+		return returnCheck;
+	}
+	
 	public boolean useEmailCheck(String inEmail) {
 		System.out.println(" [Service] 이메일 형식 체크 ");
 		
 		// 이메일 형식에 맞는지 확인 (ㅁㅁ@ㅁㅁ.ㅁㅁ)
 		boolean email_check = Pattern.matches("\\w+@\\w+\\.\\w+(\\.\\w+)?", inEmail);
-		System.out.println(" 이메일 형식 체크 : " + email_check);
 		
 		// 이메일 중복확인 추가하기
 		
@@ -153,7 +185,6 @@ public class JSM01Service {
 		
 		// 생일 형식에 맞는지 확인 (1~2999.00~19.00~39)  
 		boolean birth_check = Pattern.matches("^(1|2)\\d{3}.(0|1)[0-9].[0-3][0-9]?", inBirth);
-		System.out.println("이메일 : " + birth_check);
 				
 		return birth_check;
 	}
@@ -218,6 +249,7 @@ public class JSM01Service {
 		return "";
 	}
 	
+	// 개인정보 수정전 비밀번호 확인 - 
 	public boolean userPwCheck(String inID, String inPw, String inRePw) {
 		System.out.println(" [Service] 개인정보 수정 전 비밀번호 확인 ");
 		boolean userCheck = false;
@@ -230,26 +262,105 @@ public class JSM01Service {
 			for(JSM01User u:userList) {
 				if(u.userID.equals(inID) && u.userPW.equals(inPw)) {
 					userCheck = true;
+					System.out.println("\n # 회원정보 #");
 					u.showInfo();
 				}
 			}
+			
+		} else if (userCheck == false) {
+			System.out.println(" - 일치하는 회원정보가 없습니다 - ");
+		} else {
+			System.out.println(" - 동일한 비밀번호를 입력해주세요 - ");
 		}
 		
 		return userCheck;
 	}
 	
 	// 개인정보 수정 - 
-	public String userDataUpdate(String inPart, String inContent) {
+	public String userDataUpdate(String inPart, String inContent, JSM01User user) {
 		System.out.println(" [Service] 개인정보 수정 ");
 		
+		userList = dao.userSelect();
+		
 		// 부분 입력받고 내용 바꾸기 
-		return "";
+		switch(inPart) {
+			case "비밀번호" : 
+				
+				boolean ckPw = samePwCheck(inContent);
+				
+				if(ckPw) {
+					for(JSM01User u:userList) {
+						if(u.getUserID().equals(user.userID) && u.getUserPW().equals(user.userPW)) {
+							u.setUserPass(inContent);
+							System.out.println(" - 비밀번호가 변경되었습니다 - ");
+						}
+					}
+						
+				} else {
+					System.out.println(" - 비밀번호 변경에 실패했습니다 - ");
+				}
+				
+				break;
+				
+			case "이메일" :
+				
+				boolean ckEmail = useEmailCheck(inContent);
+				
+				if(ckEmail) {
+					for(JSM01User u:userList) {
+						if(u.getUserID().equals(user.userID) && u.getUserPW().equals(user.userPW)) {
+							u.setUserEmail(inContent);
+							System.out.println(" - 이메일이 변경되었습니다 - ");
+						}
+					}	
+					
+				} else {
+					System.out.println(" - 이메일 변경에 실패했습니다 - ");
+				}
+				
+				break;
+				
+			case "생일" :
+				
+				boolean ckBirth = useBirthCheck(inContent);
+				
+				if(ckBirth) {
+					for(JSM01User u:userList) {
+						if(u.getUserID().equals(user.userID) && u.getUserPW().equals(user.userPW)) {
+							u.setUserPass(inContent);
+							System.out.println(" - 비밀번호가 변경되었습니다 - ");
+						}
+						
+					}
+
+				} else {
+					System.out.println(" - 생일 변경에 실패했습니다 - ");
+				}
+				
+				break;
+				
+			default : System.out.println(" - 비밀번호/이메일/생일 중 입력해주세요 - "); 
+		}
+	
+		return "완료";
 	}
 	
-	// 회원탈퇴 - 
-	public String userDataDrop() {
+	// 회원탈퇴 - 탈퇴 회원 DB를 따로 해야하는지..?
+	public String userDataDrop(JSM01User user, String inExit) {
 		System.out.println(" [Service] 회원 탈퇴");
-		return "";
+		
+		userList = dao.userSelect();
+		
+		for(JSM01User u:userList) {
+			if(u.getUserID().equals(user.userID) && u.getUserPW().equals(user.userPW)) {
+				int userIdx = userList.indexOf(u);
+				dao.userExit(userIdx);
+			}
+		}
+		
+		System.out.println(" - 탈퇴가 완료되었습니다 - ");
+		
+		return "완료";
 	}
 	
 }
