@@ -25,7 +25,7 @@ public class JSQMain {
 		String admin; // 관리자 ID
 		String adminPw; // 관리자 PW
 		
-		// JSTUDY 커뮤니티 - JSTUDY Quiz
+		// JSTUDY 커뮤니티 - JSTUDY Quiz!
 		System.out.println("\n===============================================");
         System.out.println("\n## JSTUDY 커뮤니티 - JSTUDY Quiz ## \n");
         String quizMenu; // 커뮤니티 - Weekly Quiz 메뉴 선택
