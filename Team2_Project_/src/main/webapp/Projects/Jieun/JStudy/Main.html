@@ -44,15 +44,7 @@ html, body {
 </style>
 <script type="text/javascript">
 
-	function login() {
-		//var loginPage = document.querySelector("[name=ifr]");
-		location.target="ifr"; 
-		location.href="login.html";
 
-
-
-		
-	}
 
 </script>
 </head>
@@ -97,7 +89,7 @@ var btnHelp = document.querySelector("[name=btnhelp]");
 // 로그인버튼
 var btnLogin = document.querySelector("[name=btnlogin]");
 
-
+// 로그인 화면으로 이동
 btnLogin.onclick = function() {
 	ifr.location.href = 'login.html';
 	

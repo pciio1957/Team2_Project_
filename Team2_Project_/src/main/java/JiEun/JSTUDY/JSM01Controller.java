@@ -10,7 +10,7 @@ public class JSM01Controller {
 		return "조회 완료";
 	}
 
-	// 로그인
+	// 로그인 - 연결
 	public String userLogin(JSM01User user, JSM01Model m) {
 		System.out.println("\n [Controller] 로그인");
 		m.addAttribute("로그인", service.userLogin(user));
