@@ -8,10 +8,11 @@ import SungKeun.JSTUDY.Model;
 
 public class JSQMain {
 
+
 	public static void main(String[] args) {
 		
 		ArrayList<JSQDTO> jsqlist = new ArrayList<JSQDTO>();
-		ArrayList<JSQUDTO> jsqulist = new ArrayList<JSQUDTO>();
+		ArrayList<JSQADTO> jsqalist = new ArrayList<JSQADTO>();
 		
 		JSQMain qin = new JSQMain();
 //		qin.main(args); // 처음으로 이동
@@ -64,17 +65,16 @@ public class JSQMain {
         		
         		// 종합 = 문제 + 정답
         		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 퀴즈 정보 ## \n");
-        		jsqlist.add(new JSQDTO(questNum, quest, answer));
+        		jsqlist.add(new JSQDTO(quest));
         		for(JSQDTO q:jsqlist) {
-    				System.out.print("| No. | " + q.getQuestNum() + "\t");
     				System.out.print(" | 문제 | " + q.getQuest() + "\t");
-    				System.out.print(" | 정답 | " + q.getAnswer() + "\n");
     			}
-        		JSQDTO jcq1 = new JSQDTO(questNum, quest, answer);
-        		// Controller만 호출.
-        		JSQController jsqctrl = new JSQController();
-        		System.out.println("\n# 호출된 화면 #\n");
-        		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));		
+        		jsqalist.add(new JSQADTO(answer));
+        		for(JSQADTO qa:jsqalist) {
+    				System.out.print(" | 정답 | " + qa.getAnswer() + "\t");
+    			}
+        		System.out.println("\n");
+        		
         	} else {
         		// 관리자 정보가 일치하지 않을 때
         		System.out.println(" -> 관리자 정보가 일치하지 않습니다.\n");
@@ -89,10 +89,25 @@ public class JSQMain {
     		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] 에 오신 것을 환영 합니다! ## \n");
     		// 문제 설정
     		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] : 해당 문제를 보고 답을 입력하세요. ## \n");
-			System.out.print("\n 유저 답안 : ");
+    		JSQDTO jq = new JSQDTO();
+    		jq.quest = "1111";
+    		String quest1 = jq.getQuest();
+    		System.out.println(" -> 문제 : " + quest1);
+    		System.out.print("\n 유저 답안 : ");
 			usrAns = sc.nextLine();
 			System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 유저가 입력 한 답안 정보 ## \n");
     		System.out.print(" -> 유저 입력 답안 : " + usrAns + "\n");
+    		System.out.println("정답을 확인 하시겠습니까? (Y/N) \n");
+    		String anschk; // 정답 확정 여부
+    		anschk = sc.nextLine();
+    		if(anschk.equals("Y")) {
+    			
+    		} else {
+    			
+    		}
+    		JSQADTO ja = new JSQADTO();
+    		ja.answer = "1111";
+    		String answer1 = ja.getAnswer();
     		
     		qin.main(args);
 	
@@ -104,17 +119,17 @@ public class JSQMain {
         	qin.main(args);
         }
 		
-//		JSQDTO jcq1 = new JSQDTO();
+//		JSQDTO jcq1 = new JSQDTO(quest);
 //		// Controller만 호출.
 //		JSQController jsqctrl = new JSQController();
 //		System.out.println("\n# 호출된 화면 #\n");
-//		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
-        
-//		JSQUDTO jcqu1 = new JSQUDTO();
+//		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));    
+
+//		JSQADTO jcqa1 = new JSQADTO(answer);
 //		// Controller만 호출.
-//		JSQUController jsquctrl = new JSQUController();
+//		JSQAController jsqactrl = new JSQAController();
 //		System.out.println("\n# 호출된 화면 #\n");
-//		System.out.println(jsquctrl.JSQUList2(jcqu1, new Model()));
+//		System.out.println(jsqactrl.JSQAList2(jcqa1, new Model()));
 	}
 
 }
