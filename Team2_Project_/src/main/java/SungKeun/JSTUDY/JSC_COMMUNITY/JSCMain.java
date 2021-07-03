@@ -109,7 +109,7 @@ public class JSCMain {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
                     		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
-                    		System.out.println("\n | 좋아요! |" + goodJob);
+                    		System.out.println("\n | 좋아요 " + goodJob + "! | ");
                     		// 자유 게시판
                     		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
                     		// Controller만 호출.
@@ -138,7 +138,7 @@ public class JSCMain {
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
                     		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
-                    		System.out.println("\n | 좋아요! |" + goodJob);
+                    		System.out.println("\n | 좋아요 " + goodJob + "! | ");
                     		
                     		// 자유 게시판
                     		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
@@ -223,7 +223,7 @@ public class JSCMain {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
                     		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
-                    		System.out.println("\n | 좋아요! |" + goodJob);
+                    		System.out.println("\n | 좋아요 " + goodJob + "! | ");
                     		
                     		// 스터디
                     		JSCDTO jcos1 = new JSCDTO(studywriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
@@ -256,7 +256,7 @@ public class JSCMain {
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
                     		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
-                    		System.out.println("\n | 좋아요! |" + goodJob);
+                    		System.out.println("\n | 좋아요 " + goodJob + "! | ");
                     		
                     		// 스터디
                     		JSCDTO jcos1 = new JSCDTO(studywriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
@@ -344,7 +344,7 @@ public class JSCMain {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
                     		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
-                    		System.out.println("\n | 좋아요! |" + goodJob);
+                    		System.out.println("\n | 좋아요 " + goodJob + "! | ");
                     		
                     		// 질문 답변 게시판
                     		JSCDTO jcoq1 = new JSCDTO(qnawriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
@@ -377,7 +377,7 @@ public class JSCMain {
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
                     		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
-                    		System.out.println("\n | 좋아요! |" + goodJob);
+                    		System.out.println("\n | 좋아요 " + goodJob + "! | ");
                     		
                     		// 질문 답변 게시판
                     		JSCDTO jcoq1 = new JSCDTO(qnawriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
