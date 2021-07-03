@@ -1,8 +1,7 @@
-package Hyejin_LO1;
+package Hyejin;
 
 import java.util.ArrayList;
 
-import JiEun.LTS1Store;
 
 public class LO1_Service {
 

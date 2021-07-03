@@ -1,4 +1,4 @@
-package Hyejin_LO1;
+package Hyejin;
 
 import java.util.ArrayList;
 
