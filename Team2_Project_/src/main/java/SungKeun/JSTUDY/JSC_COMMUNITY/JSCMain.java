@@ -18,7 +18,6 @@ public class JSCMain {
 	static ArrayList<JSCDTO> jscflist = new ArrayList<JSCDTO>();
 	static ArrayList<JSCDTO> jscslist = new ArrayList<JSCDTO>();
 	static ArrayList<JSCDTO> jscqlist = new ArrayList<JSCDTO>();
-	static ArrayList<JSQDTO> jsqlist = new ArrayList<JSQDTO>();
 	
 	public static void main(String[] args) {
 		
