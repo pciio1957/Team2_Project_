@@ -6,21 +6,21 @@ import java.util.Scanner;
 import SungKeun.JSTUDY.Model;
 
 public class JSQMain {
-
+	
 	public static void main(String[] args) {
 		
 		ArrayList<JSQDTO> jsqlist = new ArrayList<JSQDTO>();
 		JSQDTO jq = new JSQDTO(); // 퀴즈 문제에 대한 객체를 전역 변수로 선언
-		JSQDTO ja = new JSQDTO(); // 퀴즈 정답에 대한 객체를 전역 변수로 선언
+		JSQDTO ja = new JSQDTO(); // 퀴즈 정답에 대한 객체를 전역 변수로 선언	
 		
 		JSQMain qin = new JSQMain();
 //		qin.main(args); // 처음으로 이동
 		Scanner sc = new Scanner(System.in);
 		
 		String quest; // 문제
-		String answer; // 정답
 		String usrAns; // 유저 정답
-	
+		String answer; // 정답
+		
 		String admin; // 관리자 ID
 		String adminPw; // 관리자 PW
 		
@@ -82,23 +82,33 @@ public class JSQMain {
             // JSTUDY 커뮤니티 - JSTUDY Quiz 메뉴 -> QUIZ 시작
         	System.out.println("\n===============================================");
     		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] 에 오신 것을 환영 합니다! ## \n");
+    		
     		// 문제 출제
     		System.out.println("## 해당 문제를 보고 답을 입력하세요. ## \n");
     		System.out.println(" -> 문제 : " + jq.getQuest());
+    		
+    		// 정답 입력
      		System.out.print("\n -> 답안 : ");
 			usrAns = sc.nextLine();
-			System.out.println("/n## 유저가 입력 한 답안 정보 ## \n");
+			System.out.println("## 유저가 입력 한 답안 정보 ## \n");
     		System.out.print(" -> 유저 답안 : " + usrAns + "\n");
-    		    		
-//        	JSQADTO ja = new JSQADTO();
-//        	ja.answer = "1111";
-//        	String answer1 = ja.getAnswer();
-//        	System.out.print(jcqalist + " 입니다!\n");
-        	if(usrAns.equals(ja.answer)) {
+    		
+    		// 정답 판단
+        	if(usrAns.equals(ja.getAnswer())) {
         		System.out.println("\n -> 결과 : 정답!");
+        		System.out.println("\n===============================================");
         	} else {
         		System.out.println("\n -> 결과 : 오답");
+        		System.out.println("\n===============================================");
         	}
+        	System.out.println("## 정답은 " + ja.getAnswer() + " 입니다!");
+    		
+        	// 프로그램 구동
+        	JSQDTO jcq1 = new JSQDTO(jq.getQuest(), ja.getAnswer());
+    		// Controller만 호출.
+    		JSQController jsqctrl = new JSQController();
+    		System.out.println("\n# Program On #\n");
+    		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
 
     		qin.main(args);
 	
@@ -116,10 +126,10 @@ public class JSQMain {
         	
         }
 		
-//		JSQDTO jcq1 = new JSQDTO();
+//    	JSQDTO jcq1 = new JSQDTO();
 //		// Controller만 호출.
 //		JSQController jsqctrl = new JSQController();
-//		System.out.println("\n# 호출된 화면 #\n");
+//		System.out.println("\n# Program On #\n");
 //		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
 	}
 

@@ -35,6 +35,5 @@ public class JSQDTO {
     public String toString() {
         return " \n # 문제 : " + quest + "\n"
         		+ " # 정답 : " + answer + "\n" + "\n";
-    }
-	
+    }	
 }
