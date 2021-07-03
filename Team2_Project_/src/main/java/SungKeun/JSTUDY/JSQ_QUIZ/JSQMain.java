@@ -55,13 +55,16 @@ public class JSQMain {
     			quest = sc.nextLine();
     			System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 문제 정보 ## \n");
         		System.out.print(" -> 입력 된 문제 : " + quest + "\n");
-        		
+        		JSQDTO jq = new JSQDTO();
+        		jq.quest = quest;
         		// 정답 설정
         		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 할 정답을 입력하세요. ## \n");
         		System.out.print(" -> 설정 할 정답 : ");
         		answer = sc.nextLine();
         		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 정답 정보 ## \n");
         		System.out.print(" -> 입력 된 정답 : " + answer + "\n");
+        		JSQADTO ja = new JSQADTO();
+        		ja.answer = answer;
         		
         		// 종합 = 문제 + 정답
         		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 퀴즈 정보 ## \n");
@@ -90,33 +93,37 @@ public class JSQMain {
     		// 문제 설정
     		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] : 해당 문제를 보고 답을 입력하세요. ## \n");
     		JSQDTO jq = new JSQDTO();
-    		jq.quest = "1111";
-    		String quest1 = jq.getQuest();
-    		System.out.println(" -> 문제 : " + quest1);
+    		System.out.println(" -> 문제 : " + jq.quest);
     		System.out.print("\n 유저 답안 : ");
 			usrAns = sc.nextLine();
 			System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 유저가 입력 한 답안 정보 ## \n");
     		System.out.print(" -> 유저 입력 답안 : " + usrAns + "\n");
-    		System.out.println("정답을 확인 하시겠습니까? (Y/N) \n");
-    		String anschk; // 정답 확정 여부
-    		anschk = sc.nextLine();
-    		if(anschk.equals("Y")) {
-    			
-    		} else {
-    			
-    		}
-    		JSQADTO ja = new JSQADTO();
-    		ja.answer = "1111";
-    		String answer1 = ja.getAnswer();
     		
+    		System.out.print("\n -> 정답은 ");
+        	JSQADTO ja = new JSQADTO();
+        	ja.answer = "1111";
+        	String answer1 = ja.getAnswer();
+        	System.out.print(answer1 + " 입니다!\n");
+        	if(usrAns.equals(ja.answer)) {
+        		System.out.println("\n -> 결과 : 정답!");
+        	} else {
+        		System.out.println("\n -> 결과 : 오답");
+        	}
+
     		qin.main(args);
 	
         } else if(quizMenu.equals("0")) {
+        	
         	System.out.println("\n커뮤니티 메인으로 이동합니다.");
+        
         	qin.main(args);
+        	
         } else {
+        	
         	System.out.println("\n잘못 입력 하셨습니다, 처음으로 이동합니다.");
+        	
         	qin.main(args);
+        	
         }
 		
 //		JSQDTO jcq1 = new JSQDTO(quest);
