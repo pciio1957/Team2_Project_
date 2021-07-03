@@ -1,24 +1,22 @@
 package SungKeun.JSTUDY.JSQ_QUIZ;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import SungKeun.JSTUDY.Model;
 
 public class JSQMain {
 
-
 	public static void main(String[] args) {
 		
 		ArrayList<JSQDTO> jsqlist = new ArrayList<JSQDTO>();
-		ArrayList<JSQADTO> jsqalist = new ArrayList<JSQADTO>();
+		JSQDTO jq = new JSQDTO(); // 퀴즈 문제에 대한 객체를 전역 변수로 선언
+		JSQDTO ja = new JSQDTO(); // 퀴즈 정답에 대한 객체를 전역 변수로 선언
 		
 		JSQMain qin = new JSQMain();
 //		qin.main(args); // 처음으로 이동
 		Scanner sc = new Scanner(System.in);
 		
-		int questNum = 1; // 문제 번호
 		String quest; // 문제
 		String answer; // 정답
 		String usrAns; // 유저 정답
@@ -26,14 +24,14 @@ public class JSQMain {
 		String admin; // 관리자 ID
 		String adminPw; // 관리자 PW
 		
-		// JSTUDY 커뮤니티 - JSTUDY Quiz!
+		// JSTUDY 커뮤니티 - JSTUDY Quiz
 		System.out.println("\n===============================================");
         System.out.println("\n## JSTUDY 커뮤니티 - JSTUDY Quiz ## \n");
         String quizMenu; // 커뮤니티 - Weekly Quiz 메뉴 선택
         System.out.println("[1] 관리자 모드 [2] QUIZ 시작 [0] 커뮤니티 \n");
         System.out.print(" -> [JSTUDY Quiz] 메뉴를 선택하세요 : ");
         quizMenu = sc.nextLine();
-        
+       
         if(quizMenu.equals("1")) {
     		// JSTUDY 커뮤니티 - JSTUDY Quiz 메뉴 -> (관리자) 문제 및 정답 설정
         	System.out.println("\n===============================================");
@@ -45,37 +43,32 @@ public class JSQMain {
         	admin = sc.nextLine();
         	System.out.print("AdminPw : ");
         	adminPw = sc.nextLine();
+        	
         	if(admin.equals("ysk2388") && adminPw.equals("7777")) {
         		// 관리자 정보가 일치할 때
         		System.out.println(" -> [ " + admin + " ] 님 로그인 되었습니다.\n");
         		
         		// 문제 설정
-        		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 할 문제를 입력하세요. ## \n");
-    			System.out.print("\n 설정 할 문제 : ");
+        		System.out.println("## 설정 할 문제를 입력하세요. ## \n");
+    			System.out.print(" -> 설정 할 문제 : ");
     			quest = sc.nextLine();
-    			System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 문제 정보 ## \n");
+    			System.out.println("\n## 설정 된 문제 정보 ## \n");
         		System.out.print(" -> 입력 된 문제 : " + quest + "\n");
-        		JSQDTO jq = new JSQDTO();
-        		jq.quest = quest;
+        		jq.setQuest(quest);
+
         		// 정답 설정
-        		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 할 정답을 입력하세요. ## \n");
+        		System.out.println("\n## 설정 할 정답을 입력하세요. ## \n");
         		System.out.print(" -> 설정 할 정답 : ");
         		answer = sc.nextLine();
-        		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 정답 정보 ## \n");
+        		System.out.println("\n## 설정 된 정답 정보 ## \n");
         		System.out.print(" -> 입력 된 정답 : " + answer + "\n");
-        		JSQADTO ja = new JSQADTO();
-        		ja.answer = answer;
+        		ja.setAnswer(answer);
         		
         		// 종합 = 문제 + 정답
-        		System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 설정 된 퀴즈 정보 ## \n");
-        		jsqlist.add(new JSQDTO(quest));
-        		for(JSQDTO q:jsqlist) {
-    				System.out.print(" | 문제 | " + q.getQuest() + "\t");
-    			}
-        		jsqalist.add(new JSQADTO(answer));
-        		for(JSQADTO qa:jsqalist) {
-    				System.out.print(" | 정답 | " + qa.getAnswer() + "\t");
-    			}
+        		System.out.println("\n## 설정 된 퀴즈 정보 ## \n");
+//        		jsqlist.add(new JSQDTO(jq.getQuest(), ja.getAnswer()));
+        		System.out.print(" | 문제 | " + jq.getQuest() + "\t");
+				System.out.print(" | 정답 | " + ja.getAnswer() + "\n");
         		System.out.println("\n");
         		
         	} else {
@@ -88,22 +81,19 @@ public class JSQMain {
         } else if(quizMenu.equals("2")) {
             // JSTUDY 커뮤니티 - JSTUDY Quiz 메뉴 -> QUIZ 시작
         	System.out.println("\n===============================================");
-    		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] -> QUIZ 시작 ## \n");
     		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] 에 오신 것을 환영 합니다! ## \n");
-    		// 문제 설정
-    		System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] : 해당 문제를 보고 답을 입력하세요. ## \n");
-    		JSQDTO jq = new JSQDTO();
-    		System.out.println(" -> 문제 : " + jq.quest);
-    		System.out.print("\n 유저 답안 : ");
+    		// 문제 출제
+    		System.out.println("## 해당 문제를 보고 답을 입력하세요. ## \n");
+    		System.out.println(" -> 문제 : " + jq.getQuest());
+     		System.out.print("\n -> 답안 : ");
 			usrAns = sc.nextLine();
-			System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] : 유저가 입력 한 답안 정보 ## \n");
-    		System.out.print(" -> 유저 입력 답안 : " + usrAns + "\n");
-    		
-    		System.out.print("\n -> 정답은 ");
-        	JSQADTO ja = new JSQADTO();
-        	ja.answer = "1111";
-        	String answer1 = ja.getAnswer();
-        	System.out.print(answer1 + " 입니다!\n");
+			System.out.println("/n## 유저가 입력 한 답안 정보 ## \n");
+    		System.out.print(" -> 유저 답안 : " + usrAns + "\n");
+    		    		
+//        	JSQADTO ja = new JSQADTO();
+//        	ja.answer = "1111";
+//        	String answer1 = ja.getAnswer();
+//        	System.out.print(jcqalist + " 입니다!\n");
         	if(usrAns.equals(ja.answer)) {
         		System.out.println("\n -> 결과 : 정답!");
         	} else {
@@ -126,17 +116,11 @@ public class JSQMain {
         	
         }
 		
-//		JSQDTO jcq1 = new JSQDTO(quest);
+//		JSQDTO jcq1 = new JSQDTO();
 //		// Controller만 호출.
 //		JSQController jsqctrl = new JSQController();
 //		System.out.println("\n# 호출된 화면 #\n");
-//		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));    
-
-//		JSQADTO jcqa1 = new JSQADTO(answer);
-//		// Controller만 호출.
-//		JSQAController jsqactrl = new JSQAController();
-//		System.out.println("\n# 호출된 화면 #\n");
-//		System.out.println(jsqactrl.JSQAList2(jcqa1, new Model()));
+//		System.out.println(jsqctrl.JSQList2(jcq1, new Model()));
 	}
 
 }

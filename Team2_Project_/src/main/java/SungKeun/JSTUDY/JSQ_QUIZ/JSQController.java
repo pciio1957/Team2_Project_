@@ -12,8 +12,9 @@ public class JSQController {
 		System.out.println("# [Controller] : Main에서 받은 퀴즈 문제 입력 데이터 #\n");
 //		Main에서 입력받은 정보를 Controller로 불러온다.
 		System.out.println("퀴즈 문제 : " + jcq1.getQuest());
+		System.out.println("퀴즈 정답 : " + jcq1.getAnswer());
 		
-		d.addAttribute("jsqlist", jsqservice.JSQList(jcq1));
+		d.addAttribute("QUIZ 문제 호출", jsqservice.JSQList(jcq1));
 		
 		return "JSTUDY QUIZ 정보.jsp";
 	}
