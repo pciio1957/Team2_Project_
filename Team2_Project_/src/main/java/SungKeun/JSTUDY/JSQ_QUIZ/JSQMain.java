@@ -7,11 +7,10 @@ import SungKeun.JSTUDY.Model;
 
 public class JSQMain {
 	
-	public static void main(String[] args) {
+	static JSQDTO jq = new JSQDTO(); // 퀴즈 문제에 대한 객체를 전역 변수로 선언
+	static JSQDTO ja = new JSQDTO(); // 퀴즈 정답에 대한 객체를 전역 변수로 선언
 		
-		ArrayList<JSQDTO> jsqlist = new ArrayList<JSQDTO>();
-		JSQDTO jq = new JSQDTO(); // 퀴즈 문제에 대한 객체를 전역 변수로 선언
-		JSQDTO ja = new JSQDTO(); // 퀴즈 정답에 대한 객체를 전역 변수로 선언	
+	public static void main(String[] args) {
 		
 		JSQMain qin = new JSQMain();
 //		qin.main(args); // 처음으로 이동
@@ -26,14 +25,14 @@ public class JSQMain {
 		
 		// JSTUDY 커뮤니티 - JSTUDY Quiz
 		System.out.println("\n===============================================");
-        System.out.println("\n## JSTUDY 커뮤니티 - JSTUDY Quiz ## \n");
+        System.out.println("\n## JSTUDY 커뮤니티 - QUIZ ## \n");
         String quizMenu; // 커뮤니티 - Weekly Quiz 메뉴 선택
         System.out.println("[1] 관리자 모드 [2] QUIZ 시작 [0] 커뮤니티 \n");
         System.out.print(" -> [JSTUDY Quiz] 메뉴를 선택하세요 : ");
         quizMenu = sc.nextLine();
        
         if(quizMenu.equals("1")) {
-    		// JSTUDY 커뮤니티 - JSTUDY Quiz 메뉴 -> (관리자) 문제 및 정답 설정
+    		// JSTUDY 커뮤니티 - Quiz 메뉴 -> (관리자) 문제 및 정답 설정
         	System.out.println("\n===============================================");
         	System.out.println("\n## JSTUDY 커뮤니티 [JSTUDY Quiz] -> 관리자 모드 ## \n");
         	System.out.println("## JSTUDY 커뮤니티 [JSTUDY Quiz] : 관리자 정보를 입력하세요. ## \n");
@@ -90,19 +89,18 @@ public class JSQMain {
     		// 정답 입력
      		System.out.print("\n -> 답안 : ");
 			usrAns = sc.nextLine();
-			System.out.println("## 유저가 입력 한 답안 정보 ## \n");
+			System.out.println("\n## 유저가 입력 한 답안 정보 ## \n");
     		System.out.print(" -> 유저 답안 : " + usrAns + "\n");
     		
     		// 정답 판단
         	if(usrAns.equals(ja.getAnswer())) {
+        		System.out.println("\n 정답은 [" + ja.getAnswer() + "] 입니다!");
         		System.out.println("\n -> 결과 : 정답!");
-        		System.out.println("\n===============================================");
         	} else {
+        		System.out.println("\n 정답은 [" + ja.getAnswer() + "] 입니다!");
         		System.out.println("\n -> 결과 : 오답");
-        		System.out.println("\n===============================================");
         	}
-        	System.out.println("## 정답은 " + ja.getAnswer() + " 입니다!");
-    		
+        	
         	// 프로그램 구동
         	JSQDTO jcq1 = new JSQDTO(jq.getQuest(), ja.getAnswer());
     		// Controller만 호출.
