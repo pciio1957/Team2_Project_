@@ -18,11 +18,11 @@ public class countdown {
 		 * 3. timer.cancle - 타이머 실행을 종료합니다
 		 */
 		Timer timer=new Timer();
-		TimerTask task=new TimerTask(){
+		TimerTask task=new TimerTask() {
 		    @Override
 		    public void run() {
 		    //TODO Auto-generated method stub
-				if(count <= 5) { //count값이 5보다 작거나 같을때까지 수행
+				if(count <= 5) { //count값이 3보다 작거나 같을때까지 수행
 					System.out.println("[카운트다운 : "+count+"]");
 					count++; //실행횟수 증가 
 				} else {
