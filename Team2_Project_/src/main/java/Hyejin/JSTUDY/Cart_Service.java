@@ -231,17 +231,16 @@ public class Cart_Service {
 	public String orderlist(String code6) {
 		
 		orderlist = dao.orderlist();
-		
-		for (int idx = 0; idx < orderlist.size(); idx++) {
-			if (code6.equals(cartlist.get(idx).getCode())) {
-				System.out.println("삭제할 제품:" + cartlist.get(idx).getCode());
 
-				cartlist.remove(idx);
-		System.out.println("service단확인" + code6);
-
+			if (code6.equals("1")) {
+			//	System.out.println("장바구니로이동된 내역" + wishlist.get(idx).getTitle());
+			//    orderlist.add(new Order(orderlist.get(idx).getImg(),wishlist.get(idx).getTitle(),wishlist.get(idx).getPrice(),
+			//    		wishlist.get(idx).getGetpoint(), wishlist.get(idx).getCode()));
+			 // 
+			//   System.out.println("주문된아이디" + orderlist.get(idx).getCode());
 	
+				System.out.println("구현중");
+			}return "";
+	}	
 	}
 	
-}	return "";
-	}
-	}

@@ -26,7 +26,7 @@ public class Cart_Dao {
 			wishlist.add(new Lecture("img", "jsp로 시작하는 sns만들기", 50000, 500,"01EE"));		
 			
 			
-			orderlist.add(new Order(20210501, "heyjinss", "00001A","04DD", "Spring으로 시작하는 코딩"));
+			orderlist.add(new Order(20210501, "heyjinss", "00001A","04DD", "Spring으로 시작하는 코딩", "고양시"));
 			
 			
 }

@@ -2,21 +2,24 @@ package Hyejin.JSTUDY;
 
 public class Order {
 	
+	//Cart cart;
 	int date; // 구매일
 	String id; //회원아이디 
 	String Ocode; //주문코드 
 	String Lcode;// 강의코드
 	String title;// 강의타이틀 
+	String address;// 주소
 	public Order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Order(int date, String id, String ocode, String lcode, String title) {
+	
+	public Order(int date, String id, String ocode, String lcode, String title, String address) {
 		super();
 		this.date = date;
 		this.id = id;
-		Ocode = ocode;
-		Lcode = lcode;
+		this.Ocode = ocode;
+		this.Lcode = lcode;
 		this.title = title;
 	}
 	public int getDate() {
@@ -48,5 +51,13 @@ public class Order {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

@@ -17,7 +17,7 @@ public class Main {
 		// 0. 화면(선택기능)
 		while (true) {
 			System.out.println("##JSTUDY 장바구니페이지##");
-			System.out.println("[1]장바구니리스트 삭제 [2] 위시리스토조회 [3] 포인트조회 및 사용 [4] 결제하기 ");
+			System.out.println("[1]장바구니리스트 삭제 [2] 위시리스트조회 [3] 포인트조회 및 사용 [4] 결제하기 ");
 
 			String ch = scan.nextLine();
 
@@ -30,13 +30,15 @@ public class Main {
 
 				System.out.println("[1] 장바구니 삭제 [2] 위시리스트 이동");
 				String code3 = scan.nextLine();
+				
 					if(code3.equals("1")) {
 						
-				System.out.println("삭제할 장바구니 코드를 입력하세요");
-				String code = scan.nextLine(); // O1AA
-				controller.removelec(code, new Model());
-				controller.cartlist(ch, new Model());
+						System.out.println("삭제할 장바구니 코드를 입력하세요");
+						String code = scan.nextLine(); // O1AA
+						controller.removelec(code, new Model());
+						controller.cartlist(ch, new Model());
 					}
+			
 					
 					else if (code3.equals("2")) {
 						System.out.println("위시리스트로 이동할 코드를 입력하세요");
@@ -45,7 +47,7 @@ public class Main {
 						controller.wishlist2(new Model());
 						
 					}
-			
+			continue;
 				//강의코드에 없는 코드 입력시 제약조건 (?) 
 			
 
@@ -62,9 +64,10 @@ public class Main {
 				controller.movecart(code4, new Model());
 				controller.cartlist2(new Model());
 				
-				
+				continue;	
 				
 			}
+			
 
 			//3. 나의포인트 조회 및 사용 
 			else if (ch.equals("3")) {
@@ -78,30 +81,43 @@ public class Main {
 				//String code4 = scan.nextLine();
 				controller.afterpoint(usem, new Model());
 				
+				continue;
 			}
 
 			//4. 결제 및 구매내역 확인 
 			else if (ch.equals("4")) {
 				System.out.println("===============[총 결제금액]=====================");
-
 				controller.buy(ch, new Model());
-
+				
+				
+				String name;
+				System.out.println("회원이름을 입력하세요");
+				name = scan.nextLine();
+				
+				
+				String address;
+				System.out.println("주소를 입력하세요:");
+				address = scan.nextLine();
+			
 				System.out.println("구매방법을 선택해주세요");
 				System.out.println("1[무통장입금]   2[카드결제]   3[신용카드]   4[가상계좌]   5[휴대폰결제] ");
 				String code5 = scan.nextLine();
 
+				//===============================
 				if (code5.equals("1") | code5.equals("2") | code5.equals("3") | code5.equals("4") | code5.equals("5")) {
 					System.out.println("주문 완료되었습니다.");
 					System.out.println("구매내역을 조회하시겠습니까?");
 					
+					
+					
 					String code6 = scan.nextLine();
 					if(code6.equals("1")) {
-						controller.order(code6,new Model());
+						controller.orderlist(code6,new Model());
 					}
 				}
 
-			}
-			break;
+			} break;
+		
 		}
 
 	}
