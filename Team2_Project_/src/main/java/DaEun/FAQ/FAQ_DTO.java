@@ -1,28 +1,30 @@
 package DaEun.FAQ;
-
+// faq VO
 public class FAQ_DTO {
-
-	private String ftitle;
-	private String fwrite;
-	public FAQ_DTO(String ftitle, String fwrite) {
-		super();
-		this.ftitle = ftitle;
-		this.fwrite = fwrite;
-	}
-	public FAQ_DTO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public String getFtitle() {
-		return ftitle;
-	}
-	public void setFtitle(String ftitle) {
-		this.ftitle = ftitle;
-	}
-	public String getFwrite() {
-		return fwrite;
-	}
-	public void setFwrite(String fwrite) {
-		this.fwrite = fwrite;
-	}
+ private String fname; // FAQ게시물 제목
+ private String fwrite;// FAQ 게시물 내용
+public FAQ_DTO(String fname, String fwrite) {
+	super();
+	this.fname = fname;
+	this.fwrite = fwrite;
+}
+public FAQ_DTO() {
+	// TODO Auto-generated constructor stub
+}
+public void showInfo() {				
+	System.out.println("FAQ 제목 : " + fname);
+	System.out.println("FAQ 게시글 내용 : " + fwrite);	
+}
+public String getFname() {
+	return fname;
+}
+public void setFname(String fname) {
+	this.fname = fname;
+}
+public String getFwrite() {
+	return fwrite;
+}
+public void setFwrite(String fwrite) {
+	this.fwrite = fwrite;
+}
 }
