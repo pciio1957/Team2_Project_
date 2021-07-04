@@ -11,7 +11,11 @@ import SungKeun.JSTUDY.JSQ_QUIZ.JSQController;
 import SungKeun.JSTUDY.JSQ_QUIZ.JSQDTO;
 
 public class JSCMain {
-		
+	
+	static JSCDTO jscf = new JSCDTO(); // 자유 게시판 게시물 정보에 대한 객체를 전역 변수로 선언
+	static JSCDTO jscs = new JSCDTO(); // 스터디 게시물 정보에 대한 객체를 전역 변수로 선언
+	static JSCDTO jscq = new JSCDTO(); // 질문 답변 게시물 정보에 대한 객체를 전역 변수로 선언
+	
 	static JSQDTO jq = new JSQDTO(); // 퀴즈 문제에 대한 객체를 전역 변수로 선언
 	static JSQDTO ja = new JSQDTO(); // 퀴즈 정답에 대한 객체를 전역 변수로 선언
 	
@@ -66,28 +70,34 @@ public class JSCMain {
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [자유 게시판] -> 게시물 확인 ## \n");
             		System.out.println("전체 게시물 정보 여부 : " + jscflist.isEmpty());
-            		jscflist.add(new JSCDTO(6, "반갑습니다!", "홍시", "2021/06/26 22:08:22" ,"홈페이지 제작 처음입니다!"));
-            		jscflist.add(new JSCDTO(5, "너무 좋은 사이트네요ㅎㅎ", "himan","2021/06/26 19:12:36", "저는 현직 개발자입니다!"));
-            		jscflist.add(new JSCDTO(4, "ㅎㅇ", "cool","2021/06/26 19:08:17", "ㅎㅇㅎㅇ"));
-            		jscflist.add(new JSCDTO(3, "여기는 뭐하는 곳이죠??", "byeman","2021/06/25 23:46:11", "처음이라 잘 부탁드려요..ㅎㅎㅎ"));
-            		jscflist.add(new JSCDTO(2, "오 드디어 오픈이네요!", "강남살아요","2021/06/25 20:18:02", "배우러 왔습니다!"));
-            		jscflist.add(new JSCDTO(1, "안녕하세요!", "홍길동","2021/06/25 17:11:53", "잘 부탁드려요~"));
+            		jscflist.add(new JSCDTO(6, "반갑습니다!", "홍시", "2021/06/26 22:08:22" ,"홈페이지 제작 처음입니다!", "반갑습니다~", " "));
+            		jscflist.add(new JSCDTO(5, "너무 좋은 사이트네요ㅎㅎ", "himan","2021/06/26 19:12:36", "저는 현직 개발자입니다!", "잘 부탁드려요!", " "));
+            		jscflist.add(new JSCDTO(4, "ㅎㅇ", "cool","2021/06/26 19:08:17", "ㅎㅇㅎㅇ", "ㅎㅇ", " "));
+            		jscflist.add(new JSCDTO(3, "여기는 뭐하는 곳이죠??", "byeman","2021/06/25 23:46:11", "처음이라 잘 부탁드려요..ㅎㅎㅎ", "저도 처음이에요ㅋㅋ", "★"));
+            		jscflist.add(new JSCDTO(2, "오 드디어 오픈이네요!", "강남살아요","2021/06/25 20:18:02", "배우러 왔습니다!", "저두요!", "★"));
+            		jscflist.add(new JSCDTO(1, "안녕하세요!", "홍길동","2021/06/25 17:11:53", "잘 부탁드려요~", "안녕하세요~", "★"));
             		System.out.println("전체 게시물 정보 수량 : " + jscflist.size()); // 전체 게시물 정보 수
             		
                 } else if(freeMenu.equals("2")) {
             		// JSTUDY 커뮤니티 - 자유 게시판 메뉴 -> 게시물 글쓰기
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [자유 게시판] -> 게시물 글쓰기 ## \n");
+            		int freewriteNum = 7;
+            		jscf.setWriteNum(freewriteNum); // 자유 게시판 게시물 번호 저장
             		System.out.print(" 작성자 : ");
             		writer = sc.nextLine();
+            		jscf.setWriter(writer); // 자유 게시판 게시물 작성자 저장
             		System.out.print(" 제목 : ");
             		headLine = sc.nextLine();
+            		jscf.setHeadLine(headLine); // 자유 게시판 게시물 제목 저장
             		System.out.print(" 내용 : ");
             		write = sc.nextLine();
+            		jscf.setWrite(write); // 자유 게시판 게시물 내용 저장
+            		jscf.setWriteDate(dateFormat.format(cal.getTime())); // 자유 게시판 게시물 작성일 저장
             		System.out.println(" * 해당 게시물이 등록되었습니다! * \n");
             		System.out.println("# JSTUDY 커뮤니티 [자유 게시판] -> 게시물 등록 완료!");
-            		int freewriteNum = 6; // 자유 게시판 게시물 번호
-            		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+            		 // 자유 게시판 게시물 번호
+            		System.out.println(" | No." + jscf.getWriteNum() + " | 작성자 : " + jscf.getWriter() + " | 제목 : " + jscf.getHeadLine() + " | 작성일 : " + jscf.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscf.getWrite() + " ] ");
             		
             		// 댓글 등록
             		System.out.print("\n -> 댓글을 등록 하시겠습니까? (Y/N) : ");
@@ -97,8 +107,9 @@ public class JSCMain {
             			System.out.print(" -> 댓글 : ");
                 		comment = sc.nextLine();
                 		System.out.println(" # 댓글이 등록 되었습니다!\n");
-                		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                		System.out.println(" | No." + jscf.getWriteNum() + " | 작성자 : " + jscf.getWriter() + " | 제목 : " + jscf.getHeadLine() + " | 작성일 : " + jscf.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscf.getWrite() + " ] ");
                 		System.out.println("\n | 댓글 : " + comment + " | \n");
+                		jscf.setComment(comment); // 자유 게시판 게시물 댓글 저장
                 		
                 		// 댓글을 달았을 경우
                 		// 게시물 좋아요 O
@@ -106,11 +117,12 @@ public class JSCMain {
                 		goodChk = sc.nextLine();
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
-                    		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscf.getWriteNum() + " | 작성자 : " + jscf.getWriter() + " | 제목 : " + jscf.getHeadLine() + " | 작성일 : " + jscf.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscf.getWrite() + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
                     		System.out.println("\n | 좋아요 " + goodJob + "! | ");
+                    		jscf.setGoodJob(goodJob); // 자유 게시판 게시물 좋아요 저장
                     		// 자유 게시판
-                    		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcof1 = new JSCDTO(jscf.getWriteNum(), jscf.getHeadLine(), jscf.getWriter(), jscf.getWriteDate(), jscf.getWrite(), jscf.getComment(), jscf.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscfctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -119,10 +131,11 @@ public class JSCMain {
                 			// 댓글을 달았을 경우
                 			// 게시물 좋아요 X
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 하지 않으셨습니다.\n");
-                    		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscf.getWriteNum() + " | 작성자 : " + jscf.getWriter() + " | 제목 : " + jscf.getHeadLine() + " | 작성일 : " + jscf.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscf.getWrite() + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
+                    		jscf.setComment(comment); // 자유 게시판 게시물 댓글 저장
                     		// 자유 게시판
-                    		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcof1 = new JSCDTO(jscf.getWriteNum(), jscf.getHeadLine(), jscf.getWriter(), jscf.getWriteDate(), jscf.getWrite(), jscf.getComment(), jscf.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscfctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -136,11 +149,12 @@ public class JSCMain {
                 		goodChk = sc.nextLine();
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
-                    		System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscf.getWriteNum() + " | 작성자 : " + jscf.getWriter() + " | 제목 : " + jscf.getHeadLine() + " | 작성일 : " + jscf.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscf.getWrite() + " ] ");
                     		System.out.println("\n | 좋아요 " + goodJob + "! | ");
+                    		jscf.setGoodJob(goodJob); // 자유 게시판 게시물 좋아요 저장
                     		
                     		// 자유 게시판
-                    		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcof1 = new JSCDTO(jscf.getWriteNum(), jscf.getHeadLine(), jscf.getWriter(), jscf.getWriteDate(), jscf.getWrite(), jscf.getComment(), jscf.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscfctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -149,9 +163,9 @@ public class JSCMain {
                 			// 댓글을 안 달았을 경우
                 			// 게시물 좋아요 X
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 하지 않으셨습니다.\n");
-                			System.out.println(" | No." + freewriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscf.getWriteNum() + " | 작성자 : " + jscf.getWriter() + " | 제목 : " + jscf.getHeadLine() + " | 작성일 : " + jscf.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscf.getWrite() + " ] ");
                     		// 자유 게시판
-                    		JSCDTO jcof1 = new JSCDTO(freewriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                			JSCDTO jcof1 = new JSCDTO(jscf.getWriteNum(), jscf.getHeadLine(), jscf.getWriter(), jscf.getWriteDate(), jscf.getWrite(), jscf.getComment(), jscf.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscfctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -161,11 +175,15 @@ public class JSCMain {
             		}
             		
                 } else if(freeMenu.equals("0")) {
+                	
                 	System.out.println("\n커뮤니티 메인으로 이동합니다.");
                 	cin.main(args);
+                	
                 } else {
+                	
                 	System.out.println("\n잘못 입력 하셨습니다, 처음으로 이동합니다.");
                 	cin.main(args);
+                	
                 }        		
         	}
             
@@ -184,24 +202,29 @@ public class JSCMain {
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [스터디] -> 게시물 확인 ## \n");
             		System.out.println("전체 게시물 정보 여부 : " + jscslist.isEmpty());
-            		jscslist.add(new JSCDTO(3, "HTML 대망의 첫 강의", "hihihi","2021/06/26 14:46:12", "파고들면 쉽습니다!"));
-            		jscslist.add(new JSCDTO(2, "오라클 설정방법", "DB를누벼라","2021/06/26 09:22:12", "깔끔하게 정리해봤습니다."));
-            		jscslist.add(new JSCDTO(1, "JAVA 첫 시작! 1강입니다.", "자바를잡으러","2021/06/25 20:12:55", "첫 강의영상입니다! 도움이 되셨으면 좋겠네요~"));
+            		jscslist.add(new JSCDTO(3, "HTML 대망의 첫 강의", "hihihi","2021/06/26 14:46:12", "파고들면 쉽습니다!", "감사합니다.", "★"));
+            		jscslist.add(new JSCDTO(2, "오라클 설정방법", "DB를누벼라","2021/06/26 09:22:12", "깔끔하게 정리해봤습니다.", " ", "★★"));
+            		jscslist.add(new JSCDTO(1, "JAVA 첫 시작! 1강입니다.", "자바를잡으러","2021/06/25 20:12:55", "첫 강의영상입니다! 도움이 되셨으면 좋겠네요~", " ", "★"));
             		System.out.println("전체 게시물 정보 수량 : " + jscslist.size()); // 전체 게시물 정보 수
                 } else if(studyMenu.equals("2")) {
             		// JSTUDY 커뮤니티 - 스터디 메뉴 -> 게시물 글쓰기
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [스터디] -> 게시물 글쓰기 ## \n");
+            		int studywriteNum = 4;
+            		jscs.setWriteNum(studywriteNum); // 스터디 게시물 번호 저장
             		System.out.print(" 작성자 : ");
             		writer = sc.nextLine();
+            		jscs.setWriter(writer); // 스터디 게시물 작성자 저장
             		System.out.print(" 제목 : ");
             		headLine = sc.nextLine();
+            		jscs.setHeadLine(headLine); // 스터디 게시물 제목 저장
             		System.out.print(" 내용 : ");
             		write = sc.nextLine();
+            		jscs.setWrite(write); // 스터디 게시물 내용 저장
+            		jscs.setWriteDate(dateFormat.format(cal.getTime())); // 스터디 게시물 작성일 저장
             		System.out.println(" * 해당 게시물이 등록되었습니다! * \n");
             		System.out.println("# JSTUDY 커뮤니티 [스터디] -> 게시물 등록 완료!");
-            		int studywriteNum = 3; // 스터디 게시물 번호
-            		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+            		System.out.println(" | No." + jscs.getWriteNum() + " | 작성자 : " + jscs.getWriter() + " | 제목 : " + jscs.getHeadLine() + " | 작성일 : " + jscs.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscs.getWrite() + " ] ");
             		
             		// 댓글 등록
             		System.out.print("\n -> 댓글을 등록 하시겠습니까? (Y/N) : ");
@@ -211,8 +234,9 @@ public class JSCMain {
             			System.out.print(" -> 댓글 : ");
                 		comment = sc.nextLine();
                 		System.out.println(" # 댓글이 등록 되었습니다!\n");
-                		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                		System.out.println(" | No." + jscs.getWriteNum() + " | 작성자 : " + jscs.getWriter() + " | 제목 : " + jscs.getHeadLine() + " | 작성일 : " + jscs.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscs.getWrite() + " ] ");
                 		System.out.println("\n | 댓글 : " + comment + " | \n");
+                		jscs.setComment(comment); // 스터디 게시물 댓글 저장
                 		
                 		// 댓글을 달았을 경우
                 		// 게시물 좋아요 O
@@ -220,12 +244,13 @@ public class JSCMain {
                 		goodChk = sc.nextLine();
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
-                    		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscs.getWriteNum() + " | 작성자 : " + jscs.getWriter() + " | 제목 : " + jscs.getHeadLine() + " | 작성일 : " + jscs.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscs.getWrite() + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
                     		System.out.println("\n | 좋아요 " + goodJob + "! | ");
+                    		jscs.setGoodJob(goodJob); // 스터디 게시물 좋아요 저장
                     		
                     		// 스터디
-                    		JSCDTO jcos1 = new JSCDTO(studywriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcos1 = new JSCDTO(jscs.getWriteNum(), jscs.getHeadLine(), jscs.getWriter(), jscs.getWriteDate(), jscs.getWrite(), jscs.getComment(), jscs.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscsctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -235,11 +260,12 @@ public class JSCMain {
                 			// 댓글을 달았을 경우
                 			// 게시물 좋아요 X
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 하지 않으셨습니다.\n");
-                    		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscs.getWriteNum() + " | 작성자 : " + jscs.getWriter() + " | 제목 : " + jscs.getHeadLine() + " | 작성일 : " + jscs.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscs.getWrite() + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
+                    		jscs.setComment(comment); // 스터디 게시물 댓글 저장
                     		
                     		// 스터디
-                    		JSCDTO jcos1 = new JSCDTO(studywriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcos1 = new JSCDTO(jscs.getWriteNum(), jscs.getHeadLine(), jscs.getWriter(), jscs.getWriteDate(), jscs.getWrite(), jscs.getComment(), jscs.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscsctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -254,11 +280,12 @@ public class JSCMain {
                 		goodChk = sc.nextLine();
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
-                    		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscs.getWriteNum() + " | 작성자 : " + jscs.getWriter() + " | 제목 : " + jscs.getHeadLine() + " | 작성일 : " + jscs.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscs.getWrite() + " ] ");
                     		System.out.println("\n | 좋아요 " + goodJob + "! | ");
+                    		jscs.setGoodJob(goodJob); // 스터디 게시물 좋아요 저장
                     		
                     		// 스터디
-                    		JSCDTO jcos1 = new JSCDTO(studywriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcos1 = new JSCDTO(jscs.getWriteNum(), jscs.getHeadLine(), jscs.getWriter(), jscs.getWriteDate(), jscs.getWrite(), jscs.getComment(), jscs.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscsctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -268,10 +295,10 @@ public class JSCMain {
                 			// 댓글을 안 달았을 경우
                 			// 게시물 좋아요 X
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 하지 않으셨습니다.\n");
-                    		System.out.println(" | No." + studywriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscs.getWriteNum() + " | 작성자 : " + jscs.getWriter() + " | 제목 : " + jscs.getHeadLine() + " | 작성일 : " + jscs.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscs.getWrite() + " ] ");
 
                 			// 스터디
-                    		JSCDTO jcos1 = new JSCDTO(studywriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                			JSCDTO jcos1 = new JSCDTO(jscs.getWriteNum(), jscs.getHeadLine(), jscs.getWriter(), jscs.getWriteDate(), jscs.getWrite(), jscs.getComment(), jscs.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscsctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -282,11 +309,15 @@ public class JSCMain {
             		}
             		
             	} else if(studyMenu.equals("0")) {
+            		
             		System.out.println("\n커뮤니티 메인으로 이동합니다.");
                 	cin.main(args);
+                	
                 } else {
+                	
                 	System.out.println("\n잘못 입력 하셨습니다, 처음으로 이동합니다.");
                 	cin.main(args);
+                	
                 }        		
         	}
                         
@@ -305,24 +336,30 @@ public class JSCMain {
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [질문 답변] -> 게시물 확인 ## \n");
             		System.out.println("전체 게시물 정보 여부 : " + jscqlist.isEmpty());
-            		jscqlist.add(new JSCDTO(3, "DB 질문이요", "byeman","2021/06/26 23:55:55", "이클립스랑 오라클 연결 어떻게 해요?"));
-            		jscqlist.add(new JSCDTO(2, "자바 관련 질문입니다.", "어려운취준생","2021/06/25 18:08:45", "C언어랑 연관있나요?"));
-            		jscqlist.add(new JSCDTO(1, "뭐하는 사이트에요?", "여긴어디지","2021/06/25 12:16:25", "사이트 주제를 모르겠어요.."));
+            		jscqlist.add(new JSCDTO(3, "DB 질문이요", "byeman","2021/06/26 23:55:55", "이클립스랑 오라클 연결 어떻게 해요?", "구글링하세요", " "));
+            		jscqlist.add(new JSCDTO(2, "자바 관련 질문입니다.", "어려운취준생","2021/06/25 18:08:45", "C언어랑 연관있나요?", "네 있어요!", "★★★"));
+            		jscqlist.add(new JSCDTO(1, "뭐하는 사이트에요?", "여긴어디지","2021/06/25 12:16:25", "사이트 주제를 모르겠어요..", "학습 사이트요", "★★"));
             		System.out.println("전체 게시물 정보 수량 : " + jscqlist.size()); // 전체 게시물 정보 수
                 } else if(qnaMenu.equals("2")) {
             		// JSTUDY 커뮤니티 - 질문 답변 메뉴 -> 게시물 글쓰기
                 	System.out.println("\n===============================================");
+            		int qnawriteNum = 4;
+            		jscq.setWriteNum(qnawriteNum); // 질문 답변 게시판 게시물 번호 저장
             		System.out.println("## JSTUDY 커뮤니티 [질문 답변] -> 게시물 글쓰기 ## \n");
             		System.out.print(" 작성자 : ");
             		writer = sc.nextLine();
+            		jscq.setWriter(writer); // 질문 답변 게시판 게시물 작성자 저장
             		System.out.print(" 제목 : ");
             		headLine = sc.nextLine();
+            		jscq.setHeadLine(headLine); // 질문 답변 게시판 게시물 제목 저장
             		System.out.print(" 내용 : ");
             		write = sc.nextLine();
+            		jscq.setWrite(write); // 질문 답변 게시판 게시물 내용 저장
+            		jscq.setWriteDate(dateFormat.format(cal.getTime())); // 질문 답변 게시판 게시물 작성일 저장
             		System.out.println(" * 해당 게시물이 등록되었습니다! * \n");
             		System.out.println("# JSTUDY 커뮤니티 [질문 답변] -> 게시물 등록 완료!");
-            		int qnawriteNum = 3; // 질문 답변 게시물 번호
-            		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+
+            		System.out.println(" | No." + jscq.getWriteNum() + " | 작성자 : " + jscq.getWriter() + " | 제목 : " + jscq.getHeadLine() + " | 작성일 : " + jscq.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscq.getWrite() + " ] ");
             		
             		// 댓글 등록
             		System.out.print("\n -> 댓글을 등록 하시겠습니까? (Y/N) : ");
@@ -332,8 +369,9 @@ public class JSCMain {
             			System.out.print(" -> 댓글 : ");
                 		comment = sc.nextLine();
                 		System.out.println(" # 댓글이 등록 되었습니다!\n");
-                		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                		System.out.println(" | No." + jscq.getWriteNum() + " | 작성자 : " + jscq.getWriter() + " | 제목 : " + jscq.getHeadLine() + " | 작성일 : " + jscq.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscq.getWrite() + " ] ");
                 		System.out.println("\n | 댓글 : " + comment + " | \n");
+                		jscq.setComment(comment); // 질문 답변 게시판 게시물 댓글 저장
                 		
                 		// 댓글을 달았을 경우
                 		// 게시물 좋아요 O
@@ -341,12 +379,13 @@ public class JSCMain {
                 		goodChk = sc.nextLine();
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
-                    		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscq.getWriteNum() + " | 작성자 : " + jscq.getWriter() + " | 제목 : " + jscq.getHeadLine() + " | 작성일 : " + jscq.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscq.getWrite() + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
                     		System.out.println("\n | 좋아요 " + goodJob + "! | ");
+                    		jscq.setGoodJob(goodJob); // 질문 답변 게시판 게시물 좋아요 저장
                     		
                     		// 질문 답변 게시판
-                    		JSCDTO jcoq1 = new JSCDTO(qnawriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcoq1 = new JSCDTO(jscq.getWriteNum(), jscq.getHeadLine(), jscq.getWriter(), jscq.getWriteDate(), jscq.getWrite(), jscq.getComment(), jscq.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscqctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -356,11 +395,12 @@ public class JSCMain {
                 			// 댓글을 달았을 경우
                 			// 게시물 좋아요 X
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 하지 않으셨습니다.\n");
-                    		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscq.getWriteNum() + " | 작성자 : " + jscq.getWriter() + " | 제목 : " + jscq.getHeadLine() + " | 작성일 : " + jscq.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscq.getWrite() + " ] ");
                     		System.out.println("\n | 댓글 : " + comment + " | \n");
+                    		jscq.setComment(comment); // 질문 답변 게시판 게시물 댓글 저장
                     		
                     		// 질문 답변 게시판
-                    		JSCDTO jcoq1 = new JSCDTO(qnawriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcoq1 = new JSCDTO(jscq.getWriteNum(), jscq.getHeadLine(), jscq.getWriter(), jscq.getWriteDate(), jscq.getWrite(), jscq.getComment(), jscq.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscqctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -375,11 +415,12 @@ public class JSCMain {
                 		goodChk = sc.nextLine();
                 		if(goodChk.equals("Y")) {
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 했습니다!\n");
-                    		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscq.getWriteNum() + " | 작성자 : " + jscq.getWriter() + " | 제목 : " + jscq.getHeadLine() + " | 작성일 : " + jscq.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscq.getWrite() + " ] ");
                     		System.out.println("\n | 좋아요 " + goodJob + "! | ");
+                    		jscq.setGoodJob(goodJob); // 질문 답변 게시판 게시물 좋아요 저장
                     		
                     		// 질문 답변 게시판
-                    		JSCDTO jcoq1 = new JSCDTO(qnawriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                    		JSCDTO jcoq1 = new JSCDTO(jscq.getWriteNum(), jscq.getHeadLine(), jscq.getWriter(), jscq.getWriteDate(), jscq.getWrite(), jscq.getComment(), jscq.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscqctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -389,10 +430,10 @@ public class JSCMain {
                 			// 댓글을 안 달았을 경우
                 			// 게시물 좋아요 X
                 			System.out.println(" # 게시물에 '좋아요(★)'를 추가 하지 않으셨습니다.\n");
-                    		System.out.println(" | No." + qnawriteNum++ + " | 작성자 : " + writer + " | 제목 : " + headLine + " | 작성일 : " + dateFormat.format(cal.getTime()) + "\n [ 작성 내용 ] \n" + " [ " + write + " ] ");
+                			System.out.println(" | No." + jscq.getWriteNum() + " | 작성자 : " + jscq.getWriter() + " | 제목 : " + jscq.getHeadLine() + " | 작성일 : " + jscq.getWriteDate() + "\n [ 작성 내용 ] \n" + " [ " + jscq.getWrite() + " ] ");
                     		
                     		// 질문 답변 게시판
-                    		JSCDTO jcoq1 = new JSCDTO(qnawriteNum++, headLine, writer, dateFormat.format(cal.getTime()), write);
+                			JSCDTO jcoq1 = new JSCDTO(jscq.getWriteNum(), jscq.getHeadLine(), jscq.getWriter(), jscq.getWriteDate(), jscq.getWrite(), jscq.getComment(), jscq.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscqctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -403,11 +444,15 @@ public class JSCMain {
             		}          		
 
             	} else if(qnaMenu.equals("0")) {
+            		
                 	System.out.println("\n커뮤니티 메인으로 이동합니다.");
                 	cin.main(args);
+                	
                 } else {
+                	
                 	System.out.println("\n잘못 입력 하셨습니다, 처음으로 이동합니다.");
                 	cin.main(args);
+                	
                 }      		
         	}
 

@@ -1,8 +1,8 @@
 package SungKeun.JSTUDY.JSC_COMMUNITY;
 
 public class JSQDTO {
-	String quest; // 문제
-	String answer; // 정답
+	private String quest; // 문제
+	private String answer; // 정답
 	
 	public JSQDTO() {
 		super();
