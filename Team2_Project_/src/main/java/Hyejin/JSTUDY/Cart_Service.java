@@ -12,6 +12,22 @@ public class Cart_Service {
 	Cart_Dao dao = new Cart_Dao();
 
 //===============================================================================================================	
+	//0. 장바구니조회
+	public String cartlist2() {
+		
+		cartlist = dao.cartlist();
+		System.out.println("[번호]" + "\t" + "[이미지]" + "\t" + "[강의명]" + "\t" + "\t" + "\t" + "[금액]" + "\t" + "[적립포인트]"
+		+ "\t" + "[강의코드]" + "\t");
+
+		int listIDX = 1; // 리스트 순서번호
+
+			for (Cart c : cartlist) {
+				c.Showinfo(listIDX);
+				listIDX++;
+			}return "전체호출완료";
+
+	}
+	
 	// 1. 장바구니 리스트
 	public String cartlist(String ch) {
 		System.out.println("[service단확인]사용자 입력값:" + ch);
@@ -104,11 +120,14 @@ public class Cart_Service {
 
 		for (int idx = 0; idx < wishlist.size(); idx++) {
 			if (code4.equals(wishlist.get(idx).getCode())) {
-				System.out.println("사용가능 포인트내역입니다:" + wishlist.get(idx).getGetpoint());
-
+			//	System.out.println("장바구니로이동된 내역" + wishlist.get(idx).getTitle());
+			    cartlist.add(new Cart(wishlist.get(idx).getImg(),wishlist.get(idx).getTitle(),wishlist.get(idx).getPrice(),
+			    		wishlist.get(idx).getGetpoint(), wishlist.get(idx).getCode()));
+			  
+			   System.out.println("장바구니로이동된 내역" + wishlist.get(idx).getCode());
 			}
 		}
-		return "포인트 호출 완료";
+		return "장바구니이동완료";
 
 	}
 

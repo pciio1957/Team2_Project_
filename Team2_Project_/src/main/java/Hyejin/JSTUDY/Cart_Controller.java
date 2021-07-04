@@ -3,6 +3,11 @@ package Hyejin.JSTUDY;
 public class Cart_Controller {
 	private Cart_Service ser = new Cart_Service();
 
+	public String cartlist2(Model d) {
+		d.addAttribute("장바구니 호출", ser.cartlist2());
+		return "";
+	}
+	
 	// 1. 장바구니 호출
 	public String cartlist(String ch, Model d) {
 		System.out.println("[controll확인]사용자 입력값:" + ch);
@@ -19,7 +24,7 @@ public class Cart_Controller {
 	// 3. 위시리스트 - 장바구니 이동메서드
 
 	public String movecart(String code4, Model d) {
-		d.addAttribute("장바구니이동", ser.wishlist(code4));
+		d.addAttribute("장바구니이동", ser.movecart(code4));
 		return "";
 	}
 

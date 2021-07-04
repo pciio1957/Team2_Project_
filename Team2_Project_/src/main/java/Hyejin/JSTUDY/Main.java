@@ -44,6 +44,8 @@ public class Main {
 				System.out.println("장바구니로이동시려면 코드를 입력해주세요");
 				String code4 = scan.nextLine(); // O1AA
 				controller.movecart(code4, new Model());
+				controller.cartlist2(new Model());
+				
 			}
 
 			//3. 나의포인트 조회 및 사용 
