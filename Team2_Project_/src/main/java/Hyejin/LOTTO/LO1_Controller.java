@@ -1,4 +1,4 @@
-package Hyejin;
+package Hyejin.LOTTO;
 
 class LO1_Controller { //loto 
 	//[화면단]에서 오는 [data]를 받아서 

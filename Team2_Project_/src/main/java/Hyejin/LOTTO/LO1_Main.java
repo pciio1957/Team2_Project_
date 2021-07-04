@@ -1,4 +1,4 @@
-package Hyejin;
+package Hyejin.LOTTO;
 
 import java.util.Scanner;
 
