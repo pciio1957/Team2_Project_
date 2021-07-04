@@ -11,7 +11,6 @@ public class JSCService {
 		System.out.println("===============================================\n");
 		System.out.println("# [Service] : DAO로 넘길 데이터 확인 #\n");
 //		DAO로 데이터를 넘기기 위한 확인 과정
-//		게시물 번호, 제목, 작성자, 작성일, 작성 내용
 		System.out.println("JSCDAO에 전송 할 자유 게시판 게시물 번호 데이터 1 : " + jcof1.getWriteNum() + "\n");
 		System.out.println("JSCDAO에 전송 할 자유 게시판 게시물 제목 데이터 2 : " + jcof1.getHeadLine() + "\n");
 		System.out.println("JSCDAO에 전송 할 자유 게시판 게시물 작성자 데이터 3 : " + jcof1.getWriter() + "\n");

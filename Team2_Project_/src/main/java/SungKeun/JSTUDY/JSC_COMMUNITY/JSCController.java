@@ -12,7 +12,6 @@ public class JSCController {
 		System.out.println("===============================================\n");
 		System.out.println("# [Controller] : Main에서 받은 자유 게시판 게시물 입력 데이터 #\n");
 //		Main에서 입력받은 정보를 Controller로 불러온다.
-//		게시물 번호, 제목, 작성자, 작성일, 작성 내용
 		System.out.println("자유 게시판 게시물 번호 : " + jcf1.getWriteNum() + "\n");
 		System.out.println("자유 게시판 게시물 제목 : " + jcf1.getHeadLine() + "\n");
 		System.out.println("자유 게시판 게시물 작성자 : " + jcf1.getWriter() + "\n");

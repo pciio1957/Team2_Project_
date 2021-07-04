@@ -69,20 +69,13 @@ public class JSCMain {
                     // JSTUDY 커뮤니티 - 자유 게시판 메뉴 -> 게시물 확인
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [자유 게시판] -> 게시물 확인 ## \n");
-            		System.out.println("전체 게시물 정보 여부 : " + jscflist.isEmpty());
-            		jscflist.add(new JSCDTO(6, "반갑습니다!", "홍시", "2021/06/26 22:08:22" ,"홈페이지 제작 처음입니다!", "반갑습니다~", " "));
-            		jscflist.add(new JSCDTO(5, "너무 좋은 사이트네요ㅎㅎ", "himan","2021/06/26 19:12:36", "저는 현직 개발자입니다!", "잘 부탁드려요!", " "));
-            		jscflist.add(new JSCDTO(4, "ㅎㅇ", "cool","2021/06/26 19:08:17", "ㅎㅇㅎㅇ", "ㅎㅇ", " "));
-            		jscflist.add(new JSCDTO(3, "여기는 뭐하는 곳이죠??", "byeman","2021/06/25 23:46:11", "처음이라 잘 부탁드려요..ㅎㅎㅎ", "저도 처음이에요ㅋㅋ", "★"));
-            		jscflist.add(new JSCDTO(2, "오 드디어 오픈이네요!", "강남살아요","2021/06/25 20:18:02", "배우러 왔습니다!", "저두요!", "★"));
-            		jscflist.add(new JSCDTO(1, "안녕하세요!", "홍길동","2021/06/25 17:11:53", "잘 부탁드려요~", "안녕하세요~", "★"));
             		System.out.println("전체 게시물 정보 수량 : " + jscflist.size()); // 전체 게시물 정보 수
             		
                 } else if(freeMenu.equals("2")) {
             		// JSTUDY 커뮤니티 - 자유 게시판 메뉴 -> 게시물 글쓰기
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [자유 게시판] -> 게시물 글쓰기 ## \n");
-            		int freewriteNum = 7;
+            		int freewriteNum = 1;
             		jscf.setWriteNum(freewriteNum); // 자유 게시판 게시물 번호 저장
             		System.out.print(" 작성자 : ");
             		writer = sc.nextLine();
@@ -201,17 +194,13 @@ public class JSCMain {
                     // JSTUDY 커뮤니티 - 스터디 메뉴 -> 게시물 확인
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [스터디] -> 게시물 확인 ## \n");
-            		System.out.println("전체 게시물 정보 여부 : " + jscslist.isEmpty());
-            		jscslist.add(new JSCDTO(3, "HTML 대망의 첫 강의", "hihihi","2021/06/26 14:46:12", "파고들면 쉽습니다!", "감사합니다.", "★"));
-            		jscslist.add(new JSCDTO(2, "오라클 설정방법", "DB를누벼라","2021/06/26 09:22:12", "깔끔하게 정리해봤습니다.", " ", "★★"));
-            		jscslist.add(new JSCDTO(1, "JAVA 첫 시작! 1강입니다.", "자바를잡으러","2021/06/25 20:12:55", "첫 강의영상입니다! 도움이 되셨으면 좋겠네요~", " ", "★"));
             		System.out.println("전체 게시물 정보 수량 : " + jscslist.size()); // 전체 게시물 정보 수
                 } else if(studyMenu.equals("2")) {
             		// JSTUDY 커뮤니티 - 스터디 메뉴 -> 게시물 글쓰기
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [스터디] -> 게시물 글쓰기 ## \n");
-            		int studywriteNum = 4;
-            		jscs.setWriteNum(studywriteNum); // 스터디 게시물 번호 저장
+            		int studywriteNum = 1;
+            		jscs.setWriteNum(studywriteNum++); // 스터디 게시물 번호 저장
             		System.out.print(" 작성자 : ");
             		writer = sc.nextLine();
             		jscs.setWriter(writer); // 스터디 게시물 작성자 저장
@@ -335,16 +324,12 @@ public class JSCMain {
                     // JSTUDY 커뮤니티 - 질문 답변 메뉴 -> 게시물 확인
                 	System.out.println("\n===============================================");
             		System.out.println("## JSTUDY 커뮤니티 [질문 답변] -> 게시물 확인 ## \n");
-            		System.out.println("전체 게시물 정보 여부 : " + jscqlist.isEmpty());
-            		jscqlist.add(new JSCDTO(3, "DB 질문이요", "byeman","2021/06/26 23:55:55", "이클립스랑 오라클 연결 어떻게 해요?", "구글링하세요", " "));
-            		jscqlist.add(new JSCDTO(2, "자바 관련 질문입니다.", "어려운취준생","2021/06/25 18:08:45", "C언어랑 연관있나요?", "네 있어요!", "★★★"));
-            		jscqlist.add(new JSCDTO(1, "뭐하는 사이트에요?", "여긴어디지","2021/06/25 12:16:25", "사이트 주제를 모르겠어요..", "학습 사이트요", "★★"));
             		System.out.println("전체 게시물 정보 수량 : " + jscqlist.size()); // 전체 게시물 정보 수
                 } else if(qnaMenu.equals("2")) {
             		// JSTUDY 커뮤니티 - 질문 답변 메뉴 -> 게시물 글쓰기
                 	System.out.println("\n===============================================");
-            		int qnawriteNum = 4;
-            		jscq.setWriteNum(qnawriteNum); // 질문 답변 게시판 게시물 번호 저장
+            		int qnawriteNum = 1;
+            		jscq.setWriteNum(qnawriteNum++); // 질문 답변 게시판 게시물 번호 저장
             		System.out.println("## JSTUDY 커뮤니티 [질문 답변] -> 게시물 글쓰기 ## \n");
             		System.out.print(" 작성자 : ");
             		writer = sc.nextLine();
