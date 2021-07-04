@@ -28,10 +28,26 @@ public class Main {
 				System.out.println("========================[고객님의 장바구니 목록]==========================");
 				controller.cartlist(ch, new Model());
 
+				System.out.println("[1] 장바구니 삭제 [2] 위시리스트 이동");
+				String code3 = scan.nextLine();
+					if(code3.equals("1")) {
+						
 				System.out.println("삭제할 장바구니 코드를 입력하세요");
 				String code = scan.nextLine(); // O1AA
 				controller.removelec(code, new Model());
 				controller.cartlist(ch, new Model());
+					}
+					
+					else if (code3.equals("2")) {
+						System.out.println("위시리스트로 이동할 코드를 입력하세요");
+						String code5 = scan.nextLine(); // O1AA
+						controller.movewish(code5, new Model());
+						controller.wishlist2(new Model());
+						
+					}
+			
+				//강의코드에 없는 코드 입력시 제약조건 (?) 
+			
 
 				// controller.removelec(new Cart(), new Model ());
 			}
@@ -46,6 +62,8 @@ public class Main {
 				controller.movecart(code4, new Model());
 				controller.cartlist2(new Model());
 				
+				
+				
 			}
 
 			//3. 나의포인트 조회 및 사용 
@@ -54,12 +72,12 @@ public class Main {
 				System.out.println("이름을 입력하세요");
 				String name = scan.nextLine();
 				controller.mypoint(name, new Model());
-
+			
 				System.out.println("사용할금액을 입력하세요");
 				int usem = scan.nextInt();
-				String code4 = scan.nextLine();
-				controller.afterpoint(code4, usem, new Model());
-
+				//String code4 = scan.nextLine();
+				controller.afterpoint(usem, new Model());
+				
 			}
 
 			//4. 결제 및 구매내역 확인 

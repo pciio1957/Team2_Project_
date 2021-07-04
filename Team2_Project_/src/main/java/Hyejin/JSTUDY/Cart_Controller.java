@@ -3,8 +3,16 @@ package Hyejin.JSTUDY;
 public class Cart_Controller {
 	private Cart_Service ser = new Cart_Service();
 
+	//1. 장바구니호출(입력값없이) - 확인용
 	public String cartlist2(Model d) {
 		d.addAttribute("장바구니 호출", ser.cartlist2());
+		return "";
+	}
+	
+	
+	// 2.위시리스트호출(입력값없이) - 확인용
+	public String wishlist2(Model d) {
+		d.addAttribute("위시리스트호출", ser.wishlist2());
 		return "";
 	}
 	
@@ -14,6 +22,8 @@ public class Cart_Controller {
 		d.addAttribute("장바구니 호출", ser.cartlist(ch));
 		return "";
 	}
+	
+	
 
 	// 2. 위시리스트호출
 	public String wishlist(String ch, Model d) {
@@ -27,6 +37,13 @@ public class Cart_Controller {
 		d.addAttribute("장바구니이동", ser.movecart(code4));
 		return "";
 	}
+	
+	//3-1. 장바구니 - 위시리스트 이동메서드 
+	public String movewish(String code5, Model d) {
+		d.addAttribute("위시리스트이동", ser.movewish(code5));
+		return "";
+	}
+	
 
 	// 4. 포인트조회
 
@@ -45,8 +62,8 @@ public class Cart_Controller {
 
 	// 6. 포인트 사용 및 잔액확인
 
-	public String afterpoint(String code4, int usem, Model d) {
-		d.addAttribute("포인트사용잔액확인", ser.afterpoint(code4, usem));
+	public String afterpoint(int usem, Model d) {
+		d.addAttribute("포인트사용잔액확인", ser.afterpoint(usem));
 		return "";
 	}
 

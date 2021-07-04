@@ -28,6 +28,24 @@ public class Cart_Service {
 
 	}
 	
+	
+	//0-2
+		public String wishlist2() {
+		
+		wishlist = dao.wishlist();
+		System.out.println("[번호]" + "\t" + "[이미지]" + "\t" + "[강의명]" + "\t" + "\t" + "\t" + "[금액]" + "\t" + "[적립포인트]"
+		+ "\t" + "[강의코드]" + "\t");
+
+		int listIDX = 1; // 리스트 순서번호
+
+			for (Lecture c : wishlist) {
+				c.Showwish(listIDX);
+				listIDX++;
+			}return "전체호출완료";
+
+	}
+	
+	
 	// 1. 장바구니 리스트
 	public String cartlist(String ch) {
 		System.out.println("[service단확인]사용자 입력값:" + ch);
@@ -131,8 +149,31 @@ public class Cart_Service {
 
 	}
 
+	
+	
+	//5-1. 장바구니 -위시리스트 이동
+	
+		public String movewish(String code5) {
+			System.out.println("[service단확인]사용자 입력값:" + code5);
+
+			
+			cartlist = dao.cartlist();
+			wishlist = dao.wishlist();
+
+			for (int idx = 0; idx < cartlist.size(); idx++) {
+				if (code5.equals(cartlist.get(idx).getCode())) {
+				//	System.out.println("장바구니로이동된 내역" + wishlist.get(idx).getTitle());
+				    wishlist.add(new Lecture(cartlist.get(idx).getImg(),cartlist.get(idx).getTitle(),cartlist.get(idx).getPrice(),
+				    		cartlist.get(idx).getGetpoint(), cartlist.get(idx).getCode()));
+					
+				   System.out.println("장바구니로이동된 내역" + cartlist.get(idx).getCode());
+				}
+			}
+			return "장바구니이동완료";
+
+		}
 	// 6. 포인트 사용 및 잔액
-	public String afterpoint(String code4, int usem) {
+	public String afterpoint(int usem) {
 		System.out.println("[service]" + usem);
 
 		alist = dao.accountinfor1();
