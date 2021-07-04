@@ -112,6 +112,7 @@ public class Main {
 					
 					String code6 = scan.nextLine();
 					if(code6.equals("1")) {
+						
 						controller.orderlist(code6,new Model());
 					}
 				}
