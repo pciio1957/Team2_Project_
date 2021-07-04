@@ -6,6 +6,7 @@
 <style type="text/css">
 
 html, body {
+	font-family: 'Black Han Sans', sans-serif;
 	margin:0px; padding:0px;
 	height:100%;
 }
@@ -14,11 +15,11 @@ html, body {
 	width:100%; height:15%; 
 }
 .nav{
-	width:15%; height:70%; float:left;
+	width:30%; height:70%; float:left;
 	background:orange;
 }
 .section {
-	width:85%; height:70%; float:left;
+	width:70%; height:70%; float:left;
 	background:olivedrab;
 }
 .footer {
@@ -38,6 +39,15 @@ html, body {
 	background:white;
 }
 
+.mainMenu{
+	text-align:center;
+}
+
+.mainMenu:hover{
+	background:black;
+	color:white;
+	text-align:center;
+}
 
 
 
@@ -49,20 +59,28 @@ html, body {
 </script>
 </head>
 <body>
-
+<!-- <img src="jstudy2.png" value="MainLogo">  -->
 	<header class="header"> 
-		 <table width="1200" height="10%" align="center">
-			<tr align="center"><td><img src="jstudy2.png" value="MainLogo"></td>
+		 <table width="1000px" height="10%" align="center">
+			<tr align="center"><td><h1> JSTUDY </h1></td>
 			<td>
-				<table width="400" align="center">
-					<td><input type="button" value="홈" class="category" name="btnhome"></td>
-					<td><input type="button" value="강의목록" class="category" name="btnclass"></td>
-					<td><input type="button" value="커뮤니티" class="category" name="btncom"></td>
-					<td><input type="button" value="고객센터" class="category" name="btnhelp"></td>
+				<table width="400px">
+					<tr>
+						<td width="100" name="mHome" onclick="home()" class="mainMenu">메인</td>
+						<td width="100" name="mclass" class="mainMenu">강의목록</td>
+						<td width="100" name="mcom" class="mainMenu">커뮤니티</td>
+						<td width="100" name="mhelp" class="mainMenu">고객센터</td>
+					</tr>
 				</table>
 			</td>
-			<td><input type="text" value="강의명 입력" class="search" width="20px"> <input type="button" value="검색" class="search" width="30px"></td>
-			<td><input type="button" value="장바구니"> <input type="button" value="로그인" name="btnlogin"></td>
+			<td>
+				<input type="text" value="강의명 입력" class="search" width="20px"> 
+				<input type="button" value="검색" class="search" width="30px">
+			</td>
+			<td>
+				<input type="button" value="장바구니">
+				<input type="button" value="로그인" name="btnlogin">
+			</td>
 		</table>
 		
 	
@@ -86,14 +104,22 @@ var btnClass = document.querySelector("[name=btnclass]");
 var btnCom = document.querySelector("[name=btncom]");
 var btnHelp = document.querySelector("[name=btnhelp]");
 
-// 로그인버튼
+//로그인버튼
 var btnLogin = document.querySelector("[name=btnlogin]");
+
+function home() {
+	ifr.location.href = 'index.html';
+}
+
+
 
 // 로그인 화면으로 이동
 btnLogin.onclick = function() {
 	ifr.location.href = 'login.html';
 	
 }
+
+
 
 
 </script>
