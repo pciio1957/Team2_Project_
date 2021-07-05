@@ -239,7 +239,8 @@ public class JSCMain {
                     		jscs.setGoodJob(goodJob); // 스터디 게시물 좋아요 저장
                     		
                     		// 스터디
-                    		JSCDTO jcos1 = new JSCDTO(jscs.getWriteNum(), jscs.getHeadLine(), jscs.getWriter(), jscs.getWriteDate(), jscs.getWrite(), jscs.getComment(), jscs.getGoodJob());
+                    		JSCDTO jcos1 = new JSCDTO(jscs.getWriteNum(), jscs.getHeadLine(), jscs.getWriter(), 
+                    				jscs.getWriteDate(), jscs.getWrite(), jscs.getComment(), jscs.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscsctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
@@ -385,7 +386,8 @@ public class JSCMain {
                     		jscq.setComment(comment); // 질문 답변 게시판 게시물 댓글 저장
                     		
                     		// 질문 답변 게시판
-                    		JSCDTO jcoq1 = new JSCDTO(jscq.getWriteNum(), jscq.getHeadLine(), jscq.getWriter(), jscq.getWriteDate(), jscq.getWrite(), jscq.getComment(), jscq.getGoodJob());
+                    		JSCDTO jcoq1 = new JSCDTO(jscq.getWriteNum(), jscq.getHeadLine(), jscq.getWriter(), jscq.getWriteDate(), 
+                    				jscq.getWrite(), jscq.getComment(), jscq.getGoodJob());
                     		// Controller만 호출.
                     		JSCController jscqctrl = new JSCController();
                     		System.out.println("\n# Program On #\n");
