@@ -3,29 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
+<style type="text/css">
 
-/*
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-*/
+html, body {
+	font-family: 'Nanum Gothic', sans-serif;
+}
 
-</script>
+#tab01 td{
+	text-align:right;
+}
+
+h3{
+	text-align:center;
+	font-size:30px;
+}
+
+[type=submit]{
+	width:50px;
+}
+
+
+
+</style>
 </head>
 <body>
 
 
 <!--  비밀번호 확인을 위해서 2개로  -->
 <form action="joinResult.jsp">
-	<h3> 회원가입 </h3>
-	아이디 : <input type="text" name="inid"> <input type="button" name="btnidcheck" value="ID중복체크">
-	비밀번호 : <input type="text" name="inpw">
-	비밀번호 확인 : <input type="text" name="inrepw">
-	이메일 : <input type="text" name="inemail">
-	생일(연도) : <input type="text" name="inbir_yr">
-	생일(월)) : <input type="text" name="inbir_mt">
-	생일(일) : <input type="text" name="inbir_dy">
-	<input type="submit" name="subjoin">
-
+	
+	<div>
+		<table id="tab01">
+			<tr><td colspan="3"><h3> 회원가입 </h3></td><td></td><td></td></tr>
+			<tr><td>아이디 :</td><td><input type="text" name="inid"></td><td><input class="textLeft" type="button" name="btnidcheck" value="ID중복체크"></td></tr>
+			<tr><td>비밀번호 :</td><td><input class="textLeft" type="text" name="inpw"></td><td></td></tr>
+			<tr><td>비밀번호 확인 :</td><td><input class="textLeft" type="text" name="inrepw"></td><td></td></tr>	
+			<tr><td>이메일 :</td><td><input type="text" name="inrepw"></td><td></td></tr>	
+			<tr><td>생일 : </td><td><input type="text" name="inrepw"></td><td></td></tr>	
+			<tr><td>연도 : </td><td><input type="text" name="inbir_yr" class="birthText"></td><td></td></tr>	
+			<tr><td>월 : </td><td><input type="text" name="inbir_mt"  class="birthText"></td><td></td></tr>	
+			<tr><td>일 : </td><td><input type="text" name="inbir_dy"  class="birthText"></td><td></td></tr>	
+			<tr><td colspan="3" align="center"><input type="submit" name="subjoin"></td><td></td><td></td></tr>	
+		</table>
+	</div>
 </form>
 
 </body>
