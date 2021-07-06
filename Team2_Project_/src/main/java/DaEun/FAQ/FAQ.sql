@@ -27,7 +27,7 @@ FROM FAQ
 WHERE write01 = (
 	SELECT write01
 	FROM FAQ
-	WHERE title = '강의');
+	WHERE title = '%강의%');
 SELECT * FROM FAQ;
 
 SELECT title FROM FAQ;
