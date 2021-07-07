@@ -16,9 +16,10 @@
 		String bir_yr = request.getParameter("inbir_yr");
 		String bir_mt = request.getParameter("inbir_mt");
 		String bir_dy = request.getParameter("inbir_dy");
+		
+	%> 
 	
-	
-	%>
+	<%= id %> 님 회원가입을 축하드립니다! 
 
 </body>
 </html>

@@ -13,20 +13,20 @@
 2. 자바로 받기 : <h1>< %=request.getParameter("userid") %>님 환영합니다.</h1> 
 < % > : 자바식 사용 (앞에는 붙여야하는데 주석이 안먹어서 띄워놈)
  -->
-${param.userid}
-<h1><%=request.getParameter("userid") %>님 환영합니다.</h1>
+
+
 
 	<%
 		String id = request.getParameter("userid");
 		String pw = request.getParameter("userpw");
 		
-		if(id.equals("smart") && pw.equals("1234")) { 
+		if(id.equals("himan01") && pw.equals("qw1234")) { 
 		
-		%>	
-			로그인 성공! 
+	%>	
+		<h1><%=request.getParameter("userid") %>님 환영합니다.</h1>
 			
 	<% } else { %>  
-			로그인 실패! 
+		<h1>로그인에 실패했습니다.</h1>
 	
 	<% } %>
 </body>

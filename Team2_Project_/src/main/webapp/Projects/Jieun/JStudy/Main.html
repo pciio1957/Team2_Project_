@@ -14,6 +14,7 @@ html, body {
 }
 
 .header{
+	font-family: 'Nanum Gothic', sans-serif;
 	width:100%; height:15%; 
 }
 .nav{
@@ -22,11 +23,11 @@ html, body {
 }
 .section {
 	width:70%; height:70%; float:left;
-	background:olivedrab;
 }
 .footer {
+	font-family: 'Nanum Gothic', sans-serif;
 	width:100%; height:15%; clear:both;
-	background: plum;
+	text-align:center;
 }
 
 .category {
@@ -34,11 +35,12 @@ html, body {
 }
 
 .search {
-	color:purple;
+	color:#997000;
 }
 
 [name=ifr]{
 	background:white;
+	border:none;
 }
 
 .mainMenu{
@@ -51,48 +53,56 @@ html, body {
 	text-align:center;
 }
 
+.menuUsr{
+	text-align:center;
+}
+
+.menuUsr:hover{
+	background:Gold;
+	color:#363636;
+}
 
 
 </style>
-<script type="text/javascript">
-
-
-
-</script>
 </head>
 <body>
-<!-- <img src="jstudy2.png" value="MainLogo">  -->
 	<header class="header"> 
-		 <table width="1000px" height="10%" align="center">
+		 <table width="1000px" height="8%" align="center">
 			<tr align="center"><td><h1> JSTUDY </h1></td>
 			<td>
 				<table width="400px">
 					<tr>
 						<td width="100" name="mHome" onclick="home()" class="mainMenu">메인</td>
-						<td width="100" name="mclass" class="mainMenu">강의목록</td>
+						<td width="100" name="mclass" class="mainMenu" onclick="mclass()">강의목록</td>
 						<td width="100" name="mcom" class="mainMenu">커뮤니티</td>
-						<td width="100" name="mhelp" class="mainMenu">고객센터</td>
+						<td width="100" name="mhelp" class="mainMenu" onclick="mcenter()">고객센터</td>
 					</tr>
 				</table>
 			</td>
-			<td>
-				<input type="text" value="강의명 입력" class="search" width="20px"> 
+			<td><input type="text" value="강의명 입력" class="search" width="20px">
 				<input type="button" value="검색" class="search" width="30px">
 			</td>
 			<td>
-				<input type="button" value="장바구니">
-				<input type="button" value="로그인" name="btnlogin">
+				<table width="200px" align="right">
+					<tr>
+						<td class="menuUsr" name="mncart">장바구니</td>
+						<td class="menuUsr" name="mnlogin">로그인</td>
+					</tr>
+				</table>
 			</td>
 		</table>
-		
-	
-	
 	</header>
-	<nav class="nav"> 메뉴이동처리(navigation) </nav>
+	<nav class="nav">
+		;
+	</nav>
 	<section class="section" align="center"> <br>
-		<iframe name="ifr" src="index.html" width="90%" height="90%"> </iframe>
+		<iframe name="ifr" src="index3.html" width="90%" height="90%"> </iframe>
 	</section>
-	<footer class="footer"> 꼬리말 영역 </footer>
+	<footer class="footer">
+			<h4> 쌍용 교육센터 - 2조 </h4>
+			<hr>
+			<h5> 김지은, 김다은, 유혜진, 유성근, 이덕재 </h5>
+	</footer>
 
 </body>
 <script type="text/javascript">
@@ -105,22 +115,27 @@ var btnCom = document.querySelector("[name=btncom]");
 var btnHelp = document.querySelector("[name=btnhelp]");
 
 //로그인버튼
-var btnLogin = document.querySelector("[name=btnlogin]");
+var menuLogin = document.querySelector("[name=mnlogin]");
+
 
 function home() {
-	ifr.location.href = 'index.html';
+	ifr.location.href = 'index3.html';
 }
-
-
 
 // 로그인 화면으로 이동
-btnLogin.onclick = function() {
-	ifr.location.href = 'login.html';
-	
+menuLogin.onclick = function() {
+	ifr.location.href = 'login3.html';
+
 }
 
+// 고객센터 카테고리
+function mcenter() {
+	ifr.location.href = 'Daeun/FAQ_Main.html';
+}
 
-
+function mclass() {
+	ifr.location.href = 'class.html';
+}
 
 </script>
 </html>

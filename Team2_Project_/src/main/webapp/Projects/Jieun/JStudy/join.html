@@ -11,8 +11,19 @@ html, body {
 	font-family: 'Nanum Gothic', sans-serif;
 }
 
-#tab01 td{
+.txtLeft{
 	text-align:right;
+}
+
+#subTd{
+	text-align:center;
+	margin-right:20px;
+	color:white;
+	height:80px;
+}
+
+#tab01 td{
+	text-align:left;
 }
 
 h3{
@@ -20,9 +31,20 @@ h3{
 	font-size:30px;
 }
 
-[type=submit]{
-	width:50px;
+[name=subjoin]{
+	width:100px;
 }
+
+
+input[type=text]:focus{
+	background:#FFFACD;
+	color:#228B22;
+}
+
+
+
+
+
 
 
 
@@ -33,19 +55,38 @@ h3{
 
 <!--  비밀번호 확인을 위해서 2개로  -->
 <form action="joinResult.jsp">
-	
 	<div>
-		<table id="tab01">
-			<tr><td colspan="3"><h3> 회원가입 </h3></td><td></td><td></td></tr>
-			<tr><td>아이디 :</td><td><input type="text" name="inid"></td><td><input class="textLeft" type="button" name="btnidcheck" value="ID중복체크"></td></tr>
-			<tr><td>비밀번호 :</td><td><input class="textLeft" type="text" name="inpw"></td><td></td></tr>
-			<tr><td>비밀번호 확인 :</td><td><input class="textLeft" type="text" name="inrepw"></td><td></td></tr>	
-			<tr><td>이메일 :</td><td><input type="text" name="inrepw"></td><td></td></tr>	
-			<tr><td>생일 : </td><td><input type="text" name="inrepw"></td><td></td></tr>	
-			<tr><td>연도 : </td><td><input type="text" name="inbir_yr" class="birthText"></td><td></td></tr>	
-			<tr><td>월 : </td><td><input type="text" name="inbir_mt"  class="birthText"></td><td></td></tr>	
-			<tr><td>일 : </td><td><input type="text" name="inbir_dy"  class="birthText"></td><td></td></tr>	
-			<tr><td colspan="3" align="center"><input type="submit" name="subjoin"></td><td></td><td></td></tr>	
+		<table id="tab01" align="center">
+			<tr><td colspan="3"><h3> 회원가입 </h3></td></tr>
+			<tr><td class="txtLeft">아이디 :</td><td><input type="text" name="inid"></td><td><input class="textLeft" type="button" name="btnidcheck" value="ID중복체크"></td></tr>
+			<tr><td class="txtLeft">비밀번호 :</td><td><input class="textLeft" type="text" name="inpw"></td><td></td></tr>
+			<tr><td class="txtLeft">비밀번호 확인 :</td><td><input class="textLeft" type="text" name="inrepw"></td><td></td></tr>	
+			<tr><td class="txtLeft">이메일 :</td><td><input type="text" name="inemail"></td><td></td></tr>	
+			<tr><td height="40px"><b>생년월일 선택</b></td></tr>
+			<tr><td>연도 : </td>
+				<td><select name="inbir_yr">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+				</td><td></td></tr>	
+			<tr><td>월 : </td>
+				<td><select name="inbir_mt">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+				</td><td></td></tr>	
+			<tr><td>일 : </td>
+				<td><select name="inbir_dy">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+				</td><td></td></tr>	
+			<tr><td></td><td colspan="2" id="subTd"><input type="submit" name="subjoin" value="회원가입"></td></tr>	
 		</table>
 	</div>
 </form>
@@ -53,9 +94,64 @@ h3{
 </body>
 <script type="text/javascript">
 
-/*
+var btnIdCheck = document.querySelector("[name=btnidcheck]");
+var txtInId = document.querySelector("[name=inid]");
+var txtInPw = document.querySelector("[name=inpw]");
+var txtInRePw = document.querySelector("[name=inrepw]");
+var txtInEmail = document.querySelector("[name=inemail]");
+var txtInYear = document.querySelector("[name=inbir_yr]");
+var txtInMonth = document.querySelector("[name=inbir_mt]");
+var txtInDay = document.querySelector("[name=inbir_dy]");
 
-*/
+
+btnIdCheck.onclick = function() {
+	
+	// 아이디 유효성체크 
+	if(txtInId.value == "himan01") {
+		alert("중복된 아이디입니다");
+	} else if(txtInId.value == "") {
+		alert("아이디를 입력해주세요");
+	} else if (txtInId.value.length < 6 || txtInId.value.length > 12) {
+		alert("아이디는 6~12자 이내로 작성해주세요");
+	} else {
+		alert("사용가능한 아이디입니다");
+	}	
+}
+
+txtInPw.onblur = function() {
+	var pwCk = /^[a-zA-Z0-9]{6,12}$/;
+	// 비밀번호 유효성체크
+	if(txtInPw.value == ""){
+		alert("비밀번호를 입력해주세요");
+	} else if(txtInPw.value.length < 6 || txtInPw.value.length > 12) {
+		alert("비밀번호는 6~12자 이내로 작성해주세요");
+	} else if (!pwCk.test(txtInPw.value)){
+		alert("비밀번호 형식에 맞지않습니다");
+	}
+}
+
+txtInRePw.onblur = function() {
+	if(txtInRePw.value == ""){
+		alert("위의 비밀번호를 다시한번 입력해주세요");
+	} else if(txtInPw.value != txtInRePw.value){
+		alert("입력된 비밀번호가 일치하지 않습니다");
+	}
+}
+
+txtInEmail.onblur = function() {
+	var emailCk = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	// 이메일 유효성체크
+	if(txtInEmail.value == "") {
+		alert("이메일을 입력해주세요");
+	} else if (!emailCk.test(txtInEmail.value)) {
+		alert("이메일 형식에 맞지않습니다");
+	}
+}
+
+
+
+
+
 
 </script>
 </html>
