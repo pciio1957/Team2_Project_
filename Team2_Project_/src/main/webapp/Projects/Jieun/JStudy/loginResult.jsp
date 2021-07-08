@@ -5,6 +5,15 @@
 <meta charset="UTF-8">
 <title> 로그인 결과 화면창 </title>
 </head>
+<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+html, body {
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align:center;
+}
+</style>
 <body>
 
 <!--  
@@ -25,8 +34,18 @@
 	%>	
 		<h1><%=request.getParameter("userid") %>님 환영합니다.</h1>
 			
-	<% } else { %>  
-		<h1>로그인에 실패했습니다.</h1>
+	<% 
+	
+		} else if (id.equals("himan01")){  
+	
+	%>  
+		<h1>비밀번호가 틀렸습니다</h1>
+	
+	<% 
+		} else {
+	%>
+		
+		<h1>로그인에 실패했습니다</h1>
 	
 	<% } %>
 </body>

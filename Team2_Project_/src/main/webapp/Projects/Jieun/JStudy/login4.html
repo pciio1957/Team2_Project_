@@ -71,7 +71,7 @@ a{
 
 var txtInID = document.querySelector("[name=userid]");
 var txtInpw = document.querySelector("[name=userpw]");
-var btnjoin = document.querySelector("#joinmove");
+var btnlogin = document.querySelector("[name=subLogin]");
 
 
 txtInID.onblur = function() {
@@ -85,18 +85,17 @@ txtInpw.onblur = function() {
 	
 	if(txtInID.value == "") {
 		alert("아이디를 먼저 입력해주세요");
-		txtInID.focuse();
 	} else if (txtInpw.value == "") {
 		alert("비밀번호를 입력해주세요");
 	}
-
 }
 
-btnjoin.onclick = function() {
+// submit 버튼이라서 체크를 안하는건가 
+btnlogin.onclick = function() {
 	
-	if(txtInID.value == null) {
+	if(txtInID.value == "") {
 		alert("아이디를 입력해주세요");
-	} else if(txtInID.value == null) {
+	} else if(txtInID.value == "") {
 		alert("비밀번호를 입력해주세요");
 	} 
 }

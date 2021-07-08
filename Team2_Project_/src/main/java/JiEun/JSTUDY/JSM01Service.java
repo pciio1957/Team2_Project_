@@ -348,16 +348,16 @@ public class JSM01Service {
 	// 회원탈퇴 - 탈퇴 회원 DB를 따로 해야하는지..?
 	public String userDataDrop(JSM01User user, String inExit) {
 		System.out.println(" [Service] 회원 탈퇴");
+		int userIdx = 0;
 		
 		userList = dao.userSelect();
 		
 		for(JSM01User u:userList) {
 			if(u.getUserID().equals(user.userID) && u.getUserPW().equals(user.userPW)) {
-				int userIdx = userList.indexOf(u);
-				dao.userExit(userIdx);
+				userIdx = userList.indexOf(u);
 			}
 		}
-		
+		dao.userExit(userIdx);
 		System.out.println(" - 탈퇴가 완료되었습니다 - ");
 		
 		return "완료";

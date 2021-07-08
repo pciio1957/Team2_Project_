@@ -6,6 +6,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+html, body {
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align:center;
+}
+
+</style>
 <body>
 
 	<% 
@@ -19,7 +29,7 @@
 		
 	%> 
 	
-	<%= id %> 님 회원가입을 축하드립니다! 
+	<h3><%= id %> 님 회원가입을 축하드립니다! </h3>
 
 </body>
 </html>
