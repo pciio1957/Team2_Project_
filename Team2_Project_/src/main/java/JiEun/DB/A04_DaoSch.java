@@ -9,10 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javaexp.z01_vo.Dept;
-import javaexp.z01_vo.Emp;
-import javaexp.z01_vo.Emp_Dept;
-
 public class A04_DaoSch {
 	private Connection con;
 	private Statement stmt;

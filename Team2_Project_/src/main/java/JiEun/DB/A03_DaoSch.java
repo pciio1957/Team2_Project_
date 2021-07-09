@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javaexp.z01_vo.Emp;
-
 public class A03_DaoSch {
 	
 	private Connection con;

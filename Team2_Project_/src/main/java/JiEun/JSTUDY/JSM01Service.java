@@ -345,7 +345,7 @@ public class JSM01Service {
 		return "완료";
 	}
 	
-	// 회원탈퇴 - 탈퇴 회원 DB를 따로 해야하는지..?
+	// 회원탈퇴 
 	public String userDataDrop(JSM01User user, String inExit) {
 		System.out.println(" [Service] 회원 탈퇴");
 		int userIdx = 0;

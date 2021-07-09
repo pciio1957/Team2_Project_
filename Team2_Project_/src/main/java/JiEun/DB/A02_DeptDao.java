@@ -10,9 +10,6 @@ import java.util.ArrayList;
 
 // java.sql.* : sql하위에 있는DB연결할때 사용하는 패키지를 모두 자동 import 처리 
 
-import javaexp.z01_vo.Dept;
-import javaexp.z01_vo.Emp;
-
 public class A02_DeptDao {
 	
 	private Connection con;

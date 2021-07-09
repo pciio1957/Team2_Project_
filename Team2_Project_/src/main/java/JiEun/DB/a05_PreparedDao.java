@@ -3,8 +3,6 @@ package JiEun.DB;
 import java.sql.*;
 import java.util.ArrayList;
 
-import javaexp.z01_vo.Emp;
-
 public class a05_PreparedDao {
 	private Connection con;
 	private Statement stmt;

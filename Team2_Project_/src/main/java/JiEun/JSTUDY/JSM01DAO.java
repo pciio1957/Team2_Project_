@@ -34,12 +34,7 @@ public class JSM01DAO {
 	
 	public String userExit(int userIdx) {
 		System.out.println(" [DAO] 회원탈퇴 호출\n");
-		
 		userList.remove(userIdx);
-		
-		
-		
-			
 		return "완료";
 	}
 	

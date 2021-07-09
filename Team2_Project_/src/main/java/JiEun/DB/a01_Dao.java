@@ -1,9 +1,13 @@
 package JiEun.DB;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
-import javaexp.z01_vo.Emp;
 
 public class a01_Dao {
 	
