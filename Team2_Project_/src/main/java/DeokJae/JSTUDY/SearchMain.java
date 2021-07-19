@@ -1,7 +1,7 @@
 package DeokJae.JSTUDY;
 
 import java.awt.Image;
-import java.io.InputStream;
+import java.util.Scanner;
 
 public class SearchMain {
 
@@ -9,8 +9,9 @@ public class SearchMain {
 		// TODO Auto-generated method stub
 // 화면에서 처리하는 부분을 main()을 통해
 // public Lesson(Image img, String name, String mentor, String reviewStar, int price)
-		System.out.println("검색어를 입력하세요:");
-		InputStream is = System.in;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("검색어를 입력하세요:");//강의명 검색 
+		//String a = sc.nextLine();
 		
 		SearchSch sch = new SearchSch("자바");
 		

@@ -18,6 +18,8 @@ tr>td{
 
 [name=subLogin]{
 	font-size: 20px;
+	width:80px;
+	height:80px;
 }
 
 td h4:hover{
@@ -33,7 +35,12 @@ input[type=text]:focus{
 	background:#FFFACD;
 }
 
+a{
+	text-decoration:none;
+	color:black;
+}
 
+	
 </style>
 <script type="text/javascript">
 
@@ -47,34 +54,54 @@ input[type=text]:focus{
 			</tr>
 			<tr>
 				<td>아이디 : <input type="text" name="userid"></td>
-				<td rowspan="2"><input type="submit" width="100px" height="100px" value="로그인" name="subLogin"></td>
+				<td rowspan="2">
+				<input type="submit" value="로그인" name="subLogin"></td>
 			</tr>
 			<tr>
 				<td>비밀번호 : <input type="text" name="userpw"></td>
 			</tr>
 			<tr>
 				<td><h4>아이디/비밀번호 찾기</h4></td>
-				<td><h4>회원가입</h4></td>
+				<td><a href="join.html" id="joinmove"><h4>회원가입</h4></a></td>
 			</tr>
 		</table>
 	</form>
-
-
 </body>
 <script type="text/javascript">
 
-var usrObjs = document.querySelectorAll("h4");
+var txtInID = document.querySelector("[name=userid]");
+var txtInpw = document.querySelector("[name=userpw]");
+var btnjoin = document.querySelector("#joinmove");
 
-usrObjs[0].onclick = function() {
+
+txtInID.onblur = function() {
 	
-	alert("아디/비번찾기");
+	if(txtInID.value == "") {
+		alert("아이디를 입력해주세요");
+	} 
 }
 
-usrObjs[1].onclick = function() {
+txtInpw.onblur = function() {
 	
-	ifr.location.href = 'join.html';
+	if(txtInID.value == "") {
+		alert("아이디를 먼저 입력해주세요");
+		txtInID.focuse();
+	} else if (txtInpw.value == "") {
+		alert("비밀번호를 입력해주세요");
+	}
+
+}
+
+btnjoin.onclick = function() {
+	
+	if(txtInID.value == null) {
+		alert("아이디를 입력해주세요");
+	} else if(txtInID.value == null) {
+		alert("비밀번호를 입력해주세요");
+	} 
 }
 
 
+ 
 </script>
 </html>

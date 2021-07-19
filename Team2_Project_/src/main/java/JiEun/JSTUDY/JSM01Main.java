@@ -95,12 +95,9 @@ public class JSM01Main {
 			
 				
 			} else if(menuSelect.equals("4")) {
-				
-				
-				// 구현하기
+
 				// 개인정보 수정
 				// 현재 비밀번호 확인을 통해 정보를 출력하고 수정할 데이터 입력받은 후 수정
-				
 				System.out.println("\n ▶ [4] 개인정보 수정 ");
 				String inId = inputStr(" ▶ 아이디 입력 : ");
 				String inPw = inputStr(" ▶ 비밀번호 입력 : ");
@@ -124,7 +121,6 @@ public class JSM01Main {
 				
 				// 회원탈퇴
 				// 아이디, 비밀번호 확인 후 탈퇴사유 작성 후 탈퇴처리 
-				// 원래 개인정보 수정창에 같이 있는데 백엔드에선 따로 구현
 				System.out.println("\n ▶ [5] 회원탈퇴 ");
 				String inId = inputStr(" ▶ 아이디 입력 : ");
 				String inPw = inputStr(" ▶ 비밀번호 입력 : ");

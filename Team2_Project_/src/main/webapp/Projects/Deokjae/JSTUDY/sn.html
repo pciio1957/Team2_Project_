@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+	html, body{ 
+	margin:0px;padding:0px;height:100%;
+	font-family: 'Nanum Gothic', sans-serif;
+	}
+	
+	.header{ 
+	font-family: 'Nanum Gothic', sans-serif;
+	width:100%;height:15%; font-size:25pt;
+	}
+	
+	.nav{
+	font-family: 'Nanum Gothic', sans-serif;
+	width:15%;height:70%;float:left;
+	}
+	.section{
+	font-family: 'Nanum Gothic', sans-serif;
+	width:70%;height:70%;float:left;
+	}
+	.aside{
+		width:15;height:70%;float:left;
+		background:orange;
+	}
+	.footer{
+	font-family: 'Nanum Gothic', sans-serif;
+	width:100%;height:15%;clear:both;
+	text-align:center;
+	}
+.aClass{
+	background:gray;
+	color:white;
+}
+.Lectitle{
+	margin:2px; padding:2px; font-size:15pt; 
+}
+.saleprice{
+	float:right; font-size:14pt;
+}
+.sbox{
+	margin:2px; padding:2px; font-size:4pt;
+}
+</style>
+
+<script type="text/javascript">
+/*
+*/
+</script>
+</head>
+<body>
+	<header align="center" class="header">JSTUDY 강의 메인페이지</header>
+	<!-- 좌측 강의메뉴 -->
+	<nav class="nav">
+	<table align="left" width="200px" height="300px" border>
+					<tr>
+					<tr><td name="Al"  class="aClass"><a href="Lecture.html"><strong> 전체 강의 </strong></a></td>
+					<tr><td name="Dp"  class="dProgram"><a href="dp.html"> <strong>개발 프로그래밍</strong> </a></td>
+					<tr><td name="Sn"  class="sNetwork"><a href="sn.html"><strong>보안 네트워크</strong> </a></td>
+					<tr><td name="Ds"  class="dScience"><a href="ds.html"><strong>데이터 사이언스</strong> </a></td>
+					<tr><td name="Cr"  class="Creative"><a href="cr.html"><strong>크리에이티브</strong> </a></td></tr>
+					</table>
+					<table align="left" width="100px" height="100px">
+					<!-- 난이도체크박스 -->
+					<tr>
+					<td><h3><hr>난이도<hr></h3></td>
+					</tr>
+					<tr><td>
+					<input type="checkbox" name="ch01"/>입문<br>
+					<input type="checkbox" name="ch02"/>초급<br>
+					<input type="checkbox" name="ch03"/>중급이상
+					</td></tr>
+					</table>
+	</nav>
+	
+	<hr>
+	<section class="section">
+	<span>전체 | 보안 네트워크</span>
+	<div align="right">
+	<form action="Lecture.html">
+	<input type="text" name="lectureinput" value="강의명 입력"> 
+	<input type="button" name="btnsearch" value="검색" >
+	</div>
+	</form>
+	<!--  -->
+			<div align="right"><select name="Popular"> 
+				<option>추천순</option>
+				<option>인기순</option>
+				<option>최신순</option>
+				<option>평점순</option>
+				<option>학생수순</option>
+			</select></div>
+			<br>
+	<article>		
+	<img src="pic1.jpg" width="130" height="100" align="left"> 
+	<span class="Lectitle"><strong>비전공자를 위한 진짜 올인원 가이드(통합편)</strong></span>
+		<span class="saleprice"><del>₩60,000</del> <strong> ₩50,000</strong></span>
+				<table width="35" height="35" border>
+				<tr><td class="sbox">취업</td>
+				</table></<div>
+				<td margin=3px;>한정수</td><br>				
+				<td>★★★★★(250)</td><br>
+				<hr></article>
+	<article>
+	<img src="pic2.jpg" width="130" height="100" align="left"> 
+	<span class="Lectitle"><strong>스프링 MVC 2편 - 백엔드 웹 개발 활용 기술</strong></span>
+		<span class="saleprice"><del></del> <strong> ₩120,000</strong></span>
+				<table width="35" height="35" border>
+				<tr><td class="sbox">MVC</td>
+				</table></div>
+				<td margin=3px;>김영한</td><br>				
+				<td>★★★★★(150)</td><br>
+				</article>
+	<aside class="aside">
+	</section></aside>
+	<footer class="footer">
+		<h4> 쌍용 교육센터 - 2조 </h4>
+		<hr>
+		<h5> 김지은, 김다은, 유혜진, 유성근, 이덕재 </h5>
+	</footer>
+
+</body>
+<script type="text/javascript">
+
+var lectureInput = document.querySelector("[name=lectureinput]");
+var btnSearch = document.querySelector("[name=btnsearch]");
+
+
+btnSearch.onclick = function() {
+	var check = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z|0-9|A-z]/;
+	// 검색 유효성체크 
+	if(lectureInput.value =="") {
+		alert("검색어를 입력해주세요.");
+	}else if(lectureInput.value.length < 2 ){
+		alert("단어의 수를 한글자 이상 검색하세요.")
+	}else if(lectureInput.value.length > 10 ){
+		alert("단어의 수를 줄여서 검색하세요.")
+	} else if(check.test(lectureInput.value)) {
+		alert("검색이 완료되었습니다.");
+		
+	}
+}
+
+</script>
+</html>
+<!-- 
+if(check.test(lectureInput.value)) {
+		alert("검색이 완료되었습니다.");
+	} else if(check.value.length <10){
+		alert("단어의 수를 줄여서 검색해주세요");
+	}	
+} -->
