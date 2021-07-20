@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title> PICMAGINE : LOGIN </title>
-	<link href="login.css" rel="stylesheet" type="text/css" />
+<title> PICMAGINE : PW 찾기 </title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
 
-		@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-		
+			@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+			
 			html, body {
 				font-family: 'Nanum Gothic', sans-serif;
 				margin:0px; padding:0px;
@@ -18,16 +18,13 @@
                 display:flex;
                 justify-content: center;
             }
-            
             form{
                 padding:10px;
             }
-            
             .input-box{
                 position:relative;
                 margin:10px 0;
             }
-            
             .input-box > input{
                 background:transparent;
                 border:none;
@@ -36,18 +33,15 @@
                 font-size:14pt;
                 width:100%;
             }
-            
             input::placeholder{
                 color:transparent;
             }
-            
             input:placeholder-shown + label{
                 color:#aaa;
                 font-size:14pt;
                 top:15px;
 
             }
-            
             input:focus + label, label{
                 color:#8aa1a1;
                 font-size:10pt;
@@ -87,17 +81,15 @@
                 font-size: 14pt;
                 margin-top:100px;
             }
-            
             #forgot{
                 text-align: right;
                 font-size:12pt;
                 color:rgb(164, 164, 164);
                 margin:10px 0px;
             }
-            
 			.main-wrap {
 			    width: 330px;
-			    height: 80%;
+			    height: 90%;
 			    background: var(--main-background-color);
 			    margin-left: 37%;
 			    padding: 35px 40px 40px 40px;
@@ -108,63 +100,90 @@
 			    text-align: center;
 			    padding-top: 60px;
 			}
-			
-			#idForgot:hover {
-				color: skyblue;
-			}
-			
-			#pwForgot:hover {
-				color: skyblue;
-			}			
 
 </style>
 </head>
 <body>
-
 	<div class="main-wrap" style="margin-top: 60px;">
 		<header>
-			<div style="text-align : center; padding-top: 60px;">
-				<img style="width:100%" src="image/logo.png" alt="picmagine">
-			</div>
-		</header>
-			
-		<div align="center">
-			<h5> 상상하는 모든 것들이 한 곳에! </h5>
-			<h4> PicMagine에 오신 것을 환영합니다! </h4>
+		<div style="text-align : center; padding-top: 60px;">
+			<img style="width:100%" src="image/logo.png" alt="picmagine">
 		</div>
-			
-		<form action="logined_AUT_main.html" method="post"> <!-- 경로 : 로그인이 된 상태로 메인 이동 -->
+		</header>
+		
+		<div align="center">
+			<h3> PW 찾기 <h3>
+		</div>
+		
+		<form action="searchPW.jsp" method="post"> <!-- PW 찾기 결과 페이지 이동 -->
+		
 			<div class="input-box">
 				<input id="username" type="text" name="username" placeholder="아이디">
 				<label for="username"> ID </label>
 			</div>
+
+			<div class="input-box">
+				<input type="text" name="phone" id="phone" maxlength="13" placeholder="핸드폰"/>
+				<label for="phone"> Tel </label>
+			</div>
 			
 			<div class="input-box">
-				<input id="pw" type="password" name="password" placeholder="패스워드">
-				<label for="pw"> PW </label>
+				<input id="email" type="text" name="email" placeholder="이메일">
+				<label for="email"> Email </label>
 			</div>
-				
-			<span align="right">
-				<div id="Forgot">
-					<a id="idForgot" href="forgotID.html"> ID </a> / <a id="pwForgot" href="forgotPW.html"> PW </a> 찾기
-				</div>
-			</span>
-				<input type="checkbox" name="saveLogin"> 아이디 저장
-				<input type="checkbox" name="autoLogin"> 자동 로그인
-				<input type="submit" onclick="goMain(this)" value="로그인" style="margin-top: 30px;">
+			
+			<div align="center" class="input-box" style="margin-top: 50px;">
+				<input type="button" value="PW 찾기" style="margin-top: 0px;padding-top: 0px;width: 100px;">
+				<input type="button" value="취소" onclick="login()" style="margin-top: 0px;padding-top: 0px;width: 100px;">
+			</div>
+
 		</form>
-				<input type="button" value="회원가입" id="join" onclick="join(this)" style="margin-top: 3px;">
+		
 	</div>
 
 </body>
 <script type="text/javascript">
 	
-	function join(obj) {
-		this.location.href = 'join.html';
+	// 로그인 페이지 이동
+	function login(obj) {
+		this.location.href = 'login.html';
 	}
 	
-	function goMain(obj) {
-		this.location.href = 'logined_AUT_main.html';
+	// 휴대폰 번호 자동 하이픈
+	var autoHypenPhone = function(str){
+	      str = str.replace(/[^0-9]/g, '');
+	      var tmp = '';
+	      if( str.length < 4){
+	          return str;
+	      }else if(str.length < 7){
+	          tmp += str.substr(0, 3);
+	          tmp += '-';
+	          tmp += str.substr(3);
+	          return tmp;
+	      }else if(str.length < 11){
+	          tmp += str.substr(0, 3);
+	          tmp += '-';
+	          tmp += str.substr(3, 3);
+	          tmp += '-';
+	          tmp += str.substr(6);
+	          return tmp;
+	      }else{              
+	          tmp += str.substr(0, 3);
+	          tmp += '-';
+	          tmp += str.substr(3, 4);
+	          tmp += '-';
+	          tmp += str.substr(7);
+	          return tmp;
+	      }
+	  
+	      return str;
+	}
+	
+	var phoneNum = document.getElementById('phone');
+	
+	phoneNum.onkeyup = function(){
+	  console.log(this.value);
+	  this.value = autoHypenPhone( this.value ) ;  
 	}
 
 </script>
