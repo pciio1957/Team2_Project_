@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+
+
+html, body {
+	font-family: 'Nanum Gothic', sans-serif;
+	margin:0px; padding:0px;
+	height:100%;
+}
+.header{
+	font-family: 'Nanum Gothic', sans-serif;
+	width:100%; height:15%; 
+	background:skyblue;
+}
+
+
+.member {
+	float:right;
+	margin-right:30px;
+	margin-top:10px;
+}
+.aMember {
+	text-decoration:none;
+	color:white;
+}
+/* 설정 부분 - 내용 */
+.section {
+	width:100%; float:left;
+
+			padding :50px 
+}
+
+/* 내용부분 2부분으로 나눠 출력*/
+.part1 {
+	width:30%;
+	float:left;
+}
+
+.part2 {
+	width:70%;
+	float:right;
+}
+
+.title01 {
+	width:70%;
+	float:center;
+}
+
+.title02 {
+	width:70%;
+	float:left;
+}
+
+.content01 {
+    text-decoration:none;
+	color:gray;
+    width:70%; 
+    height: 30; 
+	float:left;
+}
+
+.content02 {
+  width:70%; 
+    height: 30; 
+	
+}
+
+.tag01{
+  width:100%; 
+  height: 30; 
+
+}
+.like01 {
+    width:100%; 
+    height: 30; 
+text-align:center;
+}
+.support01 {
+  width:100%; 
+  height: 30; 
+  text-align:center;
+}
+
+.img02 {
+  width:10%; 
+  height: 10;
+}
+
+.footer {
+	font-family: 'Nanum Gothic', sans-serif;
+	width:100%; height:15%; clear:both;
+	text-align:center;
+	color:skyblue;
+}
+/* 아래 제작자 */
+.wTeam {
+	font-size:10px;
+	margin-top:20px;
+	padding:20px;
+}
+
+.tab01 {
+	text-align:left;
+}
+#wImg {
+	width:100px;
+	height:100px;
+	text-align:left;
+}
+#new-comment {
+width:70%;
+	height:100px;
+}
+
+
+</style>
+<script type = "text/javascript">
+
+/*
+ * 
+ <!--div블록요소를 오른쪽으로정렬 --> : floate 태그 
+ float: left; → 왼쪽부터 가로로 정렬
+ float: right; → 오른쪽부터 가로로 정렬
+
+활]
+ 
+ */
+</script>
+</head>
+<body>
+<!--  헤더영역  -->
+	<header class="header">  
+		<div class="member">
+			<span><a href="#" class="aMember">로그인</a></span>
+			<span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+			<span><a href="#"  class="aMember">회원가입</a></span>
+		</div>
+	</header>
+	
+<!-- 섹션영역 -->
+	<section class="section"> 
+		
+<div>
+<h1 class = "title01">행복했던 제주여행</h1>
+	<div class = "title02">
+<span> by heyjin | </span>
+<span> 2021-07-18 | </span>
+<span> 조회수 : 60 |</span>
+</div>
+</div>	
+<hr> 
+
+
+<div class = "content01">
+<img class = "content02" src = "제주여행.jpg" width ="60%" height ="60%">
+<tr><td rowspan="3" id="wImg"></td></tr>
+<h3>닝닝이 고양이, 따듯한 조명, 바람, 씨디플레이어, 세은이, 책 일기</h3>
+<h6>이번여행이 특별한 이유는 '빠른 것에 익숙하지 않은 사람들' 이 많구나 또는 '느림을 좋아하는 사람들이 있구나' 라는 어떤 위로를 느꼈다는 것이다. 솔직히 말하면 왜 다들 '제주' 제주 하나 생각했다.
+ 미디어의 영향이나 유행처럼 번지는 여행테마가 아닌가 생각했는데, 그렇게 가볍게 봐서는 안되는 현상이었다. 사람들은 너무 빠른 속도에 메말라가있었던 것이었다. 어쩌면 서울에서는 빠른 척하지만, 
+ 다들 평화로운 시골길을 고향집처럼 그리워하고있는건 아닐까? 또 '우연히' 책방을 발견했다. '오늘 오픈'이라는 문구가 너무 반갑고 특별해서 여기서는 맘에 안들어도 뭐하나는 꼭 사가야겠다고 맘을 먹었다.
+  그림 채가 마음을 사로잡았는데, 더 나아가서는 직접 주인이 그린 그림이라고 하니 애정이 더 생겨난것같다. 그림을 왜 돈주고 사는거지? 라는 어린아이같았던 생각이 이제는 많이 변하게 되었다. 손으로 하나하나 빛어내고, 
+  그려낸 아크릴파스텔의 질감이 좋았고, 위로를 얻고, 감성을 자극하다보면 그림도 행복을 가져다준다. 그런 의미로 사람들은 그림을 사고, 조그만한 것에 자신이 번 돈과 교환하는 것이다. 
+  주인들을 보면 그 사람이 어떤 삶을 살아왔는지 사실 굉장히 궁금해진다. 다들 어리고, 젊고, 눈가가 초롱초롱한 사람들이었다. </h6>
+<hr>
+
+<div class = "tag01">
+<button type="button" onclick="location.href='검색페이지_.html'"> #제주도 </button>
+<button type="button" onclick="location.href='검색페이지_.html'"> #고양이 </button>
+<button type="button" onclick="location.href= '검색페이지_.html'"> #하늘 </button>
+<button type="button" onclick="location.href= '검색페이지_.html22255twfsgvb  '"> #비행 </button>
+
+
+
+</div>
+
+
+<hr>
+
+
+<div class = "like01" >
+
+ <button>다음작품원해요</button>
+ <button> 사고싶어요 </button>
+ <button> 좋아요 </button> 
+
+ 
+ 
+</div>
+
+<div class = "support01">
+<h3>작가후원하기</h3>
+ <button> 1000원 </button> 
+ <button> 5000원 </button> 
+ <button> 10000원 </button> 
+ <hr>
+</div>
+
+
+<div>
+<table class ="Tab01">
+<tr>
+<td> <img src = "작가대표이미지.JPG" class ="img02"></td> 
+</tr>
+
+<tr><td><h2>heyjinss</h2></td></tr>
+<tr><td> 팔로우 수 : 7 </td></tr>
+<tr><td>여행과 캠핑을 좋아하는 작가입니다.</td></tr>
+<!--  --><td><input type="button" id="btnFollow" value="팔로우 추가"></td>
+<td><button id="followButton">Follow</button><td>
+</table>
+</div>
+<hr>
+
+<table>
+<div id="comments">
+	<div id="comment-head" class="comment-row">
+		<span id="comments-count">2</span> Comment(s)
+	</div>
+
+<div class = "comment-row">
+<textarea id= "new-comment" name = "new_comment" placeholder="New Comment" rows=5> </textarea>
+<button type ="submit" onclick ="submitComment()">Submit</button>
+</div>
+
+
+<div class="comment-row">
+<div class ="comment-date"> 2020-05-25 03:05:23</div>
+<div class = "comment-content"> Sample Comment 1</div>
+</div>
+
+<div class="comment-row">
+<div class ="comment-date"> 2020-05-22 03:05:23</div>
+<div class = "comment-content"> Sample Comment 2</div>
+</div>
+</div>
+</table>
+	</section>
+	
+	
+	<footer class="footer">
+		<div class="wTeam">
+			<p> 쌍용 교육센터 - 2조 </p>
+			<p> 김지은, 김다은, 유혜진, 유성근, 이덕재 </p>
+		</div>
+		
+		
+	</footer>
+
+</body>
+
+
+<hr>
+
+
+
+<script type = "text/javascript">
+
+function warnEmpty() { //whitespace일 경우 경고창 실행 
+	alert("Enter a Input");
+}
+
+
+function dateToString(date) { //댓글입력 후 submit입력 시 시간을 인자로 받아, ISO형식으로 data변환.
+	const dateString = date.toISOString();
+	const dateToString = dateString.substring(0,10) + "" + dateString.substring(11,19);
+	return dateToString;
+}
+
+function submitComment() { //submit버튼 실행 시 textarea요소로 입력받은 댓글을 comment-content클래스로 dive 
+	
+	const newcommentEL = document.getElementById("new-comment");
+	const newcomment = newcommentEL.value.trim();
+	
+	if(newcomment) {
+		const dateEL = document.createElement('div');
+		dateEL.classList.add("comment-date");
+		const dateString = dateToString(new Date());
+		dateEL.innerText = dateString;
+		
+		const contentEL = document.createElement('div');
+		contentEL.classList.add("comment-content");
+		contentEL.innerText = newcomment;
+		
+		const commentEL = document.createElement('div');
+		commentEL.classList.add("comment-row");
+		commentEL.appendChild(dateEL);
+		commentEL.appendChild(contentEL);
+		
+		document.getElementById('comments').appendChild(commentEL);
+		newcommentEL.value ="";
+		
+		const countEL = document.getElementById('comments-count');
+		const count = countEL.innerText;
+		countEL.innerText = parseInt(count) + 1;
+		
+	}
+	else warnEmpty();
+	
+}
+var countF = 0;
+var countButton = document.getElementById("followButton");
+var displayCount = document.getElementById("followers");
+countButton.onclick = function() {
+if (countButton.innerText == "Follow") {
+    countF++;
+    countButton.innerText = "Unfollow";
+  } else if (countButton.innerText == "Unfollow") {
+    countF--;
+    countButton.innerText = "Follow";
+  }
+  followers.innerHTML = countF;
+}
+/*
+ 
+ text-align:center;
+
+ order: solid 1px gray;
+ */
+</script>
+
+</html>
