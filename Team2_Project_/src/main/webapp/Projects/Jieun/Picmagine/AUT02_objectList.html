@@ -26,27 +26,21 @@ var tabShow = "";
 var trCount = 0;
 for(var idx=0;idx<11;idx++) {
 	
-	console.log("for문 : " + idx);
-	
 	if(idx%3==0) {
 		tabShow += "<tr>";
-		console.log("idx%3==0 : " + idx);
 	} 
 	
-
 	if(idx<9) {
-		tabShow += `<td><a href='#'><img src='${imgTitle}0${idx+1}${imgJpg}' width='150px' height='150px'></a></td>`;
+		tabShow += `<td><a href='#'><img src='${imgTitle}0${idx+1}${imgJpg}' 
+					width='150px' height='150px'></a></td>`;
 	} else {
-		tabShow += `<td><a href='#'><img src='${imgTitle}${idx+1}${imgJpg}' width='150px' height='150px'></a></td>`;
+		tabShow += `<td><a href='#'><img src='${imgTitle}${idx+1}${imgJpg}' 
+					width='150px' height='150px'></a></td>`;
 	}
 	
 	if (idx%3==2) {
 		tabShow += "</tr>";
-		console.log("idx%3==2 : " + idx);
 	}
-	
-	console.log("tabShow 확인 : " + tabShow);
-
 }
 tabShow += "</tr>";
 tabList.innerHTML = tabShow;

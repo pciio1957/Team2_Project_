@@ -240,7 +240,6 @@ wTeam {
 	text-align:center;
 	color:skyblue;
 	display:inline;
-	
 }
 
 .wCg:hover {
@@ -248,14 +247,15 @@ wTeam {
 	color:white;
 }
 
-
 </style>
 </head>
 <body>	
 	<header class="header"> 
 		<h2 class="wTitle"> Picmagine </h2>
-		<span id="wMemSapn"><a class="wMempart" href="join.html">회원가입</a>
-		<a class="wMempart" href="login.html">로그인</a></span>
+		<span id="wMemSapn">
+			<a class="wMempart" href="login.html">로그인</a>
+			<a class="wMempart" href="join.html">회원가입</a>
+		</span>
 	</header>
 	<nav id="topMenu"> 
 		<div id="topMenuBlock">
@@ -288,8 +288,8 @@ wTeam {
 		</div>
 		<div class="part2">
 			<div id="wCategory"> 
-				<span class="wCg"><a href="AUT02_objectList.html" target="contentFrame">작품</a></span>
-				<span class="wCg"><a href="AUT03_series.html" target="contentFrame">시리즈</a></span><br>
+				<span class="wCg"><a href="AUT02_objectList.html" target="contentFrame" onclick="wCgChange()" id="wACate1">작품</a></span>
+				<span class="wCg"><a href="AUT03_series.html" target="contentFrame" onclick="wCgChange()" id="wACate2">시리즈</a></span><br>
 			</div>
 			<div id="wContent">
 				<iframe name="contentFrame" src="AUT02_objectList.html"></iframe>
@@ -307,21 +307,7 @@ wTeam {
 </body>
 <script type="text/javascript">
 
-/*
-
-작품 리스트 출력
-DB에서 내용을 가져와서 table의 내용을 채우는걸로 하면 좋겠는데..
-그럼 아이프레임을 사용해서 .jsp 파일을 나타내는걸로 ㅎㅎ 
-그리고 아이프레임은 내용의 길이에 맞춰서 
-
-*/
-
-// 작가 = 
-var person = {
-		
-		
-};
-
+// 팔로잉 버튼 눌렀을때 이벤트
 var followCount = 0; 
 
 function Following() {
@@ -341,9 +327,20 @@ function Following() {
 		btnFollow.style.color = "skyblue";
 		btnFollow.style.border = "1px solid skyblue";
 	}
-	
 }
 
+// 카테고리 버튼을 눌렀을 때 
+var wACate1 = document.querySelector("#wACate1");
+var wACate2 = document.querySelector("#wACate2");
+function wCgChange() {
+	
+	if(wACate1.clicked()){
+		wACate1.style.backgroundColor = "skyblue";
+		console.log("작품 클릭");
+	} else if(wACate2.clicked()) {
+		console.log("시리즈 클릭");
+	}
+}
 
 </script>
 </html>
