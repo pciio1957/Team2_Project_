@@ -2,55 +2,204 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 <style type="text/css">
- #topMenu{
- 	height: 30px;
- 	width: 1980px;
- }
- /*메뉴 전체 크기*/
- #topMenu ul li {  
-  	 list-style: none;           
-     color: white;               
-     background-color: skyblue;  
-     float: left;                
-     line-height: 30px;          
-     vertical-align: middle;    
-     text-align: center;         
- }
- /*메뉴 한 칸*/
- #topMenu .menuLink {                              
-      text-decoration:none;                     
-      color: white;                              
-      display: block;                            
-      width: 150px;                              
-      font-size: 12px;                          
-      font-weight: bold;                         
-      font-family: "Nanum Gothic", Dotum, Arial; 
- }
-
-/* 마우스 올릴 때 변하는 배경 및 폰트 컬러*/
- #topMenu .menuLink:hover {           
-       color: skyblue;                   
-       background-color: #4d4d4d;    
+#topMenu {
+	height: 30px;
+	width: 100%;
+}
+/*메뉴 전체 크기*/
+#topMenu ul li {
+	list-style: none;
+	color: white;
+	background-color: skyblue;
+	float: left;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: center;
+}
+/*메뉴 한 칸*/
+#topMenu .menuLink {
+	text-decoration: none;
+	color: white;
+	display: block;
+	width: 150px;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: "Nanum Gothic", Dotum, Arial;
 }
 
+/* 마우스 올릴 때 변하는 배경 및 폰트 컬러*/
+#topMenu .menuLink:hover {
+	color: skyblue;
+	background-color: #4d4d4d;
+}
 
+.search {
+	border:none;
+	border-bottom: 1px solid white;
+	outline:none;
+	height: 150px;
+	width: 400px;
+	background: transparent;
+}
 </style>
-  
-   <nav id="topMenu"> 
-          <ul>
-  				  <li><a class="menuLink" href="#">HOME</a></li>
-                  <li><a class="menuLink" href="#">배경화면</a></li>
-                  <li><a class="menuLink" href="#">자연</a></li>
-                  <li><a class="menuLink" href="#">비즈니스</a></li>
-                  <li><a class="menuLink" href="#">여행</a></li>
-                  <li><a class="menuLink" href="#">음식</a></li>
-                  <li><a class="menuLink" href="#">사이트 소개</a></li>
-          </ul>
-  </nav>
-</head>
-<body>
 
+<nav id='topMenu'>
+	<ul>
+		<li><a class="menuLink" href="#">HOME</a></li>
+		<li><a class="menuLink" href="#">배경화면</a></li>
+		<li><a class="menuLink" href="wepage.html">사이트 소개</a></li>
+	</ul>
+</nav>
+
+
+<style>
+body {
+	background: #ffffff;}
+h1 {
+	color: #fff;}
+ul {
+	overflow: hidden;}
+li {
+	float: left;
+	margin: 10px;
+	width: calc(25% - 20px);
+	background: #fff;
+	text-align: center;}
+/*2번째 사진*/
+
+li:nth-child(2) .album-cover {
+	background-image: url('jarritos-mexican-soda-moNvzYSbX7g-unsplash.jpg');
+}
+/*3번째 사진*/
+li:nth-child(3) .album-cover {
+	background-image: url('mateo-giraud-wtBex4wQw60-unsplash.jpg');
+}
+/*4번째 사진*/
+li:nth-child(4) .album-cover {
+	background-image: url('sergey-shmidt-koy6FlCCy5s-unsplash.jpg');
+}
+.album-cover {
+	width: 100%;
+	height: 260px;/*1번째 사진*/
+	background-image: url('boxed-water-is-better-SNWwlwc6URE-unsplash.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+.album-info {
+	padding: 10px;}
+.album-title {
+	font-family: 'Noto Sans KR', sans-serif;}
+.album-explan {
+	font-size: 15px;}
+.album-tag {
+	font-size: 12px;}
+</style>
+
+</head>
+<body><!--여기서부터 게시글-->
+
+<form class="search">
+	<button class="img-button" type="submit" name="click" value="">
+		<i class="fas fa-search"><img src="search_icon_153438.png"></i>
+	</button>
+	<input class='keyword' type='text' name='search' maxlength=255 value=""
+		autocomplete="off">
+</form>
+
+<br>
+	<h1></h1>
+	<ul>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진1</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름 #커플 #소다</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진2</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름</p>
+					<a href='#' download='jarritos-mexican-soda-moNvzYSbX7g-unsplash.jpg'>이미지 다운로드</a>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진3</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진4</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+	<details>
+		<summary>더보기</summary>
+			<ul>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진1</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름, #커플, #소다</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진2</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진3</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="album-item">
+				<div class="album-cover"></div>
+				<div class="album-info">
+					<p class="album-title">사진4</p>
+					<p class="album-explan">설명란</p>
+					<p class="album-tag">#여름</p>
+				</div>
+			</div>
+		</li>
+	</ul>	
+	</details>
 </body>
-</html>
