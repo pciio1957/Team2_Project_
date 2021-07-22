@@ -102,6 +102,7 @@ html, body {
   	margin:0px;
 }
  
+ 
  /*메뉴 한 칸*/
 #topMenu .menuLink {                              
     text-decoration:none;                     
@@ -127,26 +128,22 @@ wTeam {
 </style>
 
 
-<!-- CSS : 내용 & 사진 출력 -->
+
 <style>
 body {
 	background: #ffffff;}
 h1 {
-	color: #fff;
-}
+	color: #fff;}
 ul {
-	overflow: hidden;
-	list-style:none;
-}
+	overflow: hidden;}
 li {
 	float: left;
 	margin: 10px;
 	width: calc(25% - 20px);
 	background: #fff;
-	text-align: center;
-}
-	
+	text-align: center;}
 /*2번째 사진*/
+
 li:nth-child(2) .album-cover {
 	background-image: url('jarritos-mexican-soda-moNvzYSbX7g-unsplash.jpg');
 }
@@ -168,39 +165,23 @@ li:nth-child(4) .album-cover {
 }
 
 .album-info {
-	padding: 10px;
-}
-	
+	padding: 10px;}
 .album-title {
-	font-family: 'Noto Sans KR', sans-serif;
-	font-weight: bold;
-}
-
+	font-family: 'Noto Sans KR', sans-serif;}
 .album-explan {
-	font-size: 15px;
-}
-
+	font-size: 15px;}
 .album-tag {
-	font-size: 12px;
-}
-
-.search {
-	margin-left:50px;
-	margin-top:10px;
-}
-
+	font-size: 12px;}
 </style>
 
 </head>
-<!-- HTML : 여기서부터 게시글-->
-<body>
+<body><!--여기서부터 게시글-->
 
 
 	<header class="header"> 
 		<h2 class="wTitle"> Picmagine </h2>
 		<span id="wMemSapn">
-			<a class="wMempart" href="login\login.html">로그인</a>
-			<a class="wMempart" href="login\join.html">회원가입</a>
+			<a class="wMempart" href="#"><label class="wMempart" onclick="logout(this)">로그아웃</label></a>
 		</span>
 	</header>
 	<nav id="topMenu"> 
@@ -226,19 +207,18 @@ li:nth-child(4) .album-cover {
 	<ul>
 		<li>
 			<div class="album-item">
-				<div class="album-cover" onclick="artPage()"></div>
+				<div class="album-cover"></div>
 				<div class="album-info">
 					<p class="album-title">제주 여행</p>
 					<p class="album-explan">행복했던 제주여행</p>
 					<p class="album-tag">#제주도 #여행 #일상</p>
-					<a href='제주여행.jpg' download='boxed-water-is-better-SNWwlwc6URE-unsplash.jpg'>이미지 다운로드</a>
-					<img>
+					<a href='여름.jpg' download='boxed-water-is-better-SNWwlwc6URE-unsplash.jpg'>이미지 다운로드</a>
 				</div>
 			</div>
 		</li>
 		<li>
 			<div class="album-item">
-				<div class="album-cover" onclick="artPage()"></div>
+				<div class="album-cover"></div>
 				<div class="album-info">
 					<p class="album-title">더운 여름날</p>
 					<p class="album-explan">즐거운 친구들</p>
@@ -249,7 +229,7 @@ li:nth-child(4) .album-cover {
 		</li>
 		<li>
 			<div class="album-item">
-				<div class="album-cover" onclick="artPage()"></div>
+				<div class="album-cover"></div>
 				<div class="album-info">
 					<p class="album-title">노을의 반대편</p>
 					<p class="album-explan">무엇이 있을까</p>
@@ -260,7 +240,7 @@ li:nth-child(4) .album-cover {
 		</li>
 		<li>
 			<div class="album-item">
-				<div class="album-cover" onclick="artPage()"></div>
+				<div class="album-cover"></div>
 				<div class="album-info">
 					<p class="album-title">Bloom</p>
 					<p class="album-explan">봄의 시작</p>
@@ -276,7 +256,7 @@ li:nth-child(4) .album-cover {
 			<ul>
 		<li>
 			<div class="album-item">
-				<div class="album-cover" onclick="artPage()"></div>
+				<div class="album-cover"></div>
 				<div class="album-info">
 					<p class="album-title">사진1</p>
 					<p class="album-explan">설명란</p>
@@ -324,16 +304,14 @@ li:nth-child(4) .album-cover {
 
 <script type="text/javascript">
 
-var divObj = document.querySelectorAll(".album-cover");
-
-for(var idx=0; idx<divObj.length;idx++) {
-	
-	divObj[idx].location.href = "art/상세페이지.html";
-}
-
-
-function artPage() {
-	
-	this.location.href = "art/상세페이지.html";
+// 로그아웃 여부
+function logout(obj) {
+	// '로그아웃' 클릭 시 메인페이지 이동
+	if(!confirm("로그아웃 하시겠습니까?")) {
+		this.location.href="#"; // '아니오' 클릭 시 '로그인 상태'의 메인 페이지 이동
+	} else {
+		alert("로그아웃을 완료했습니다.");
+		this.location.href="main.html"; // '예' 클릭 시 '로그아웃 상태'의 메인 페이지 이동
+	}
 }
 </script>
