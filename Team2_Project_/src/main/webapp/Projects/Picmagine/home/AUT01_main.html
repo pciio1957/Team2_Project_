@@ -275,8 +275,8 @@ wTeam {
 		<div class="part1">
 			<table id="wInfoTable">
 				<tr><td><h4>허브맛쿠키</h4></td><td rowspan="2" id="wImg"><img src="../art/작가대표이미지.JPG" id="imgSize"></td></tr>
-				<tr><td class="infoTitle">herbCookie</td></tr>
-				<tr><td class="infoTitle"><b>팔로워 </b> 344 <b>팔로잉 </b> 150 </td></tr>
+				<tr><td class="infoTitle">heyjinss</td></tr>
+				<tr><td class="infoTitle" id="tdInfoFollow"><b>팔로우</b> 23 <b>팔로워</b> 7 </td></tr>
 				<tr>
 					<td class="infoCenter" colspan="2">
 						<input type="button" id="btnFollow" value="팔로우" onclick="Following()">
@@ -287,7 +287,7 @@ wTeam {
 				<tr><td class="wInfoContent" colspan="2">배경화면, 자연</td></tr>
 				<tr><td class="infoTitle" colspan="2"><h3>작가소개</h3></td></tr>
 				<tr><td colspan="2"><hr class="infoHr"></td></tr>
-				<tr><td class="wInfoContent" colspan="2">자연을 찍고 있습니다~</td></tr>
+				<tr><td class="wInfoContent" colspan="2">여행을 좋아합니다. 언제든지 놀러오세요</td></tr>
 			</table>
 		</div>
 		<div class="part2">
@@ -312,25 +312,33 @@ wTeam {
 <script type="text/javascript">
 
 // 팔로잉 버튼 눌렀을때 이벤트
-var followCount = 0; 
+var followCount = 7; 
 
 function Following() {
 	var btnFollow = document.querySelector("#btnFollow");
+	var tdInfoFollow = document.querySelector("#tdInfoFollow");
 	
-	followCount++;
+	var showtd = "";
 	
 	if(followCount%2==1) {
 		alert("팔로우 되었습니다!");
 		btnFollow.value = "팔로잉";
 		btnFollow.style.background = "skyblue";
 		btnFollow.style.color = "white";
+		
+		// 팔로우 시 팔로워 수 증가 
+		showtd = "<b>팔로우</b> 23 <b>팔로워 </b>" + ++followCount; 
 	} else {
 		alert("팔로잉 되었습니다");
 		btnFollow.value = "팔로우";
 		btnFollow.style.background = "white";
 		btnFollow.style.color = "skyblue";
 		btnFollow.style.border = "1px solid skyblue";
+		
+		showtd = "<b>팔로우</b> 23 <b>팔로워 </b>" + --followCount; 
 	}
+	
+	tdInfoFollow.innerHTML = showtd;
 }
 
 // 카테고리 버튼을 눌렀을 때 
