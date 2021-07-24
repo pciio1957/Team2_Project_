@@ -1,4 +1,4 @@
-package DaEun.FAQ;
+package DaEun.Jstudy;
 
 public class Controller {
 	private Service service = new Service(); // 서비스 호출 추가 및 변경

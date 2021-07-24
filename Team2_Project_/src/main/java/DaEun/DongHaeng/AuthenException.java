@@ -1,4 +1,4 @@
-package DaEun.LTM;
+package DaEun.DongHaeng;
 
 public class AuthenException extends Exception{
 

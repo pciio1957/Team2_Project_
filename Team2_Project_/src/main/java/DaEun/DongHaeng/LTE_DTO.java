@@ -1,4 +1,4 @@
-package DaEun.LTE;
+package DaEun.DongHaeng;
 
 public class LTE_DTO {
 	private String evname;

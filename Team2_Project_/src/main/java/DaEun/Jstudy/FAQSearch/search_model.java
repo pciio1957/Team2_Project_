@@ -1,4 +1,4 @@
-package DaEun.FAQ.FAQSearch;
+package DaEun.Jstudy.FAQSearch;
 
 public class search_model {
 	public void addAttribute(String key, Object ob) {

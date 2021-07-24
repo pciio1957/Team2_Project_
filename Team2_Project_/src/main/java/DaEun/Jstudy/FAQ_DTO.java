@@ -1,4 +1,4 @@
-package DaEun.FAQ;
+package DaEun.Jstudy;
 // faq VO
 public class FAQ_DTO {
  private String fname; // FAQ게시물 제목

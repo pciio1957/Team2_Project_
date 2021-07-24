@@ -1,4 +1,4 @@
-package DaEun.LTM;
+package DaEun.DongHaeng;
 
 public class LTM1Dto {
 	private String id;

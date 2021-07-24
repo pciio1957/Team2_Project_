@@ -1,4 +1,4 @@
-package DaEun.FAQ;
+package DaEun.Jstudy;
 
 import java.util.ArrayList;
 

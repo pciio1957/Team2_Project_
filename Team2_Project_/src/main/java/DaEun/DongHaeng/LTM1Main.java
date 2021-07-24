@@ -1,4 +1,4 @@
-package DaEun.LTM;
+package DaEun.DongHaeng;
 
 import java.util.Scanner;
 

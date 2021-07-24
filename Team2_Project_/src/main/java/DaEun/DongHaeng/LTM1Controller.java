@@ -1,4 +1,4 @@
-package DaEun.LTM;
+package DaEun.DongHaeng;
 import java.util.regex.Pattern;
 public class LTM1Controller {
 	public void idFormat(String str) throws AuthenException {

@@ -1,4 +1,4 @@
-package DaEun.LTM;
+package DaEun.DongHaeng;
 
 public class LTM1Model {
 	public void addAttribute(String key, Object value) {

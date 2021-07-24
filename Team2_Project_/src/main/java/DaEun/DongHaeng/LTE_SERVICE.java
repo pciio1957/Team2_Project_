@@ -1,8 +1,7 @@
-package DaEun.LTE;
+package DaEun.DongHaeng;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import DaEun.LTM.LTM1Dao;
 
 public class LTE_SERVICE {
 

@@ -1,4 +1,4 @@
-package DaEun.LTM;
+package DaEun.DongHaeng;
 // 일단 휴대폰 인증 시스템을 못 만들어서 '만약 휴대폰 인증이 된다'는
 // 가정하에 만든 6자리 숫자 만들어지는 것
 import java.util.concurrent.ThreadLocalRandom;

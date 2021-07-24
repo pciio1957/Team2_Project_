@@ -1,4 +1,4 @@
-package DaEun.FAQ;
+package DaEun.Jstudy;
 
 public class Model {
 	public void addAttribute(String key, Object FAQS) {
