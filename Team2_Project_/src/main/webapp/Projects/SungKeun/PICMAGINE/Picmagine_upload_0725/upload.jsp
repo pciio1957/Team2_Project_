@@ -1,11 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"
+	import="java.util.*"
+	import="java.sql.*"
+	import="SungKeun.PICMAGINE.Upload.*"
+%>
+<%
+//  [jspexp] 프로젝트에 사용
+//		import="jspexp.z02_vo.*" : VO import
+//		import="jspexp.z01_database.*" : DAO import 
+
+//  [YSK_SIST] 프로젝트에 사용
+//  	import="Project_SIST.Java.*" : VO, DAO import
+
+//  공통 사용
+//		import="java.util.*" : 내장 객체 import
+
+	request.setCharacterEncoding("utf-8");
+	String path = request.getContextPath(); 
+%>   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title> PICMAGINE : UPLOAD </title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<!-- <link rel="stylesheet" href="<%=path%>/a00_com/a00_com.css"> -->
 <style type="text/css">
-
+	
 			@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 		
 			html, body {
@@ -115,37 +135,66 @@
 			  border-radius: 4px;
 			  color: white;
 			  cursor: pointer;
-			}
-
+			}	
+	
 </style>
 </head>
 <body>
-	
+
+	<%
+		UPLDAO dao = new UPLDAO();
+		ArrayList<UPLDTO> u = dao.uploadList();
+
+		String title = request.getParameter("title");
+		String contents = request.getParameter("contents");
+		String pic_file = request.getParameter("pic_file");
+		String tag = request.getParameter("tag");
+		String storyname = request.getParameter("storyname");
+		String storycontents = request.getParameter("storycontents");
+		String storytitle = request.getParameter("storytitle");
+			
+		if(title == null) title = "";
+		if(contents == null) contents = "";
+		if(pic_file == null) pic_file = "";
+		if(tag == null) tag = "";
+		if(storyname == null) storyname = "";
+		if(storycontents == null) storycontents = "";
+		if(storytitle == null) storytitle = "";
+			
+		// 등록
+		dao.Uploaded(new UPLDTO());	
+	%>
+	 
 	<div class="main-wrap">
 	<img onclick="main(this)" src="https://img.icons8.com/small/32/000000/delete-sign.png"/>
 		<form name="uploadForm" action="uploaded.jsp" method="post" enctype="multipart/form-data">
 		<!-- <form name="uploadForm" action="../uploaded.jsp" method="post" enctype="multipart/form-data"> -->
 
 			<div class="input-box">
-				<input type="text" name="title" onkeyup="checkCapsLock(event)" placeholder="제목">
+				<input type="text" name="title" value="<%=title %>" onkeyup="checkCapsLock(event)" placeholder="제목">
 				<label for="title"> 제목 </label>
 			</div>
 			<div class="input-box">
-				<textarea type="text" name="contents" onkeyup="checkCapsLock(event)" style="resize:none; margin: 0px; width: 1305px; height: 467px;"></textarea>
-			    <input type='file' id='file' name='file' accept='image/*, video/*' multiple/>
+				<textarea type="text" name="contents" value="<%=contents %>" onkeyup="checkCapsLock(event)" style="resize:none; margin: 0px; width: 1305px; height: 467px;"></textarea>
+			    <input type='file' id='file' name='file' value="<%=pic_file %>" accept='image/*, video/*' multiple/>
 			</div>
 			<div id="message"></div>
 			<div class="input-box">
-				<input type="text" name="tag" placeholder="태그"/>
+				<input type="text" name="tag" value="<%=tag %>" placeholder="태그"/>
 				<label for="tag"> 태그 </label>
 			</div>
 				<input type="button" onclick="formChk(this)" value="등록" style="margin-top: 30px;">
 				<input type="button" value="취소" id="cancel" onclick="main(this)" style="margin-top: 3px;">
 		</form>
-	</div>
-
+	</div>	 
+	 
 </body>
 <script type="text/javascript">
+	/*
+	window.onload=function(){
+		document.querySelector("h3").innerText="시작!!";
+	};
+	*/
 
 	// 페이지 이동
 	function main(obj) {
@@ -188,12 +237,24 @@
 			return false;
 			
 		} else {
-			document.uploadForm.submit();
-//    		submit.location.href='../uploaded.jsp';
-    		submit.location.href='uploaded.jsp';
+			
+			var story = confirm("스토리를 추가하시겠습니까?");
+			
+			if(story == true) {
+				
+				alert("스토리 화면으로 이동합니다.");
+	    		this.location.href='story.html';
+	    		
+			} else {
+				
+				alert("스토리 화면 이동을 취소합니다.");
+				document.uploadForm.submit();
+//	    		submit.location.href='../uploaded.jsp';
+	    		submit.location.href='uploaded.jsp';
+
+			}
 		}
-	}
-
-
+	}	
+	
 </script>
 </html>
