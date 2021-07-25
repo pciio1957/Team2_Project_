@@ -15,6 +15,7 @@ public class Member {
 	private String memno;
 	private String memid;
 	private String mempw;
+	private String memtel;
 	private String mememail;
 	private String memauth;
 	
@@ -23,11 +24,12 @@ public class Member {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String memno, String memid, String mempw, String mememail, String memauth) {
+	public Member(String memno, String memid, String mempw, String memtel, String mememail, String memauth) {
 		super();
 		this.memno = memno;
 		this.memid = memid;
 		this.mempw = mempw;
+		this.memtel = memtel;
 		this.mememail = mememail;
 		this.memauth = memauth;
 	}
@@ -54,6 +56,14 @@ public class Member {
 
 	public void setMempw(String mempw) {
 		this.mempw = mempw;
+	}
+	
+	public String getMemtel() {
+		return memtel;
+	}
+
+	public void setMemtel(String memtel) {
+		this.memtel = memtel;
 	}
 
 	public String getMememail() {

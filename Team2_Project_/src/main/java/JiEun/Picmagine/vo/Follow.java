@@ -10,7 +10,7 @@ Table : Follow
 */
 public class Follow {
 	private String flwno; 
-	private String wrtno;
+	private String artno;
 	private String memno;
 	
 	public Follow() {
@@ -18,10 +18,10 @@ public class Follow {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Follow(String flwno, String wrtno, String memno) {
+	public Follow(String flwno, String artno, String memno) {
 		super();
 		this.flwno = flwno;
-		this.wrtno = wrtno;
+		this.artno = artno;
 		this.memno = memno;
 	}
 
@@ -33,12 +33,12 @@ public class Follow {
 		this.flwno = flwno;
 	}
 
-	public String getWrtno() {
-		return wrtno;
+	public String getArtno() {
+		return artno;
 	}
 
-	public void setWrtno(String wrtno) {
-		this.wrtno = wrtno;
+	public void setArtno(String artno) {
+		this.artno = artno;
 	}
 
 	public String getMemno() {
