@@ -33,6 +33,7 @@ public class AUT01_main {
 		// 클릭했을 때 작가번호를 가지고 와서 작품 리스트 출력
 		controller.WorkList("at3001", new AUT01_Model());
 		
+		
 		// 작가 시리즈 출력
 		// 클릭했을 때 작가번호르 가지고 와서 작품의 시리즈 출력 
 		//controller.SeriesList();
