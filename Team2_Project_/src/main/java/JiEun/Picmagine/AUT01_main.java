@@ -13,7 +13,7 @@ public class AUT01_main {
 		// 1. 작가 정보 출력 - 홈이나 상세페이지에서 작가를 클릭하면 나오는 작가홈 
 		// 그러니까 작가번호를 받아와서 해당 작가의 정보를 출력 
 		// 작가명(영문이름) 팔로워 팔로잉 / 활동분야 작가소개 
-		controller.WriterInfo("at3001", new AUT01_Model());
+		controller.writerInfo("at3001", new AUT01_Model());
 
 		// 2. 작가 팔로우 정보 확인 
 		// 클릭한 작가의 작가번호를 이용해 작가의 팔로우 정보 확인
@@ -31,12 +31,12 @@ public class AUT01_main {
 		
 		// 작가의 작품리스트 출력
 		// 클릭했을 때 작가번호를 가지고 와서 작품 리스트 출력
-		controller.WorkList("at3001", new AUT01_Model());
+		controller.workList("at3001", new AUT01_Model());
 		
 		
 		// 작가 시리즈 출력
-		// 클릭했을 때 작가번호르 가지고 와서 작품의 시리즈 출력 
-		//controller.SeriesList();
+		// 클릭했을 때 작가번호를 가지고 와서 작품의 시리즈 출력 
+		controller.seriesList("at3001", new AUT01_Model());
 	}
 
 }

@@ -8,8 +8,8 @@ public class AUT01_controller {
 	
 	
 	// 작가 정보 출력
-	public String WriterInfo(String artno, AUT01_Model m) {
-		m.addAttribute("작가정보 출력 ", service.WriterInfo(artno));	
+	public String writerInfo(String artno, AUT01_Model m) {
+		m.addAttribute("작가정보 출력 ", service.writerInfo(artno));	
 		return "완료";
 	}
 	
@@ -26,14 +26,15 @@ public class AUT01_controller {
 	}
 	
 	// 작가의 작품리스트 출력
-	public String WorkList(String artno, AUT01_Model m) {
-		m.addAttribute("작품리스트 출력", service.WorkList(artno));
+	public String workList(String artno, AUT01_Model m) {
+		m.addAttribute("작품리스트 출력", service.workList(artno));
 		return "완료";
 	}
 	
 	// 작가 시리즈 출력
-	public void SeriesList() {
-		
+	public String seriesList(String artno, AUT01_Model m) {
+		m.addAttribute("작품리스트 출력", service.seriesList(artno));
+		return "완료";
 	}
 
 }

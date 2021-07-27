@@ -12,6 +12,8 @@ import JiEun.Picmagine.vo.*;
 public class AUT01_Dao {
 	
 	public ArrayList<Works> workList = new ArrayList<Works>();
+	public ArrayList<Works> seriesList = new ArrayList<Works>();
+	
 	public ArrayList<Artist> wrtList = new ArrayList<Artist>();
 	public ArrayList<ArtistIntro> wrtIntroList = new ArrayList<ArtistIntro>();
 	
@@ -46,7 +48,7 @@ public class AUT01_Dao {
 	}
 
 	// 작가 정보 출력
-	public Artist WriterInfo(String artno) {
+	public Artist writerInfo(String artno) {
 		System.out.println(" [dao] 작가정보 호출 ");
 		Artist writer = new Artist();
 		
@@ -276,7 +278,7 @@ public class AUT01_Dao {
 	}
 	
 	// 작가의 작품리스트 출력
-	public void WorkList(String artno) {
+	public ArrayList<Works> workList(String artno) {
 		
 		try {
 			setCon();
@@ -303,6 +305,7 @@ public class AUT01_Dao {
 						rs.getString(9)
 				));
 			}
+			
 			
 			for(Works w:workList) {
 				w.workInfo();
@@ -347,10 +350,87 @@ public class AUT01_Dao {
 				}
 			}
 		} 	
+		
+		return workList;
 	}
 	
-	// 작가 시리즈 출력
-	public void SeriesList() {
+	// 작가 시리즈(시리즈+작가정보) 출력
+	public ArrayList<Works> seriesList(String artno) {
+		try {
+			setCon();
+			
+			String sql = "SELECT w.*, s.sercategory, s.sertitle, s.sercontent\r\n"
+					+ "FROM AUT01_Works w, AUT01_Series s\r\n"
+					+ "WHERE w.artno = ?\r\n"
+					+ "AND w.serno = s.serno";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, artno);
+			rs = pstmt.executeQuery();
+
+			
+			while(rs.next()) {
+				seriesList.add(new Works(
+						rs.getString(1), 
+						rs.getString(2), 
+						rs.getString(3), 
+						rs.getString(4), 
+						rs.getString(5), 
+						rs.getDate(6), 
+						rs.getString(7), 
+						rs.getString(8), 
+						rs.getString(9),
+						rs.getString(10),
+						rs.getString(11),
+						rs.getString(12)
+				));
+			}
+			
+			
+			for(Works w:seriesList) {
+				w.seriesInfo();
+			}
+			
+			System.out.println(" [check] 검색결과 수 : " + seriesList.size());
+			rs.close(); pstmt.close(); con.close();
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println(" ! sql 오류 : " + e.getMessage());
+		} catch (Exception e) {
+			System.out.println(" ! 일반 오류 : " + e.getMessage());
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} 
+			
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if(con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} 
 		
+		return seriesList;
 	}
 }

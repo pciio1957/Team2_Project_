@@ -12,13 +12,13 @@ public class AUT01_Service {
 	
 	
 	// 작가 정보 출력
-	public String WriterInfo(String artno) {
+	public String writerInfo(String artno) {
 		// dao에서 리스트 받아와서 출력하기 
 		System.out.println(" [service] 작가 정보 출력 ");
 		
 		Artist artist = new Artist();
 		
-		artist = dao.WriterInfo(artno);
+		artist = dao.writerInfo(artno);
 		artist.ArtistInfo();
 		
 		return "완료";
@@ -54,17 +54,19 @@ public class AUT01_Service {
 	
 	
 	// 작가의 작품리스트 출력
-	public String WorkList(String artno) {
+	public String workList(String artno) {
 		System.out.println(" [service] 작품리스트 출력 ");
 		
-		dao.WorkList(artno);
+		dao.workList(artno);
 		
 		return "완료";
 	}
 	
-	// 작가 시리즈 출력
-	public String SeriesList() {
+	// 작가 시리즈+작품내용 출력
+	public String seriesList(String artno) {
 		System.out.println(" [service] 시리즈 출력 ");
+		
+		dao.seriesList(artno);
 		
 		return "완료";
 	}

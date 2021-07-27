@@ -293,3 +293,24 @@ DROP SEQUENCE AUT01_ser_seq;
 INSERT INTO AUT01_Series values('se'||AUT01_ser_seq.nextval, '사진', '여기가 한국이라고?', '한국의 멋진 풍경을 담아요~!');
 
 SELECT * FROM AUT01_Series;
+
+-- 시리즈만 조회
+SELECT artno, serno 
+FROM AUT01_Works
+WHERE artno = 'at3001';
+
+SELECT artno, serno 
+FROM AUT01_Works
+WHERE artno = ?;
+
+
+-- 작품, 시리즈 정보 같이 조회 
+SELECT w.*, s.sercategory, s.sertitle, s.sercontent
+FROM AUT01_Works w, AUT01_Series s
+WHERE w.artno = 'at3001'
+AND w.serno = s.serno;
+
+SELECT w.*, s.sercategory, s.sertitle, s.sercontent
+FROM AUT01_Works w, AUT01_Series s
+WHERE w.artno = ?
+AND w.serno = s.serno;

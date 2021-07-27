@@ -120,14 +120,37 @@ html, body {
 }
 
 /* 아래 : 제작자 */
-wTeam {
+.wTeam {
 	padding:20px;
+	margin-top:100px;
 }
 
 </style>
 <style type="text/css"> 
 
+.section {
+	width:70%; 
+	text-align:center;
+	margin:0 auto;
+}
 
+h3 {
+	margin:20px;
+}
+
+#h4title {
+	margin-bottom:20px;
+	border-bottom:1px solid #C8C8C8;
+}
+
+[type=button]{
+	width:100px;
+	height:30px;
+	border-radius:10px 10px 10px 10px;
+	border:none;
+	background-color:skyblue;
+	color:white;
+}
 
 </style>
 </head>
@@ -150,6 +173,18 @@ wTeam {
   	</nav>
   	<section class="section">
   	
+  	<h1> Picmagine 작가 신청 </h2>	
+  	<h4> 작가신청을 위해 비밀번호를 입력하세요 </h4>
+  	<h4 id="h4title">  </h4>
+  	<form>
+  		<h3> 아이디 : himan01 </h3>
+ 		<h3> 비밀번호 : <input type="password" name="memberPw"> </h3>
+ 		<h3> 이메일 : himan01@gmail.com </h3>
+  		<h3>
+  			<input type="button" value="신청하기" name="btnForm">
+  			<input type="button" value="취소" name="btncancel">
+  		</h3>
+  	</form>
   	</section>
 	<footer class="footer">
 		<div class="wTeam">
