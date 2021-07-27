@@ -36,7 +36,7 @@ public class JOINDAO {
 			
 			setCon();
 			
-			String sql = "SELECT * FROM MEMBER ORDER BY memno DESC";
+			String sql = "SELECT * FROM pic_member ORDER BY memno DESC";
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -88,7 +88,7 @@ public class JOINDAO {
 					e.printStackTrace();
 				}
 			}	
-			
+
 		}
 		return jlist;
 	}
@@ -101,13 +101,10 @@ public class JOINDAO {
 			
 			con.setAutoCommit(false);
 			
-			String sql = "INSERT INTO MEMBER VALUES('mb' || memno.nextval, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO pic_member VALUES('mb' || memno.nextval, ?, ?, ?, ?, ?)";
 			
 			pstmt = con.prepareStatement(sql);
-			
-			// '?' 갯수만큼 아래에 순서대로 할당
-			
-//			pstmt.setString(1, ins.getMemcode()); // 
+			// '?' 갯수만큼 아래에 순서대로 할당			
 			pstmt.setString(1, ins.getMemid());
 			pstmt.setString(2, ins.getMempw());
 			pstmt.setString(3, ins.getMemtel());
@@ -162,6 +159,62 @@ public class JOINDAO {
 		}
 	}
 	
+	public boolean Logined(String memid, String mempw) {
+		boolean hasMember = false;
+		try {
+			setCon();
+			String sql = "SELECT * FROM pic_member WHERE memid=? AND mempw=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, memid);
+			pstmt.setString(2, mempw);
+			
+			rs = pstmt.executeQuery();
+			
+			hasMember = rs.next(); // 데이터가 있으면 true/false
+			
+			System.out.println("입력 ID :" + memid);
+			System.out.println("입력 PW :" + mempw);
+			System.out.println("등록 여부 :" + hasMember);
+			
+			pstmt.close(); con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("SQL 예외 발생 : " + e.getMessage());
+		} catch(Exception e) {
+			System.out.println("일반 예외 발생 : " + e.getMessage());
+		}finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			
+		}
+		return hasMember;
+	}
+	
 	// ID 찾기
 	public ArrayList<JOINDTO> schID(JOINDTO sch) {
 		
@@ -169,7 +222,7 @@ public class JOINDAO {
 			try {
 				setCon();
 
-				String sql = "SELECT * FROM MEMBER WHERE memid LIKE '%'||'" + sch.getMemid() + "'||'%' ORDER BY memno DESC";
+				String sql = "SELECT * FROM pic_member WHERE memid LIKE '%'||'" + sch.getMemid() + "'||'%' ORDER BY memno DESC";
 				
 				pstmt = con.prepareStatement(sql);
 				
@@ -226,13 +279,13 @@ public class JOINDAO {
 
 		return schid;
 	}
-	
+		
 	public JOINDTO getschID(String memid) {
 		JOINDTO getid = null;
 		
 		try {
 			setCon();
-			String sql = "SELECT * FROM MEMBER WHERE memid LIKE = " + memid;
+			String sql = "SELECT * FROM pic_member WHERE memid LIKE = " + memid;
 			
 			pstmt = con.prepareStatement(sql);
 			
@@ -293,7 +346,7 @@ public class JOINDAO {
 			try {
 				setCon();
 
-				String sql = "SELECT * FROM MEMBER WHERE mempw LIKE '%'||'" + sch.getMempw() + "'||'%' ORDER BY memno DESC";
+				String sql = "SELECT * FROM pic_member WHERE mempw LIKE '%'||'" + sch.getMempw() + "'||'%' ORDER BY memno DESC";
 				
 				pstmt = con.prepareStatement(sql);
 				
@@ -356,7 +409,7 @@ public class JOINDAO {
 			
 			try {
 				setCon();
-				String sql = "SELECT * FROM MEMBER WHERE mempw LIKE = " + mempw;
+				String sql = "SELECT * FROM pic_member WHERE mempw LIKE = " + mempw;
 				
 				pstmt = con.prepareStatement(sql);
 				
@@ -417,7 +470,10 @@ public class JOINDAO {
 		ArrayList<JOINDTO> jlist = dao.memberList();
 				
 		// 등록
-//		dao.Joined(new JOINDTO("mb1005", "makil1", "1020", "010-3948-0000", "makil@gmail.com", "회원"));
+//		dao.Joined(new JOINDTO("mb1004", "makil1", "1020", "010-3948-0000", "makil@gmail.com", "회원"));
+		
+		// 로그인
+		dao.Logined("himan", "777777");
 				
 //		// ID 찾기
 //		for(JOINDTO jo:dao.schID(new JOINDTO())) {

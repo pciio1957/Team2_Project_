@@ -2,53 +2,71 @@ package SungKeun.PICMAGINE.Upload;
 // SungKeun.PICMAGINE.Upload.*
 public class UPLDTO {
 	
-	private String title; // 게시물 제목
-	private String contents; // 게시물 내용
-	private String pic_file; // 파일명
+	private String artno; // 작품 번호
+	private String artcategory; // 카테고리
+	private String artimgtitle; // 파일명 (작품 이미지)
+	private String arttitle; // 작품 제목
+	private String artcontent; // 작품 소개
 	private String tag; // 태그
-	private String storyname; // 스토리 제목
-	private String storycontents; // 스토리 설명
-	private String stroytitle; // 스토리 주제
+	private String artdate; // 업로드일
+	private String artpicauth = "작가"; // 저작권 권한
 	
 	public UPLDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UPLDTO(String title, String contents, String pic_file, String tag, String storyname,
-			String storycontents, String stroytitle) {
+	public UPLDTO(String artno, String artcategory, String artimgtitle, String arttitle, String artcontent, String tag,
+			String artdate, String artpicauth) {
 		super();
-		this.title = title;
-		this.contents = contents;
-		this.pic_file = pic_file;
+		this.artno = artno;
+		this.artcategory = artcategory;
+		this.artimgtitle = artimgtitle;
+		this.arttitle = arttitle;
+		this.artcontent = artcontent;
 		this.tag = tag;
-		this.storyname = storyname;
-		this.storycontents = storycontents;
-		this.stroytitle = stroytitle;
+		this.artdate = artdate;
+		this.artpicauth = artpicauth;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getArtno() {
+		return artno;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setArtno(String artno) {
+		this.artno = artno;
 	}
 
-	public String getContents() {
-		return contents;
+	public String getArtcategory() {
+		return artcategory;
 	}
 
-	public void setContents(String contents) {
-		this.contents = contents;
+	public void setArtcategory(String artcategory) {
+		this.artcategory = artcategory;
 	}
 
-	public String getPic_file() {
-		return pic_file;
+	public String getArtimgtitle() {
+		return artimgtitle;
 	}
 
-	public void setPic_file(String pic_file) {
-		this.pic_file = pic_file;
+	public void setArtimgtitle(String artimgtitle) {
+		this.artimgtitle = artimgtitle;
+	}
+
+	public String getArttitle() {
+		return arttitle;
+	}
+
+	public void setArttitle(String arttitle) {
+		this.arttitle = arttitle;
+	}
+
+	public String getArtcontent() {
+		return artcontent;
+	}
+
+	public void setArtcontent(String artcontent) {
+		this.artcontent = artcontent;
 	}
 
 	public String getTag() {
@@ -59,28 +77,21 @@ public class UPLDTO {
 		this.tag = tag;
 	}
 
-	public String getStoryname() {
-		return storyname;
+	public String getArtdate() {
+		return artdate;
 	}
 
-	public void setStoryname(String storyname) {
-		this.storyname = storyname;
+	public void setArtdate(String artdate) {
+		this.artdate = artdate;
 	}
 
-	public String getStorycontents() {
-		return storycontents;
+	public String getArtpicauth() {
+		return artpicauth;
 	}
 
-	public void setStorycontents(String storycontents) {
-		this.storycontents = storycontents;
-	}
-
-	public String getStroytitle() {
-		return stroytitle;
-	}
-
-	public void setStroytitle(String stroytitle) {
-		this.stroytitle = stroytitle;
+	public void setArtpicauth(String artpicauth) {
+		this.artpicauth = artpicauth;
 	}
 	
 }
+
