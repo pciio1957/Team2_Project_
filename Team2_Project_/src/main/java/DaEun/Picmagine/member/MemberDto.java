@@ -1,4 +1,4 @@
-package DaEun.Picmagine;
+package DaEun.Picmagine.member;
 
 public class MemberDto {
 	private String id, pass, name, mail;
