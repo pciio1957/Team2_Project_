@@ -302,6 +302,7 @@
 //			alert(memid + "님 로그인 되었습니다!"); // 'objectHTMLInputelement 님 로그인 되었습니다!' 로 출력되서 일단 주석 처리..
 			document.loginForm.submit();
 //    		location.href='logined.jsp'; // [관리자] 화면으로 임시 설정 (실제 사용자 화면에서는 ../logout_main.html로 이동)
+    		// 시연하실때 위 링크는 활성화 하지 마셔용 ㅠㅠ 어디가 잘못되었는지 만져봐도 이 링크 활성화시키면 무조건 로그인이 안되네요. 
     		location.href='../logout_main.html';
 		}
 	}
