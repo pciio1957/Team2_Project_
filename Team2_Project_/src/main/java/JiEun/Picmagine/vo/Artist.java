@@ -45,7 +45,25 @@ public class Artist {
 		this.memno = memno;
 	}
 
-	
+	public Artist(String artkorname, String artengname, String artimgtitle, String artoutemail) {
+		super();
+		this.artkorname = artkorname;
+		this.artengname = artengname;
+		this.artimgtitle = artimgtitle;
+		this.artoutemail = artoutemail;
+	}
+
+	public Artist(String artkorname, String artengname, String artimgtitle, String arturl,
+			String artoutemail, String memno) {
+		super();
+		this.artkorname = artkorname;
+		this.artengname = artengname;
+		this.artimgtitle = artimgtitle;
+		this.arturl = arturl;
+		this.artoutemail = artoutemail;
+		this.memno = memno;
+	}
+
 	// 작가홈에 나타낼 정보 (Writer + WriterIntro를 join)
 	public Artist(String artno, String artkorname, String artengname, String artimgtitle,
 			String artactivity, String artsmallline, String artwebsite) {

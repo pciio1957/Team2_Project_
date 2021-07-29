@@ -168,6 +168,10 @@ FROM AUT01_Artist a, AUT01_ArtistIntro b
 WHERE a.artno = b.artno 
 AND a.artno = ?;
 
+SELECT a.artno 작가번호, a.artkorname 작가명, a.artengname 작가영어이름, 
+	a.artimgtitle 대표이미지명, b.artactivity 활동분야, b.artsmallline 작가소개, b.artwebsite 웹사이트
+FROM AUT01_Artist a, AUT01_ArtistIntro b 
+WHERE a.artno = b.artno;
 
 
 -- 4. 팔로우 Table : 팔로우번호, 작가번호, 회원번호 
@@ -225,7 +229,23 @@ FROM AUT01_Follow
 WHERE memno = ?
 AND artno = ?;
 
-		
+
+-- 팔로우 삭제
+DELETE FROM AUT01_Follow
+WHERE memno = 'mb1001'
+AND artno = 'at3002';
+
+DELETE FROM AUT01_Follow
+WHERE memno = ?
+AND artno = ?;
+
+
+-- 팔로우 입력
+INSERT INTO AUT01_Follow VALUES('fw'||AUT01_flw_seq.nextval, 'at3002', 'mb1001');
+
+INSERT INTO AUT01_Follow VALUES('fw'||AUT01_flw_seq.nextval, ?, ?);
+
+
 
 -- 5. 작품 Table : 작품번호, 작품카테고리, 작품이미지명, 작품명, 작품내용, 작품게시일, 작품저작권권한, 시리즈번호, 작가번호
 CREATE TABLE AUT01_Works (
@@ -260,7 +280,7 @@ INSERT INTO AUT01_Works values('wk'||AUT01_wrk_seq.nextval, '사진', 'pic02.png
 INSERT INTO AUT01_Works values('wk'||AUT01_wrk_seq.nextval, '배경화면', 'pic03.png', '노을의 반대편', '무엇이 있을까'
 , sysdate, '개인용상업적사', null, 'at3002');
 
--- 일단 간단하게 작가의 작품들 리스트 확인
+-- 작가의 작품리스트 확인
 SELECT * 
 FROM AUT01_Works
 WHERE artno = 'at3001';

@@ -19,7 +19,7 @@ public class AUT01_controller {
 		return "완료";
 	}
 	
-	// 작가 팔로워 확인 후 증감
+	// 회원이 작가를 팔로우했는지 확인
 	public String followerCheck(String memno, String artno, AUT01_Model m) {
 		m.addAttribute("팔로우 여부 확인", service.followerCheck(memno, artno));
 		return "완료";
@@ -33,7 +33,7 @@ public class AUT01_controller {
 	
 	// 작가 시리즈 출력
 	public String seriesList(String artno, AUT01_Model m) {
-		m.addAttribute("작품리스트 출력", service.seriesList(artno));
+		m.addAttribute("시리즈리스트 출력", service.seriesList(artno));
 		return "완료";
 	}
 

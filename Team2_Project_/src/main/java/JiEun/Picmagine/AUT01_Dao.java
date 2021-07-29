@@ -269,12 +269,109 @@ public class AUT01_Dao {
 	
 
 	
-	public void followDown() {
-		
+	public void followDown(String memno, String artno) {
+		try {
+			setCon();
+			con.setAutoCommit(false);
+			String sql = "DELETE FROM AUT01_Follow\r\n"
+					+ "WHERE memno = ?\r\n"
+					+ "AND artno = ?";
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, memno);
+			pstmt.setString(2, artno);
+			pstmt.executeUpdate();
+			con.commit();
+			pstmt.close(); con.close();
+		// ex) A02_DeptDao.java 기존 소스를 활용하여 부서번호로 부서정보를 
+		// 삭제하세요 [3조]
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("SQL 예외 발생~~"+e.getMessage());
+			try {
+				// 입력 중간 문제 발생, rollback처리..
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} catch(Exception e) {
+			System.out.println("일반예외 발생:"+e.getMessage());
+		}finally {
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			
+		}
 	}
 	
-	public void followUp() {
-		
+	public void followUp(String memno, String artno) {
+		try {
+			setCon();
+			con.setAutoCommit(false);
+			String sql = "INSERT INTO AUT01_Follow "
+					+ "VALUES('fw'||AUT01_flw_seq.nextval, ?, ?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, artno);
+			pstmt.setString(2, memno);
+			pstmt.executeUpdate();
+			con.commit();
+			pstmt.close(); con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("SQL 예외 발생~~"+e.getMessage());
+			try {
+				// 입력 중간 문제 발생, rollback처리..
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} catch(Exception e) {
+			System.out.println("일반예외 발생:"+e.getMessage());
+		}finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			
+		}
 	}
 	
 	// 작가의 작품리스트 출력

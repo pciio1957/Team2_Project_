@@ -23,6 +23,13 @@ public class Member {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Member(String memid, String mempw) {
+		super();
+		this.memid = memid;
+		this.mempw = mempw;
+	}
 
 	public Member(String memno, String memid, String mempw, String memtel, String mememail, String memauth) {
 		super();
@@ -32,6 +39,13 @@ public class Member {
 		this.memtel = memtel;
 		this.mememail = mememail;
 		this.memauth = memauth;
+	}
+	
+	public void memInfo() {
+		System.out.println("회원번호 : " + memno);
+		System.out.println("회원아이디 : " + memid);
+		System.out.println("회원비번 : " + mempw);
+		System.out.println("회원이메일 : " + mememail + "\n");
 	}
 
 	public String getMemno() {

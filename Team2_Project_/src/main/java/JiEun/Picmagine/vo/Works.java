@@ -23,7 +23,7 @@ Table : 시리즈(Series)
 
 */
 
-
+// 작품 + 시리즈 테이블
 public class Works {
 	private String wrkno;
 	private String wrkcategory;
@@ -44,8 +44,9 @@ public class Works {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Works(String wrkno, String wrkcategory, String wrkimgtitle, String wrktitle, String wrkcontent,
-			Date wrkdate, String wrkpicauth, String serno, String artno) {
+	public Works(String wrkno, String wrkcategory, String wrkimgtitle, 
+			String wrktitle, String wrkcontent, Date wrkdate, 
+			String wrkpicauth, String serno, String artno) {
 		super();
 		this.wrkno = wrkno;
 		this.wrkcategory = wrkcategory;
