@@ -25,13 +25,15 @@
 }
 
 a {
-	text-decoration:none;
 	color:skyblue;
+	text-decoration:none;
 	font-weight: bold;  
 }
 
 a:hover {
+	background:skyblue;
 	color:white;
+	font-weight: bold;  
 }
 
 /* 시멘틱 : CSS 적용부분 */
@@ -182,6 +184,33 @@ h3 {
 	border-radius:10px 10px 10px 10px;
 }
 
+#divmypage {
+	width:80%;
+	margin:0 auto;
+	text-align:center;
+}
+
+#tabmypage {
+	width:300px;
+	margin:0 auto; padding:0px;
+	margin-top:20px;
+	margin-bottom:40px;	
+}
+
+#tabmypage td {
+	margin:0 auto; 
+	padding:0px;
+}
+
+.updatemember {
+	border-bottom:1px solid #C8C8C8;
+	padding:10px;
+}
+
+.updatemember:hover {
+	padding:10px;
+}
+
 
 </style>
 </head>
@@ -214,21 +243,32 @@ h3 {
   	</nav>
   	<section class="section">
   	
-  	<h1> Picmagine 작가 신청 </h1>	
-  	<h4> 작가신청을 위해 비밀번호를 입력하세요 </h4>
-  	<h4 id="h4title">  </h4>
-  	<form id="atRequest" action="ACI02_Artistcom.jsp" method="post">
-  		<table id="tabin">
-  			<tr><th>아이디</th><td><input type="text" name="memberid" value="<%= member.getMemid() %>"></td></tr>
-  			<tr><th>비밀번호</th><td><input type="password" name="memberPw"></td></tr>
-  			<tr><th>이메일</th><td><input type="text" name="memberemail" value="<%= member.getMememail() %>" readonly></td></tr>
+  	<div id="divmypage">
+  		<table id="tabmypage">
   			<tr>
-	  			<td colspan="2">
-	  				<input type="submit"  value="신청하기" name="btnRequest"/> 
-	  			</td>
+	  			<td><a class="updatemember" href="#">작가신청</a>
+	  			<a class="updatemember" href="..\mypage\guest\modify_member_form.jsp">개인정보 수정</a></td>
   			</tr>
   		</table>
-  	</form>	
+  	</div>
+  	
+  	<div>
+  	  	<h1> Picmagine 작가 신청 </h1>	
+	  	<h4> 작가신청을 위해 비밀번호를 입력하세요 </h4>
+	  	<h4 id="h4title">  </h4>
+	  	<form id="atRequest" action="ACI02_Artistcom.jsp" method="post">
+	  		<table id="tabin">
+	  			<tr><th>아이디</th><td><input type="text" name="memberid" value="<%= member.getMemid() %>"></td></tr>
+	  			<tr><th>비밀번호</th><td><input type="password" name="memberPw"></td></tr>
+	  			<tr><th>이메일</th><td><input type="text" name="memberemail" value="<%= member.getMememail() %>" readonly></td></tr>
+	  			<tr>
+		  			<td colspan="2">
+		  				<input type="submit"  value="신청하기" name="btnRequest"/> 
+		  			</td>
+	  			</tr>
+	  		</table>
+	  	</form>	
+  	</div>
   	</section>
 	<footer class="footer">
 		<div class="wTeam">
