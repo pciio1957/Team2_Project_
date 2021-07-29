@@ -1,0 +1,50 @@
+1. 다은님 - 메인 + 작가정보페이지
+전체작품목록 조회, 검색 
+회원 정보 수정/탈퇴(+연락처), 작가신청, 작가 정보 수정, 채널 삭제
+/*
+회원 - Member
+회원번호 memno
+ID memid
+PW mempw
+이메일 mememail
+사용권한 memauth
+
+작가 - Writer
+작가번호 wrtno
+이름 wrtkorname
+영문이름 wrtengname
+프로필이미지 wrtimgtitle
+프로피URL wrturl
+외부공개이메일 wrtoutemail
+회원번호 memno
+
+작가소개 - WriterIntro
+작가번호 wrtno
+한줄소개 wrtactivity
+활동분야 wrtsmallline
+상세소개 wrtbigline
+웹사이트 wrtwebsite
+
+팔로우 - Follow
+팔로우번호 flwno
+작가번호 wrtno
+회원번호 memno
+
+
+작가작품 - artWorks
+작품번호 artno
+카테고리 artcategory
+작품이미지 artimgtitle
+작품제목 arttitle
+작품소개 artcontent
+업로드시간 artdate
+저작권권한 artpicauth
+작가번호 wrtno
+시리즈번호 serno
+
+
+작가시리즈 - Series
+시리즈번호 serno
+시리즈카테고리 sercategory
+시리즈제목 sertitle
+시리즈내용 sercontent */

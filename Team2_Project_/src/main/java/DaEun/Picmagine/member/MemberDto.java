@@ -1,7 +1,7 @@
 package DaEun.Picmagine.member;
-
+// DaEun.Picmagine.member.MemberDto
 public class MemberDto {
-	private String id, pass, name, mail;
+	private String id, pass, name, phone, mail;
 
 	public String getId() {
 
@@ -37,6 +37,14 @@ public class MemberDto {
 
 		this.name = name;
 
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getMail() {

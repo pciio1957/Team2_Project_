@@ -1,13 +1,14 @@
 package DaEun.Picmagine.member;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
 
 public class MemberManager {
 	private Connection conn;
@@ -16,20 +17,16 @@ public class MemberManager {
 	private DataSource ds;
 
 	// 데이터베이스 연결
-	public MemberManager() {
+	public MemberManager() throws SQLException {
 
 		try {
-
-			Context context = new InitialContext();
-
-			ds = (DataSource) context.lookup("java:comp/env/jdbc_maria");
-
-		} catch (Exception e) {
-
-			System.out.println("connection err:" + e);
-
-		}
-
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
+		String sql = "jdbc:oracle:thin:@localhost:1521:xe";
+		conn = DriverManager.getConnection(sql, "scott", "tiger");
+		System.out.println("접속성공!!");
 	}
 
 	// 아이디 체크
@@ -42,13 +39,9 @@ public class MemberManager {
 			String sql = "select id from webshop_member where id like ?";
 
 			conn = ds.getConnection();
-
 			pstmt = conn.prepareStatement(sql);
-
 			pstmt.setString(1, id);
-
 			rs = pstmt.executeQuery();
-
 			b=rs.next();
 
 		} catch (Exception e) {
@@ -60,12 +53,9 @@ public class MemberManager {
 			try {
 
 				if(rs!=null)rs.close();
-
 				if(pstmt!=null)pstmt.close();
-
 				if(conn!=null)conn.close();
-
-			} catch (Exception e2) {
+		} catch (Exception e2) {
 
 				// TODO: handle exception
 
@@ -84,7 +74,7 @@ public class MemberManager {
 
 			try {
 
-				String sql = "insert into webshop_member values(?,?,?,?,?,?,?,?)";
+				String sql = "insert into webshop_member values(?,?,?,?,?)";
 
 				conn = ds.getConnection();
 
@@ -92,7 +82,8 @@ public class MemberManager {
 				pstmt.setString(1, bean.getId());
 				pstmt.setString(2, bean.getName());
 				pstmt.setString(3, bean.getPass());
-				pstmt.setString(4, bean.getMail());
+				pstmt.setString(4, bean.getPhone());				
+				pstmt.setString(5, bean.getMail());
 
 				if(pstmt.executeUpdate()>0)b=true;
 
@@ -130,8 +121,10 @@ public class MemberManager {
 			try {
 
 				String sql = "select id, name from webshop_member where id=? and pass=?";
+				// 왜 돌아가??????????????????????
 
-				conn = ds.getConnection();
+				
+				//conn = ds.getConnection();
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, id);
 				pstmt.setString(2, pass); 
@@ -162,6 +155,8 @@ public class MemberManager {
 
 		}
 	
+		
+		// 회왼정보 수정 데이터 보내기
 
 	public MemberDto getData(String id) {
 
@@ -169,9 +164,9 @@ public class MemberManager {
 
 		try {
 
-			String sql = "select id, pass, mail";
+			String sql = "select id, pass, phone, email from member01 where id=?";
 
-			conn = ds.getConnection();
+			//conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -180,10 +175,11 @@ public class MemberManager {
 				dto = new MemberDto();
 				dto.setId(rs.getString("id"));
 				dto.setPass(rs.getString("pass"));
-				dto.setName(rs.getString("name"));
-				dto.setMail(rs.getString("mail"));
+				dto.setName(rs.getString("phone"));
+				dto.setMail(rs.getString("email"));
 
 			}
+			System.out.println("dto:"+dto.getName());
 
 		} catch (Exception e) {
 
@@ -214,18 +210,19 @@ public class MemberManager {
 
 	}
 
+	// 데이터 수정 
 	public boolean modifyData(MemberBean bean) {
 
 		boolean b = false;
 
 		try {
 
-			String sql = "update webshop_member set pass=?,name=?, mail=?, where id=?";
-
-			conn = ds.getConnection();
+			String sql = "update member01 set pass=?, phone=?, email=? where id=?";
+ 
+			//conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, bean.getPass());
-			pstmt.setString(2, bean.getName());
+			pstmt.setString(2, bean.getPhone());			
 			pstmt.setString(3, bean.getMail());
 			pstmt.setString(4, bean.getId());
 
@@ -260,7 +257,9 @@ public class MemberManager {
 		return b;
 
 	}
-//회원 탈퇴 - 비밀번호 확인
+
+	
+	//회원 탈퇴 - 비밀번호 확인
 
 	public boolean deleteConfirm(String id, String passwd) {
 
@@ -269,7 +268,7 @@ public class MemberManager {
 		try {
 
 			String sql = "select * from webshop_member where id = ? and pass = ?";
-
+			// 오라클로 수정
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -317,7 +316,7 @@ public class MemberManager {
 		try {
 
 			String sql = "delete from webshop_member where id = ?";
-
+			
 			conn = ds.getConnection();
 
 			pstmt = conn.prepareStatement(sql);
