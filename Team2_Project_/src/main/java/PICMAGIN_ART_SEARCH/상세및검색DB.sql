@@ -99,26 +99,6 @@ INSERT INTO artwork VALUES ('AW00004','sound','url','강원도여행','걍원도
 INSERT INTO artwork VALUES ('AW00005','illustlation','url','그림일기','첫번째그림일기','20210326', '상업적사용', 0000014, 'C00005',1,1 );
 
 --============================================================================================================================================
-SELECT ci.cName 기업명, a.RCTITLE 공고명, to_char(DEADLINE,'YYYY-MM-DD') 마감일, 
-
-c.CSTR 경력, e.ESTR 최종학력, p.ETSTR 고용형태, s.SSTR 연봉, a.ADDRESS1 근무지
-
-FROM RECRUIT a
-
-
-	INNER JOIN COMPANYINFO ci ON a.CNUM = ci.CNUM 
-
-	INNER JOIN CAREER c ON a.CAREER = c.CNUM 
-
-	INNER JOIN EDUCATION e ON a.EDUCATION = e.ENUM  
-
-	INNER JOIN EMPTYPE p ON a.EMPTYPE = p.ETNUM
-
-	INNER JOIN SALARY s ON a.SALARY = s.SNUM
-
-
-WHERE c.CSTR LIKE '%%' or ci.CNAME LIKE '%%' or a.RCTITLE LIKE'%%'
-
 SELECT artimg 이미지, title 제목, b.cStr 카테고리명, introduce 소개, date2 날짜, auth 권한, c.sNum 판매여부, d.aNum 작품시리즈여부\r\n"
 					+ "FROM artwork a,category b,sale c,case1 d\r\n"
 					+ "WHERE a.category = b.cStr\r\n"
@@ -262,51 +242,6 @@ artwork varchar2(10) references artwork(artwork),
 likecheckcnt NUMBER
 );
 
-INSERT INTO likeck VALUES ('AW00001',1);
-INSERT INTO likeck VALUES ('AW00001',1);
-INSERT INTO likeck VALUES ('AW00002',1);
-INSERT INTO likeck VALUES ('AW00002',1);
-INSERT INTO likeck VALUES ('AW00002',1);
-INSERT INTO likeck VALUES ('AW00003',1);
-INSERT INTO likeck VALUES ('AW00003',1);
-INSERT INTO likeck VALUES ('AW00003',1);
-INSERT INTO likeck VALUES ('AW00003',1);
-INSERT INTO likeck VALUES ('AW00003',1);
-INSERT INTO likeck VALUES ('AW00003',1);
-INSERT INTO likeck VALUES ('AW00003',1);
-INSERT INTO likeck VALUES ('AW00003',-1);
-
-SELECT * FROM likeck;
-
---aw00001 좋아요 조회 
-SELECT count(likecheckcnt) "좋아요"
-FROM LIKECK
-WHERE artwork ='AW00003';
---aw00001 좋아요 클릭
-INSERT INTO likeck VALUES ('AW00003',1);
---aw00001 좋아요 취소 
-INSERT INTO likeck VALUES ('AW00003',-1);
-
-
-SELECT a.artwork, b.count(likecheckcnt) 
-FROM likeck a, (
-SELECT count(likecheckcnt) likecheckcnt 
-FROM LIKECK
-WHERE artwork ='AW00003') b;
-WHERE a.likecheckcnt= b.likecheckcnt;
-
-SELECT *FROM likeck;
-
---aw00001 좋아요 클릭
-INSERT INTO likeck VALUES ('AW00003',1);
---aw00001 좋아요 취소 
-INSERT INTO likeck VALUES ('AW00003',1);
-);
-
-CREATE TABLE LIKEcase(
-likecode NUMBER PRIMARY KEY,
-likecase varchar2(30)
-);
 
 INSERT INTO LIKEcase VALUES(1,'사고싶어요');
 INSERT INTO LIKEcase VALUES(2,'좋아요');
@@ -422,16 +357,12 @@ WHERE artwork='AW00001');
 
 
 
-
-
 (SELECT artwork,"좋아요"
 FROM artwork a, 
 (SELECT count(Mnum) AS "좋아요"
 FROM LIKEtab 
 WHERE likecase ='좋아요')b
 WHERE artwork='AW00001');
-
-
 
 
 
@@ -457,71 +388,7 @@ WHERE artwork='AW00001' AND likecase ='다음작품원해요')b
 WHERE artwork='AW00001');
 --=================================================================================
 
-FROM a. artwork, a."사고싶어요", b."좋아요", c."다음작품원해요"
-(SELECT artwork, "사고싶어요"
-FROM artwork a, 
-(SELECT count(Mnum) "사고싶어요"
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='사고싶어요')b
-WHERE artwork='AW00001')) a
-(SELECT artwork, "좋아요"
-FROM artwork a, 
-(SELECT count(Mnum) "좋아요"
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='좋아요')b
-WHERE artwork='AW00001'))b,
-(SELECT artwork, "다음작품원해요"
-FROM artwork a, 
-(SELECT count(Mnum) "다음작품원해요"
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='다음작품원해요')b
-WHERE artwork='AW00001'))c
-WHERE a.artwork = b.artwork
-AND b.artwork= c.artwork
-AND a.artwork = c.artwork;
 
 
-
-
-
-FROM a.artwork, a.count(Mnum), b.count(Mnum), c.count(Mnum)
-(SELECT artwork, "사고싶어요"
-FROM artwork a, 
-(SELECT count(Mnum)
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='사고싶어요')b
-WHERE artwork='AW00001')) a
-(SELECT artwork, "좋아요"
-FROM artwork a, 
-(SELECT count(Mnum) 
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='좋아요')b
-WHERE artwork='AW00001'))b,
-(SELECT artwork, "다음작품원해요"
-FROM artwork a, 
-(SELECT count(Mnum) 
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='다음작품원해요')b
-WHERE artwork='AW00001'))c
-WHERE a.artwork = b.artwork
-AND b.artwork= c.artwork
-AND a.artwork = c.artwork;
-
-
-
-
---==================================================================================
-SELECT count(a.Mnum)"사고싶어요", count(b.Mnum) "좋아요", count(c.Mnum) "다음작품원해요"
-FROM (SELECT count(Mnum) "사고싶어요"
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='사고싶어요')a
-UNION all
-SELECT count(Mnum) "좋아요"
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='좋아요') b, 
-UNION all
-SELECT count(Mnum) "다음작품원해요"
-FROM LIKEtab 
-WHERE artwork='AW00001' AND likecase ='다음작품원해요') c;
 
 
