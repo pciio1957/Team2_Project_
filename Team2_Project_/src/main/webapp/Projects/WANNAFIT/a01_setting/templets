@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+    import = "Project.a09_wannafit.Database.*"
+    import = "Project.a09_wannafit.VO.*"
+    import = "java.util.*"
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>  
+<%
+
+	request.setCharacterEncoding("utf-8");
+	String path = request.getContextPath(); 
+%>   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Wanna-Fit, 나만의 핏을 찾아서 </title>
+<!-- 
+스타일시트 작성되면 올리기
+<link rel="stylesheet" href="<%=path%>/Projects/WANNAFIT/a01_setting/a01_com.css">
+-->
+
+<style type="text/css">
+
+
+</style>
+</head>
+<script src="<%=path%>/Projects/WANNAFIT/a01_setting/jquery-3.6.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	});
+</script>
+<body>
+
+
+
+
+</body>
+</html>
