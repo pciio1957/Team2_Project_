@@ -222,7 +222,7 @@ function findAddr(){
 $(document).ready(function(){
 	//1. 버튼 입력 시 plus메서드 실행 
 	
-	// 입력과 동시에 이벤트로 요청값과 결과값을 서버에 전달해서 처리..
+	// 입력과 동시에 이벤트로 요청값과 결과값을 서버에전달해서 처리..
 	//2. input1, 2에 키보드 입력시 plus 실행 
 	$("[name=support1],[name=support2]").keyup(plus);
 	});
@@ -232,8 +232,9 @@ $(document).ready(function(){
 function plus(){
 	var num01 = $("[name=support1]").val();
 	var num02 = $("[name=support2]").val();
+	var tot02 = num01 + num02;
+	var snd = "?num01="+num01+"&num02="+num02+"&tot02="+tot02;
 	
-	var snd = "?num01="+num01+"&num02="+num02;
 	
 	//1.서버전달 객체 선언 
 	var xhr = new XMLHttpRequest();
@@ -300,6 +301,7 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
    </nav>
 
 <section class ="sec01">
+
 	<div>
 		<table class ="tab01">
 			<tr><td><span class="image blinking"> 후원금액입력 <<< </span><span > 개인정보입력 <<< </span><span > 약관동의 <<< </span></td></tr>
@@ -307,6 +309,7 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 	</div>
 	
 			<p id = "Info_font"> 후원정보 </p>
+			<form id="frm01" method="post">
 		<ul>
 			<% for(VO_FUN f:fundinglist){ %>
 			<li><p>선택한 프로젝트명 : <%=f.getTitle()%></li>
@@ -318,12 +321,43 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 			<li><p>추가후원금입력:<input name = "support2" type = "text" value="0"/></p></li>
 			
 		</ul>
-		<span align ="center">총 펀딩금액</span>
+			</form>
+		<div align ="center"><span>총 펀딩금액</span></div>
 		<span id="tot"></span>
+		<span></span>
 
 <%
 
 %>
+	<div>&nbsp;</div>
+	<div>&nbsp;</div>
+
+	
+	<p id = "Info_font"> 후원동의 </p>
+		 	<form> 
+             <table>
+             <tr><td>
+             <input type = "checkbox"/>알림설정동의
+             </td></tr>
+             <tr><td>
+     		 <h6>펀딩 시작일 날짜에 사이트접속 시 알림을 받습니다.</h6> 
+             </td></tr>
+             </table>
+             </form> 
+             
+             
+             <form> 
+             <table>
+             <tr><td>
+             <input type = "checkbox"/>후원공개여부동의
+             </td></tr>
+             <tr><td>
+     		 <h6>해당 펀딩 후원내역에 이름과 금액이 공개됩니다.</h6> 
+             </td></tr>
+             </table>
+             </form> 
+             
+	
 	<div id="reserve">
   		<button class="trigger">다음으로</button>
   	</div>
@@ -407,7 +441,7 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
      </script>
 
   		<jsp:useBean id="FUN2" class="PRO9.VO_FUN2" scope="session" />
-  		<jsp:setProperty property="support_money" name="FUN2" param="${param.num01 + param.num02}"/>
+  		<jsp:setProperty property="support_money" name="FUN2" param=""/>
  		
 
  		

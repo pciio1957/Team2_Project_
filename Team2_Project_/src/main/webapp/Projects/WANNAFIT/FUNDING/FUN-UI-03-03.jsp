@@ -4,6 +4,7 @@
     import = "jspexp.z02_vo.*"
     import = "java.util.*"
     import ="PRO9.VO_FUN"       
+    import ="PRO9.VO_FUN2"       
     %>
 <%
 	request.setCharacterEncoding("utf-8");
@@ -195,7 +196,8 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 		</table>
 	</div>
 	
-		
+		<jsp:useBean id="funding01" class="PRO9.VO_FUN2" scope="session"/>
+	<!-- <p>${funding01.adress}</p> -->	
   		<p id = "Info_font"> 약관동의 </p>
   		
 		

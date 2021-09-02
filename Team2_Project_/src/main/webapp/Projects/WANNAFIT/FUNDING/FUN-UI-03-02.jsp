@@ -3,6 +3,7 @@
     import = "jspexp.z01_database.*"
     import = "jspexp.z02_vo.*"
     import = "java.util.*"
+    import ="PRO9.VO_FUN2"       
     import ="PRO9.VO_FUN"       
     %>
 <%
@@ -126,12 +127,42 @@ $(document).ready(function() {
 	    });
 	 
 	 
-	$(".card_num").click(function() {
-	var adress[] = $("[name=add1]").val();
-	var adress[] = $("[name=add2]").val();
-	var adress[] = $("[name=add3]").val();
-	console.log(adress);
+	$("[name=add3]").keyup(function() {
+	var adr1 = $("[name=add1]").val();
+	var adr2 = $("[name=add2]").val();
+	var adr3 = $("[name=add3]").val();
+	var adress = adr1+adr2+adr3
+	console.log("주소:"+adress);
 	});
+	
+	 
+	$("[name=card4]").mousedown(function() {
+	var card1 = $("[name=card1]").val();
+	var card2 = $("[name=card2]").val();
+	var card3 = $("[name=card3]").val();
+	var card4 = $("[name=card4]").val();
+	var cardnum = card1+card2+card3+card4;
+	console.log("카드번호:"+cardnum);
+	});
+	
+	 
+	$("#period2").mousedown(function() {
+	var peri1 = $("#period1").val();
+	var peri2 = $("#period2").val();
+	var periode = peri1+peri2;
+	console.log("유효기간:"+periode);
+	});
+	
+	 
+	$("#birth3").mousedown(function() {
+	var birth1= $("[#birth1]").val();
+	var birth2 = $("[#birth1]").val();
+	var birth3 = $("[#birth1]").val();
+	
+	var birth = birth1+"."+birth2+"."+birth3;
+	console.log("생년월일:"+birth);
+	});
+
 });
 
 
@@ -152,6 +183,8 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 
 %>
 <body>
+
+
 
 	<nav class="navbar">
     <div class="nav-wrapper">
@@ -186,15 +219,18 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
    </nav>
 
 <section class ="sec01">
-	<Form action = "FUN-UI-03-03.jsp" method ="post">
+	<Form action = "FUN-UI-03-04.jsp" method ="post">
+	<jsp:useBean id="funding01" class="PRO9.VO_FUN2" scope="application"/>
+	<jsp:setProperty name ="funding1" property="adress" value="${funding01.add1}"/>
+
+	
+	
 	<div>
 		<table class ="tab01">
 			<tr><td><span > 후원금액입력 <<< </span><span class="image blinking" > 개인정보입력 <<< </span><span > 약관동의 <<< </span></td></tr>
 		</table>
 	</div>
-	<jsp:useBean id="FUN2" class="PRO9.VO_FUN2" scope="session" />
-	<B>이름: </B> <%=FUN2.getSupport_money()%><br>
-	
+
 	
 		<p id = "Info_font"> 서포터정보 </p>
 			<table class = "user_Info">
@@ -202,12 +238,28 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 			<tr><td>이메일:</td><td></td></tr>
 			<tr><td>휴대폰번호:</td><td></td></tr>
 			</table>
+			
+			
 	
 			<ul>
-				<li><p>리워드주소: 
-		<input name = "add1" id="member_post"  type="text" placeholder="우편번호" readonly onclick="findAddr()">
-	    <input name = "add2"id="member_addr" type="text" placeholder="주소" readonly> <input name = "add3" type="text" placeholder="상세주소">
-  		</p></li></ul>
+			
+			
+				<li>
+		
+			
+					<p>리워드주소: 
+		
+		<input name = "add1" id="member_post"  type="text" placeholder="우편번호" readonly onclick="findAddr()" value =""/>
+	    <input name = "add2" id="member_addr" type="text" placeholder="주소" readonly value =""> 
+	    <input name = "add3" type="text" placeholder="상세주소" value =""/>
+	  
+  					</p>
+  		 
+  				</li>
+  				
+  			</ul>
+  	
+  		
   		
   		
   		<p id = "Info_font"> 결제정보 </p>
@@ -215,16 +267,16 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
   		<ul>
 		
 			
-			<li><p>카드번호: 	&nbsp;	&nbsp;<input class ="card_num" type = "text" value="0"/>
-			<input class ="card_num" type = "text" value="0"/>
-			<input class ="card_num" type = "text" value="0"/>
-			<input class ="card_num"type = "text" value="0"/></p></li>
+			<li><p>카드번호: 	&nbsp;	&nbsp;<input name ="card1" class ="card_num" type = "text" value="0"/>
+			<input name ="card2" class ="card_num" type = "text" value="0"/>
+			<input name ="card3" class ="card_num" type = "text" value="0"/>
+			<input name ="card4" class ="card_num"type = "text" value="0"/></p></li>
 		
 			<li><p>유효기간: 	&nbsp;	&nbsp;
 			<select>
 				<option>MM</option>
 			<%for(int i =1; i<=12; i++) {  %>
-				<option><%=i %></option>
+				<option id ="period1"><%=i %></option>
 			<%} %>
 			
 			</select>
@@ -232,7 +284,7 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 			<select>
 			<option>YY</option>
 			<%for(int i=1900; i<=2021; i++){ %>
-				<option><%=i %></option>
+				<option id ="period2"><%=i %></option>
 			<%} %>
 			</select>
 			
@@ -240,19 +292,19 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 			<li><p>생년월일: 	&nbsp;	&nbsp;
 			<select>
 			<%for(int i=1900; i<=2021; i++){ %>
-				<option><%=i %></option>
+				<option id="birth1"><%=i %></option>
 			<%} %>
 			</select>
 			
 			<select>
 			<%for(int i =1; i<=12; i++) {  %>
-				<option><%=i %></option>
+				<option  id="birth1"><%=i %></option>
 			<%} %>
 			</select>
 			
 			<select>
 			<%for(int i=1; i<=31; i++) {%>
-				<option><%=i %></option>
+				<option  id="birth1"><%=i %></option>
 			<%} %>
 			</select>
 			
@@ -275,11 +327,11 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 
 		
 		
-		
+			</Form>
   		<div id="reserve">
   		<input type ="submit" id = "reserve_btn" onclick ="function()" value = "다음으로 <<"/>
   		</div>
-  		</Form>
+  	
   		
   		
 </section>

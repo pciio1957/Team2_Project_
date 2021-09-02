@@ -92,6 +92,9 @@ width:80%;
 .div123 {
 align : center;
 background : yellow;
+margin-top:15px;
+float:center;
+align:center;
 }
 
 
@@ -128,6 +131,10 @@ height:10px;
 .wantbtn {
 width:100%;
 }
+.frametitle {
+float:center;
+align:center;
+}
 </style>
 
 </head>
@@ -158,6 +165,10 @@ $(document).ready(function{
 });
 
 </script>
+
+
+
+
 <body>
 <nav class="navbar">
     <div class="nav-wrapper">
@@ -196,24 +207,30 @@ $(document).ready(function{
 
 <section> 
 
+<% for(VO_FUN f:fundinglist){ %>
+<input name ="time" type="hidden" value="<%=f.getEnd_date()%>"/>
+<%} %>
+
 <p class = "p"></p>   
 
 
 
 	<div class ="sec01">
 		<table class ="tab01"> 
+		
 			<% for(VO_FUN f:fundinglist){ %>
 			<tr><td><p id = "title"><%=f.getTitle()%></p></td></tr>
 			<%} %>
 			<tr><td><img src ="img/img01.JPG" width ="100%" height ="100%" /></td></tr>
 		</table>
 		<br>
+		<hr>
 		<div class= "div123">
-			
+			<div class ="frametitle">
 		<span class="wCg"><a href="det_frame1.jsp" target="contentFrame" onclick="wCgChange()" id="wACate1">펀딩정보</a></span>
 		<span class="wCg"><a href="det_frame2.jsp" target="contentFrame" onclick="wCgChange()" id="wACate2">수수료안내</a></span>
 		<span class="wCg"><a href="det_frame3.jsp" target="contentFrame" onclick="wCgChange()" id="wACate2">문의내역</a></span>
-
+			</div>
 			
 			<div id="wContent">
 				<iframe scrolling =yes name="contentFrame" src="det_frame1.jsp"></iframe>
@@ -224,12 +241,21 @@ $(document).ready(function{
 	</div>
 	
 	<div class ="sec02">
+	
+<div class="content"></div>
 		<table class ="tab02">
 		<% for(VO_FUN f:fundinglist){ %>
 			<tr><td><h4>남은기간:</h4></td>
-			<tr><td><h4> <%=f.getEnd_date()%></h4></td></tr>
+			<tr><td class ="count"><h4> <%=f.getEnd_date()%></h4></td></tr>
 		<%}%>
+		
+		
 		</table>
+		
+		<%for(VO_FUN f:fundinglist) {%>
+	<input name ="end_Day" type ="hidden" value ="<%=f.getEnd_date()%>"/>
+<%} %>
+
 	
 		
 		<table class ="tab03">
@@ -260,6 +286,8 @@ $(document).ready(function{
 			<tr><td>sns주소:</td></tr>
 		
 		</table>
+		
+		
 	</div>
 
 

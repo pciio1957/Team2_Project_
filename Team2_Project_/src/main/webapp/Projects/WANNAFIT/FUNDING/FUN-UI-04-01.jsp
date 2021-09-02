@@ -3,7 +3,9 @@
     import = "jspexp.z01_database.*"
     import = "jspexp.z02_vo.*"
     import = "java.util.*"
-    import ="PRO9.VO_FUN"       
+    import ="PRO9.VO_FUN2"   
+    import ="PRO9.VO_FUN"   
+   
     %>
 <%
 	request.setCharacterEncoding("utf-8");
@@ -156,7 +158,14 @@ ArrayList<VO_FUN> fundinglist = dao.getfundinglist(codeS);
 			<tr><td><span > 신청이 완료되었습니다.</span></td></tr>
 		</table>
 		
-		<input name = "detail" value ="상세내역보러가기" type ="submit"/>
+		  <jsp:useBean id="funding01" class="PRO9.VO_FUN2" scope="application"/>
+			<table>
+			<tr><th>${funding01.support_money }</th></tr>
+			<tr><th>${funding01.adress }</th></tr>
+			<tr><th>${funding01.birth }</th></tr>
+			<tr><th>${funding01.cardnum}</th></tr>
+	</table>
+		
 		<input name ="mylist" value ="나의내역바로가기" type ="submit"/>
 	</div>
 	

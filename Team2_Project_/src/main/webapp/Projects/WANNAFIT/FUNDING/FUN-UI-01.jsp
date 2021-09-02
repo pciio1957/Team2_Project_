@@ -104,6 +104,20 @@ height: 100px;
 .p {
 height:100px;
 }
+
+.content {
+font-size:13px;
+font-weight:light;
+}
+
+.title01 {
+font-weight:bold;
+font-size:20px;
+}
+.hr {
+background-color: #A9BF9F;
+margin-left:10px;
+}
 </style>
 </head>
 <%-- 
@@ -131,6 +145,39 @@ $(document).ready(function() {
 	
 });
 </script>
+<script type="text/javascript">
+//var today = new Date();
+//console.log(today);
+//console.log(new Date(November+" "+day+","+year+", "+"00:00:00"));
+	
+	var dayday = document.querySelector("input[name=end_Day]");
+	console.log(dayday);
+		//var dayday = $("[name=end_Day]").val();
+		//var daysplit = dayday.split("-");
+		//var year = daysplit[0];
+	    //var month = daysplit[1];
+		//var day = daysplit[2];
+
+		var dday = new Date("November 30, 2020, 0:00:00").getTime();
+		//var dday = new Date("2021,02,11,11,00,00").getTime();
+//		var dday = new Date(November+" "+day+","+year+", "+"00:00:00").getTime();
+
+	//F000004
+	
+setInterval(function() {
+  var today = new Date().getTime();
+  var gap = dday - today;
+  var day = Math.ceil(gap / (1000 * 60 * 60 * 24));
+  var hour = Math.ceil((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var min = Math.ceil((gap % (1000 * 60 * 60)) / (1000 * 60));
+  var sec = Math.ceil((gap % (1000 * 60)) / 1000);
+
+  document.getElementById("count").innerHTML = "D-DAY까지 " + day + "일 " + hour + "시간 " + min + "분 " + sec + "초 남았습니다.";
+}, 1000);
+
+
+</script>
+
 <nav class="navbar">
     <div class="nav-wrapper">
       <ul class="logo">
@@ -163,24 +210,26 @@ $(document).ready(function() {
 	        <li><a href="#"><b>워너핏</b></a></li>
 	   </ul>
    </nav>
-<nav><hr></nav>
+
 <p class = "p"></p>   
 
 <section class ="sec">
+
+<hr class ="hr">
 	<div id ="wrapper">
 	<div id = "columns">	
 	
 	<form action = "FUN-UI-01.jsp" method ="post">
 	<%for(VO_FUN f:funlist) {%>
 	<div onclick = "function()"class = "card">
-	<p id = "title"><%=f.getTitle()%></p>
+	<p class ="title01" id = "title"><%=f.getTitle()%></p>
 	<img id = "img" src = "img/<%=f.getUrl_pic()%>">
-	<p id = "goal"><%= f.getGoal_money()%></p>
-	<p id = "title"><%= f.getTitle()%></p>
-	<p id = "enddate"><%= f.getEnd_date()%></p>
-	<p id = "attend"><%= f.getAttend()%></p>
-	<p id = "accumulate"><%= f.getAccumulate_money()%></p>
-	<input id = "funding" name ="code" value ="<%= f.getFunding()%>"/>
+	<p class ="content" id = "goal"> 목표금액: <%= f.getGoal_money()%></p>
+	<p class ="content" id = "title">상품명:<%= f.getTitle()%></p>
+	<p class ="content" id = "enddate">펀딩마감일:<%= f.getEnd_date()%></p>
+	<p class ="content" id = "attend">서포터참여자:<%= f.getAttend()%></p>
+	<p class ="content" id = "accumulate">누적금액:<%= f.getAccumulate_money()%></p>
+	<input type ="hidden" id = "funding" name ="code" value ="<%= f.getFunding()%>"/>
 	
 	<!--  //F1000004 -->
 	
